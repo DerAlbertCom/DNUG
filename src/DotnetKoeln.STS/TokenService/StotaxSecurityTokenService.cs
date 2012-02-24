@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.Web.Configuration;
+using DotnetKoeln.STS.Data;
+using DotnetKoeln.STS.Entities;
 using Microsoft.IdentityModel.Claims;
 using Microsoft.IdentityModel.Configuration;
 using Microsoft.IdentityModel.Protocols.WSTrust;
@@ -90,8 +93,8 @@ namespace DotnetKoeln.STS.TokenService
                 // You can examine the 'request' to obtain information to determine the certificate to use.
                 scope.EncryptingCredentials =
                     new X509EncryptingCredentials(X509CertificateUtil.GetCertificate(StoreName.My,
-                                                                                 StoreLocation.LocalMachine,
-                                                                                 encryptingCertificateName));
+                                                                                     StoreLocation.LocalMachine,
+                                                                                     encryptingCertificateName));
             }
             else
             {
@@ -117,11 +120,35 @@ namespace DotnetKoeln.STS.TokenService
             var outputIdentity = new ClaimsIdentity();
 
 
-            outputIdentity.Claims.Add(new Claim(Security.ClaimTypes.Name, principal.Identity.Name));
-            outputIdentity.Claims.Add(new Claim(Security.ClaimTypes.Role, "User"));
+            var userName = principal.Identity.Name;
+            using (var db = new StsContext())
+            {
+                var webUser = db.WebUsers.Single(w => w.Username == userName);
+                foreach (var requestClaim in request.Claims)
+                {
+                    var value = GetValueForClaimRequest(requestClaim, webUser);
+                    if (value != null)
+                    {
+                        outputIdentity.Claims.Add(new Claim(requestClaim.ClaimType, value));
+                    }
+                }
+            }
             return outputIdentity;
         }
 
-
+        string GetValueForClaimRequest(RequestClaim requestClaim, WebUser webUser)
+        {
+            switch (requestClaim.ClaimType)
+            {
+                case Security.ClaimTypes.Name:
+                    return webUser.Username;
+                case Security.ClaimTypes.EMail:
+                    return webUser.EMail;
+                case Security.ClaimTypes.Role:
+                    return webUser.Role;
+                default:
+                    throw new FailedRequiredClaimsException(requestClaim.ClaimType);
+            }
+        }
     }
 }

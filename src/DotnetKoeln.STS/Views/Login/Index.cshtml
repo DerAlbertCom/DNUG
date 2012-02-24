@@ -6,6 +6,7 @@
 
 <h2>Anmeldung</h2>
 
+@Html.ValidationSummary(excludePropertyErrors:true)
 @using(Html.BeginForm())
 {
     @Html.AntiForgeryToken()

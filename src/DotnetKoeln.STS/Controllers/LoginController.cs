@@ -10,10 +10,12 @@ namespace DotnetKoeln.STS.Controllers
     public class LoginController : BaseController
     {
         readonly ILoginValidation loginValidation;
+        readonly ISleepService sleep;
 
-        public LoginController(ILoginValidation loginValidation)
+        public LoginController(ILoginValidation loginValidation, ISleepService sleep)
         {
             this.loginValidation = loginValidation;
+            this.sleep = sleep;
         }
 
         [HttpGet]
@@ -33,13 +35,16 @@ namespace DotnetKoeln.STS.Controllers
                 if (webUser != null)
                 {
                     AuthenticateUser(webUser);
-
+                    sleep.Clear(model.UserName);
                     if (string.IsNullOrWhiteSpace(returnUrl))
                     {
                         return RedirectToAction("Index", "Home");
                     }
                     return Redirect(returnUrl);
                 }
+                sleep.DoubleTime(model.UserName);
+                sleep.Sleep(model.UserName);
+                ModelState.AddModelError("", "Benutzername und Kennwort passen nicht zusammen");
             }
             return View(model);
         }
@@ -48,13 +53,15 @@ namespace DotnetKoeln.STS.Controllers
         {
             FormsAuthentication.SetAuthCookie(webUser.Username, false);
         }
-        
+
+        [Authorize]
         public ActionResult LogOut()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         [ActionName("LogOut")]
         public ActionResult LogOutPost()
         {

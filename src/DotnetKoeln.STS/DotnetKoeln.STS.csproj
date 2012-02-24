@@ -138,6 +138,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\StsRegistry.cs" />
     <Compile Include="Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Initialize\IntializeGlobalFilters.cs" />
     <Compile Include="JetBrains\Annotations.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Security\ClaimTypes.cs" />
     <Compile Include="Security\Role.cs" />
     <Compile Include="Services\ActionUrlBuilder.cs" />
+    <Compile Include="Services\ISleepService.cs" />
     <Compile Include="Services\MetadataGenerator.cs" />
     <Compile Include="Services\IActionUrlBuilder.cs" />
     <Compile Include="Services\IMetadataGenerator.cs" />

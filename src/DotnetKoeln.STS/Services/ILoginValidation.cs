@@ -25,7 +25,8 @@ namespace DotnetKoeln.STS.Services
                 var webUser = db.WebUsers.SingleOrDefault(w => w.Username == username);
                 if (webUser != null)
                 {
-                    return webUser;
+                    if (webUser.PasswordIsValid(password, hashing))
+                        return webUser;
                 }
             }
             return null;

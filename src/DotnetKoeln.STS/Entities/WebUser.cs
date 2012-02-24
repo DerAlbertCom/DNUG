@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 using DotnetKoeln.STS.Services;
 
 namespace DotnetKoeln.STS.Entities
