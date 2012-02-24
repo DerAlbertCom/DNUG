@@ -1,0 +1,16 @@
+*.suo
+*.user
+bin
+.hg
+.hgignore
+!/bin
+obj
+_ReSharper*
+src/packages
+*.user
+*.cache
+*.orig
+system.config
+Deployed
+*.local.xml
+*mm_cache.bin
