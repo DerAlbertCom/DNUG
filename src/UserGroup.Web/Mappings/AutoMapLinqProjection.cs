@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
-using UserGroup.Web.Extensions;
+using Aperea.Extensions;
 
 namespace UserGroup.Web.Mappings
 {

@@ -17,9 +17,21 @@ namespace DotnetKoeln.STS.Initialize
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "PassiveTokenIssuer",
+                url: "issuer/passive/{wa}",
+                defaults: new {controller = "Token", action = "Index", wa = UrlParameter.Optional}
+                );
+
+            routes.MapRoute(
+                name: "FederationMedatadata",
+                url: "federationmetadata/2007-06/federationMetadata.xml",
+                defaults: new {controller = "Metadata", action = "Federation"}
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new {controller = "Token", action = "Index", id = UrlParameter.Optional}
+                defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional}
                 );
         }
     }

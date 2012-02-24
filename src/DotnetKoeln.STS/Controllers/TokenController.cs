@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Protocols.WSFederation;
 namespace DotnetKoeln.STS.Controllers
 {
     [Authorize]
-    public class TokenController : Controller
+    public class TokenController : BaseController
     {
         public ActionResult Index(string wa)
         {

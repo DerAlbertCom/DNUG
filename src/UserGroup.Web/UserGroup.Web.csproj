@@ -36,13 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aperea.Bootstrap, Version=0.7.1.63, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap, Version=0.7.2.63, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.1.63\lib\Aperea.Bootstrap.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.0.7.2.63\lib\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.1.63, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.2.63, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.1.63\lib\Aperea.Bootstrap.Mvc.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.2.63\lib\Aperea.Bootstrap.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="AsyncCtpLibrary">
       <HintPath>..\packages\AsyncCTP.0.3\lib\net40\AsyncCtpLibrary.dll</HintPath>
@@ -147,8 +147,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DatabaseContextActionInvoker.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extensions\BundleExtensions.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

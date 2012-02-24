@@ -1,7 +1,15 @@
 ﻿@model LoginViewModel
 
 @{
-    ViewBag.Title = "Anmeldung";
+    ViewBag.Title = "Anmeldung";   
 }
 
 <h2>Anmeldung</h2>
+
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorForModel()
+    <br/>
+    <button value="submit">anmelden</button>
+}
