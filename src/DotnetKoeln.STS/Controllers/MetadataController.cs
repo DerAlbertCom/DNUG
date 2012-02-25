@@ -12,6 +12,7 @@ namespace DotnetKoeln.STS.Controllers
             this.generator = generator;
         }
 
+        [OutputCache(Duration = 60*120)]
         public ActionResult Federation()
         {
             var metaData = generator.GenerateAsString();

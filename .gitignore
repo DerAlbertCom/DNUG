@@ -11,6 +11,7 @@ src/packages
 *.cache
 *.orig
 system.config
+*.Publish.xml
 Deployed
 *.local.xml
 *mm_cache.bin

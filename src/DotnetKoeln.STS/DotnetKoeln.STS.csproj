@@ -138,7 +138,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\StsRegistry.cs" />
+    <Compile Include="JetBrains\StsRegistry.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Infrastructure\Initialize\IntializeGlobalFilters.cs" />
     <Compile Include="JetBrains\Annotations.cs" />
