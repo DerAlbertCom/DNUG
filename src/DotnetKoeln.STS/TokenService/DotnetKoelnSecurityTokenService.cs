@@ -5,14 +5,16 @@ using System.ServiceModel;
 using System.Web.Configuration;
 using DotnetKoeln.STS.Data;
 using DotnetKoeln.STS.Entities;
+using DotnetKoeln.STS.Settings;
 using Microsoft.IdentityModel.Claims;
 using Microsoft.IdentityModel.Configuration;
 using Microsoft.IdentityModel.Protocols.WSTrust;
 using Microsoft.IdentityModel.SecurityTokenService;
+using Microsoft.Practices.ServiceLocation;
 
 namespace DotnetKoeln.STS.TokenService
 {
-    public class StotaxSecurityTokenService : SecurityTokenService
+    public class DotnetKoelnSecurityTokenService : SecurityTokenService
     {
         // TODO: Set enableAppliesToValidation to true to enable only the RP Url's specified in the PassiveRedirectBasedClaimsAwareWebApps array to get a token from this STS
         static bool enableAppliesToValidation = false;
@@ -26,7 +28,7 @@ namespace DotnetKoeln.STS.TokenService
         /// Creates an instance of StotaxSecurityTokenService.
         /// </summary>
         /// <param name="configuration">The SecurityTokenServiceConfiguration.</param>
-        public StotaxSecurityTokenService(SecurityTokenServiceConfiguration configuration)
+        public DotnetKoelnSecurityTokenService(SecurityTokenServiceConfiguration configuration)
             : base(configuration)
         {
         }
@@ -85,15 +87,17 @@ namespace DotnetKoeln.STS.TokenService
             Scope scope = new Scope(request.AppliesTo.Uri.OriginalString,
                                     SecurityTokenServiceConfiguration.SigningCredentials);
 
-            string encryptingCertificateName = WebConfigurationManager.AppSettings["EncryptingCertificateName"];
+            var settings = ServiceLocator.Current.GetInstance<ICertificateSettings>();
+
+            string encryptingCertificateName = settings.EncryptingCertificateName;
             if (!string.IsNullOrEmpty(encryptingCertificateName))
             {
                 // Important note on setting the encrypting credentials.
                 // In a production deployment, you would need to select a certificate that is specific to the RP that is requesting the token.
                 // You can examine the 'request' to obtain information to determine the certificate to use.
                 scope.EncryptingCredentials =
-                    new X509EncryptingCredentials(X509CertificateUtil.GetCertificate(StoreName.My,
-                                                                                     StoreLocation.LocalMachine,
+                    new X509EncryptingCredentials(X509CertificateUtil.GetCertificate(settings.StoreName,
+                                                                                     settings.StoreLocation,
                                                                                      encryptingCertificateName));
             }
             else

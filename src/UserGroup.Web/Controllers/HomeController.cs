@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
+using UserGroup.Web.ActionFilter;
 
 namespace UserGroup.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -12,6 +13,8 @@ namespace UserGroup.Web.Controllers
             return View();
         }
 
+        [Authorize]
+        [RequireSsl]
         public ActionResult About()
         {
             ViewBag.Message = "Your quintessential app description page.";

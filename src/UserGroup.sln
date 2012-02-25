@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGroup.Web", "UserGroup.Web\UserGroup.Web.csproj", "{553B4C61-6E42-4524-A76E-A80938E3C84C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF47A8CE-7A55-48F6-8BDD-EF3CE2AC0FF7} = {CF47A8CE-7A55-48F6-8BDD-EF3CE2AC0FF7}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{16314413-C2D4-4190-9C16-2C36B065CE93}"
 	ProjectSection(SolutionItems) = preProject

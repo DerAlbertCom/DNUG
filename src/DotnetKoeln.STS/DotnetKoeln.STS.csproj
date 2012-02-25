@@ -151,6 +151,7 @@
     <Compile Include="Services\MetadataGenerator.cs" />
     <Compile Include="Services\IActionUrlBuilder.cs" />
     <Compile Include="Services\IMetadataGenerator.cs" />
+    <Compile Include="Settings\ICertificateSettings.cs" />
     <Compile Include="Settings\IClaimSettings.cs" />
     <Compile Include="Settings\IEndpointSettings.cs" />
     <Compile Include="Settings\IIssuerSettings.cs" />
@@ -160,9 +161,8 @@
     <Compile Include="Services\IHashing.cs" />
     <Compile Include="Settings\IHashingSettings.cs" />
     <Compile Include="Services\ILoginValidation.cs" />
-    <Compile Include="TokenService\Common.cs" />
-    <Compile Include="TokenService\StotaxSecurityTokenService.cs" />
-    <Compile Include="TokenService\StotaxSecurityTokenServiceConfiguration.cs" />
+    <Compile Include="TokenService\DotnetKoelnSecurityTokenService.cs" />
+    <Compile Include="TokenService\DotnetKoelnSecurityTokenServiceConfiguration.cs" />
     <Compile Include="TokenService\X509CertificateUtil.cs" />
   </ItemGroup>
   <ItemGroup>

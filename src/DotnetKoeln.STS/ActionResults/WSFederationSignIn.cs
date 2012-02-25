@@ -25,7 +25,7 @@ namespace DotnetKoeln.STS.ActionResults
             if (user != null && user.Identity.IsAuthenticated)
             {
                 SecurityTokenService sts =
-                    new StotaxSecurityTokenService(StotaxSecurityTokenServiceConfiguration.Current);
+                    new DotnetKoelnSecurityTokenService(DotnetKoelnSecurityTokenServiceConfiguration.Current);
                 SignInResponseMessage responseMessage =
                     FederatedPassiveSecurityTokenServiceOperations.ProcessSignInRequest(requestMessage, user, sts);
                 return responseMessage;

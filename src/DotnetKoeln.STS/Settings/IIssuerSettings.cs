@@ -17,12 +17,15 @@ namespace DotnetKoeln.STS.Settings
     public class IssuerSettings : IIssuerSettings
     {
         readonly IActionUrlBuilder urlBuilder;
-        readonly IApplicationSettings settings;
+        readonly ICertificateSettings settings;
+        readonly IApplicationSettings applicationSettings;
 
-        public IssuerSettings(IActionUrlBuilder urlBuilder, IApplicationSettings settings)
+        public IssuerSettings(IActionUrlBuilder urlBuilder, ICertificateSettings settings,
+                              IApplicationSettings applicationSettings)
         {
             this.urlBuilder = urlBuilder;
             this.settings = settings;
+            this.applicationSettings = applicationSettings;
         }
 
         public string IssuerUri
@@ -32,28 +35,24 @@ namespace DotnetKoeln.STS.Settings
 
         public string ServiceName
         {
-            get { return "http://dotnet-koelnbonn.de/sts"; }
+            get { return "dotnet-koelnbonn.de"; }
         }
 
         public X509Certificate2 ServiceCert
         {
             get
             {
-                var certName = settings.Get<string>("Issuer.SigningCertificateName");
+                var certName = settings.SigningCertificateName;
                 return X509CertificateUtil.GetCertificate(
-                    settings.Get("Issuer.StoreName",()=>StoreName.TrustedPeople),
-                    settings.Get("Issuer.StoreLocation", () => StoreLocation.LocalMachine),
+                    settings.StoreName,
+                    settings.StoreLocation,
                     certName);
-                //return X509CertificateUtil.GetCertificate(
-                //    StoreName.My,
-                //    StoreLocation.LocalMachine,
-                //    certName);
             }
         }
 
         public bool Sign
         {
-            get { return settings.Get("Issuer.Sign", () => false); }
+            get { return applicationSettings.Get("Issuer.Sign", () => false); }
         }
     }
 }

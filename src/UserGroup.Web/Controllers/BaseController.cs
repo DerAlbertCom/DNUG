@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Validation;
 using System.Web.Mvc;
+using UserGroup.Web.ActionFilter;
 
 namespace UserGroup.Web.Controllers
 {
