@@ -139,8 +139,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\StsRegistry.cs" />
-    <Compile Include="Initialize\InitializeMvcRoutes.cs" />
-    <Compile Include="Initialize\IntializeGlobalFilters.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
+    <Compile Include="Infrastructure\Initialize\IntializeGlobalFilters.cs" />
     <Compile Include="JetBrains\Annotations.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,14 +148,7 @@
     <Compile Include="Security\Role.cs" />
     <Compile Include="Services\ActionUrlBuilder.cs" />
     <Compile Include="Services\ISleepService.cs" />
-    <Compile Include="Services\MetadataGenerator.cs" />
     <Compile Include="Services\IActionUrlBuilder.cs" />
-    <Compile Include="Services\IMetadataGenerator.cs" />
-    <Compile Include="Settings\ICertificateSettings.cs" />
-    <Compile Include="Settings\IClaimSettings.cs" />
-    <Compile Include="Settings\IEndpointSettings.cs" />
-    <Compile Include="Settings\IIssuerSettings.cs" />
-    <Compile Include="Settings\IMetadataContactSettings.cs" />
     <Compile Include="Settings\HashingSettings.cs" />
     <Compile Include="Services\Hashing.cs" />
     <Compile Include="Services\IHashing.cs" />
@@ -163,7 +156,7 @@
     <Compile Include="Services\ILoginValidation.cs" />
     <Compile Include="TokenService\DotnetKoelnSecurityTokenService.cs" />
     <Compile Include="TokenService\DotnetKoelnSecurityTokenServiceConfiguration.cs" />
-    <Compile Include="TokenService\X509CertificateUtil.cs" />
+    <Compile Include="TokenService\IdentityProviderConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -217,6 +210,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aperea.Identity\Aperea.Identity.csproj">
+      <Project>{64D17521-04FC-41DD-8BEB-C428DEE281C5}</Project>
+      <Name>Aperea.Identity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

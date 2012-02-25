@@ -1,9 +1,8 @@
 using System;
 using System.Globalization;
-using DotnetKoeln.STS.Services;
 using Microsoft.IdentityModel.Protocols.WSFederation.Metadata;
 
-namespace DotnetKoeln.STS.Settings
+namespace Aperea.Identity.Settings
 {
     public interface IMetadataContactSettings
     {
@@ -13,10 +12,6 @@ namespace DotnetKoeln.STS.Settings
 
     public class MetadataContactSettings : IMetadataContactSettings
     {
-        public MetadataContactSettings(IActionUrlBuilder urlBuilder)
-        {
-        }
-
         public ContactPerson Contact
         {
             get
@@ -42,7 +37,7 @@ namespace DotnetKoeln.STS.Settings
                 var organization = new Organization();
                 organization.DisplayNames.Add(new LocalizedName("dotnet Köln/Bonn e.V.", invariantCulture));
                 organization.Names.Add(new LocalizedName("dotnet Köln/Bonn e.V.", invariantCulture));
-                organization.Urls.Add(new LocalizedUri(new Uri("http://dotnet-koelnbonn.de"),invariantCulture));
+                organization.Urls.Add(new LocalizedUri(new Uri("http://dotnet-koelnbonn.de"), invariantCulture));
                 return organization;
             }
         }

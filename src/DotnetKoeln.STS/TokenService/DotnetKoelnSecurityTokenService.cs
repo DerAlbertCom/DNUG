@@ -3,6 +3,8 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.Web.Configuration;
+using Aperea.Identity;
+using Aperea.Identity.Settings;
 using DotnetKoeln.STS.Data;
 using DotnetKoeln.STS.Entities;
 using DotnetKoeln.STS.Settings;
@@ -74,18 +76,13 @@ namespace DotnetKoeln.STS.TokenService
             Scope scope = new Scope(request.AppliesTo.Uri.OriginalString,
                                     SecurityTokenServiceConfiguration.SigningCredentials);
 
-            var settings = ServiceLocator.Current.GetInstance<ICertificateSettings>();
-
-            string encryptingCertificateName = settings.EncryptingCertificateName;
-            if (!string.IsNullOrEmpty(encryptingCertificateName))
+            var settings = ServiceLocator.Current.GetInstance<IEncryptionSettings>();
+            if (settings.Encrypt)
             {
                 // Important note on setting the encrypting credentials.
                 // In a production deployment, you would need to select a certificate that is specific to the RP that is requesting the token.
                 // You can examine the 'request' to obtain information to determine the certificate to use.
-                scope.EncryptingCredentials =
-                    new X509EncryptingCredentials(X509CertificateUtil.GetCertificate(settings.StoreName,
-                                                                                     settings.StoreLocation,
-                                                                                     encryptingCertificateName));
+                scope.EncryptingCredentials = new X509EncryptingCredentials(settings.Certificate);
             }
             else
             {

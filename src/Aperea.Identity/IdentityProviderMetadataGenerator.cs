@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
@@ -8,38 +7,30 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Xml;
-using DotnetKoeln.STS.Settings;
+using Aperea.Identity.Settings;
 using Microsoft.IdentityModel.Protocols.WSFederation.Metadata;
 using Microsoft.IdentityModel.Protocols.WSIdentity;
 using Microsoft.IdentityModel.SecurityTokenService;
 
-namespace DotnetKoeln.STS.Services
+namespace Aperea.Identity
 {
-    public class MetadataGenerator : IMetadataGenerator
+    public class IdentityProviderMetadataGenerator : IIdentityProviderMetadataGenerator
     {
-        // Fields
-        readonly IEnumerable<string> activeEndpoints;
-        readonly IEnumerable<DisplayClaim> claims;
-        readonly ContactPerson contact;
-        readonly string issuerUri;
-        readonly Organization organization;
-        readonly IEnumerable<string> passiveEndpoints;
-        readonly X509Certificate2 serviceCert;
-        readonly string serviceName;
-        readonly bool sign;
+        readonly IMetadataContactSettings contactSettings;
+        readonly ISigningSettings signingSettings;
+        readonly IEncryptionSettings encryptionSettings;
+        readonly IIdentityProviderConfiguration configuration;
 
-        public MetadataGenerator(IMetadataContactSettings contactSettings, IEndpointSettings endpointSettings,
-                                 IIssuerSettings issuerSettings, IClaimSettings claimSettings)
+
+        public IdentityProviderMetadataGenerator(IMetadataContactSettings contactSettings,
+                                                 ISigningSettings signingSettings,
+                                                 IEncryptionSettings encryptionSettings,
+                                                 IIdentityProviderConfiguration configuration)
         {
-            contact = contactSettings.Contact;
-            organization = contactSettings.Organization;
-            issuerUri = issuerSettings.IssuerUri;
-            serviceName = issuerSettings.ServiceName;
-            serviceCert = issuerSettings.ServiceCert;
-            sign = issuerSettings.Sign;
-            activeEndpoints = endpointSettings.ActiveEndpoints;
-            passiveEndpoints = endpointSettings.PassiveEndpoints;
-            claims = claimSettings.Claims;
+            this.contactSettings = contactSettings;
+            this.signingSettings = signingSettings;
+            this.encryptionSettings = encryptionSettings;
+            this.configuration = configuration;
         }
 
         public string GenerateAsString()
@@ -58,16 +49,16 @@ namespace DotnetKoeln.STS.Services
 
         string GenerateCore()
         {
-            var entity = new EntityDescriptor(new EntityId(issuerUri));
-            if (sign)
+            var entity = new EntityDescriptor(new EntityId(configuration.IssuerUri));
+            if (signingSettings.Sign)
             {
-                entity.SigningCredentials = new X509SigningCredentials(serviceCert);
+                entity.SigningCredentials = new X509SigningCredentials(signingSettings.Certificate);
             }
 
-            if (contact != null)
+            if (contactSettings.Contact != null)
             {
-                entity.Contacts.Add(contact);
-                entity.Organization = organization;
+                entity.Contacts.Add(contactSettings.Contact);
+                entity.Organization = contactSettings.Organization;
             }
 
             entity.RoleDescriptors.Add(GetTokenServiceDescriptor());
@@ -84,11 +75,11 @@ namespace DotnetKoeln.STS.Services
 
         SecurityTokenServiceDescriptor GetTokenServiceDescriptor()
         {
-            var tokenService = new SecurityTokenServiceDescriptor {ServiceDescription = serviceName};
-            tokenService.Keys.Add(GetSingingKeyDescriptor(serviceCert));
+            var tokenService = new SecurityTokenServiceDescriptor {ServiceDescription = configuration.ServiceName};
+            tokenService.Keys.Add(GetSingingKeyDescriptor(signingSettings.Certificate));
             tokenService.ProtocolsSupported.Add(new Uri("http://docs.oasis-open.org/wsfed/federation/200706"));
             tokenService.TokenTypesOffered.Add(new Uri("urn:oasis:names:tc:SAML:1.0:assertion"));
-            foreach (DisplayClaim claim in claims)
+            foreach (DisplayClaim claim in configuration.Claims)
             {
                 tokenService.ClaimTypesOffered.Add(claim);
             }
@@ -102,7 +93,7 @@ namespace DotnetKoeln.STS.Services
 
         void AddPassiveEndpoints(SecurityTokenServiceDescriptor tokenService, bool addPassiveEndpointsAsActive)
         {
-            foreach (string item in passiveEndpoints)
+            foreach (string item in configuration.PassiveEndpoints)
             {
                 var endpoint = new EndpointAddress(item);
                 tokenService.PassiveRequestorEndpoints.Add(endpoint);
@@ -115,7 +106,7 @@ namespace DotnetKoeln.STS.Services
 
         void AddActiceEndpoints(SecurityTokenServiceDescriptor tokenService)
         {
-            foreach (string uri in activeEndpoints)
+            foreach (string uri in configuration.ActiveEndpoints)
             {
                 var set = new MetadataSet();
                 var metadata = new MetadataReference(new EndpointAddress(string.Format("{0}/mex", uri)),

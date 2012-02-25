@@ -1,14 +1,13 @@
-﻿using System.Text;
-using System.Web.Mvc;
-using DotnetKoeln.STS.Services;
+﻿using System.Web.Mvc;
+using Aperea.Identity;
 
 namespace DotnetKoeln.STS.Controllers
 {
     public class MetadataController : BaseController
     {
-        readonly IMetadataGenerator generator;
+        readonly IIdentityProviderMetadataGenerator generator;
 
-        public MetadataController(IMetadataGenerator generator)
+        public MetadataController(IIdentityProviderMetadataGenerator generator)
         {
             this.generator = generator;
         }

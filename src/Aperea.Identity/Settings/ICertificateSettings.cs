@@ -1,7 +1,8 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using Aperea.Settings;
 
-namespace DotnetKoeln.STS.Settings
+namespace Aperea.Identity.Settings
 {
     public interface ICertificateSettings
     {
@@ -13,7 +14,7 @@ namespace DotnetKoeln.STS.Settings
 
     public class CertificateSettings : ICertificateSettings
     {
-        IApplicationSettings settings;
+        readonly IApplicationSettings settings;
 
         public CertificateSettings(IApplicationSettings settings)
         {
@@ -22,22 +23,22 @@ namespace DotnetKoeln.STS.Settings
 
         public string SigningCertificateName
         {
-            get { return settings.Get<string>("Issuer.SigningCertificateName"); }
+            get { return settings.Get<string>("Certificate.SigningCertificateName"); }
         }
 
         public string EncryptingCertificateName
         {
-            get { return settings.Get<string>("Issuer.EncryptingCertificateName"); }
+            get { return settings.Get<string>("Certificate.EncryptingCertificateName"); }
         }
 
         public StoreName StoreName
         {
-            get { return settings.Get("Issuer.StoreName", () => StoreName.My); }
+            get { return settings.Get("Certificate.StoreName", () => StoreName.My); }
         }
 
         public StoreLocation StoreLocation
         {
-            get { return settings.Get("Issuer.StoreLocation", () => StoreLocation.CurrentUser); }
+            get { return settings.Get("Certificate.StoreLocation", () => StoreLocation.CurrentUser); }
         }
     }
 }

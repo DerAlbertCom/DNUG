@@ -153,13 +153,18 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DatabaseContextActionInvoker.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MetadataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Initialize\InitializeHttpRoutes.cs" />
-    <Compile Include="Initialize\InitializeMvcRoutes.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeHttpRoutes.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
+    <Compile Include="Infrastructure\IoC\WebRegistry.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\RelyingPartyConfiguration.cs" />
+    <Compile Include="Services\ActionUrlBuilder.cs" />
+    <Compile Include="Services\IActionUrlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -288,6 +293,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aperea.Identity\Aperea.Identity.csproj">
+      <Project>{64D17521-04FC-41DD-8BEB-C428DEE281C5}</Project>
+      <Name>Aperea.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserGroup.Core\UserGroup.Core.csproj">
       <Project>{471EF252-A8E7-4275-868C-938B42010B98}</Project>
       <Name>UserGroup.Core</Name>

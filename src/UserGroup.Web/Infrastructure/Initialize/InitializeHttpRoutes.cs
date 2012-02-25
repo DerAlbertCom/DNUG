@@ -1,9 +1,8 @@
 using System;
-using System.Web.Mvc;
 using System.Web.Routing;
 using Aperea.Infrastructure.Bootstrap;
 
-namespace UserGroup.Web.Initialize
+namespace UserGroup.Web.Infrastructure.Initialize
 {
     public class InitializeHttpRoutes : BootstrapItem
     {

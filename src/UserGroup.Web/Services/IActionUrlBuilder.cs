@@ -1,6 +1,6 @@
 using System;
 
-namespace DotnetKoeln.STS.Services
+namespace UserGroup.Web.Services
 {
     public interface IActionUrlBuilder
     {

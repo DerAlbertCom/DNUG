@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Aperea.Infrastructure.Bootstrap;
 
-namespace DotnetKoeln.STS.Initialize
+namespace DotnetKoeln.STS.Infrastructure.Initialize
 {
     public class InitializeMvcRoutes : BootstrapItem
     {
@@ -24,7 +24,7 @@ namespace DotnetKoeln.STS.Initialize
 
             routes.MapRoute(
                 name: "FederationMedatadata",
-                url: "federationmetadata/2007-06/federationMetadata.xml",
+                url: "federationmetadata/2007-06/federationmetadata.xml",
                 defaults: new {controller = "Metadata", action = "Federation"}
                 );
 

@@ -1,8 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Aperea.Infrastructure.Bootstrap;
 using DotnetKoeln.STS.ActionFilter;
 
-namespace DotnetKoeln.STS.Initialize
+namespace DotnetKoeln.STS.Infrastructure.Initialize
 {
     public class IntializeGlobalFilters : BootstrapItem
     {

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
+using Aperea.Identity;
+using Aperea.Identity.Settings;
 using DotnetKoeln.STS.Settings;
 using Microsoft.IdentityModel.Configuration;
 using Microsoft.IdentityModel.SecurityTokenService;
@@ -61,15 +63,14 @@ namespace DotnetKoeln.STS.TokenService
 
         static string GetIssuerName()
         {
-            var settings = ServiceLocator.Current.GetInstance<IIssuerSettings>();
-            return settings.ServiceName;
+            var configuration = ServiceLocator.Current.GetInstance<IIdentityProviderConfiguration>();
+            return configuration.ServiceName;
         }
 
         static X509Certificate2 GetCertificate()
         {
-            var settings = ServiceLocator.Current.GetInstance<ICertificateSettings>();
-            return X509CertificateUtil.GetCertificate(settings.StoreName, settings.StoreLocation,
-                                                      settings.SigningCertificateName);
+            var settings = ServiceLocator.Current.GetInstance<ISigningSettings>();
+            return settings.Certificate;
         }
     }
 }
