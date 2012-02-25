@@ -67,23 +67,10 @@ namespace DotnetKoeln.STS.TokenService
             }
         }
 
-        /// <summary>
-        /// This method returns the configuration for the token issuance request. The configuration
-        /// is represented by the Scope class. In our case, we are only capable of issuing a token for a
-        /// single RP identity represented by the EncryptingCertificateName.
-        /// </summary>
-        /// <param name="principal">The caller's principal.</param>
-        /// <param name="request">The incoming RST.</param>
-        /// <returns>The scope information to be used for the token issuance.</returns>
         protected override Scope GetScope(IClaimsPrincipal principal, RequestSecurityToken request)
         {
             ValidateAppliesTo(request.AppliesTo);
 
-            //
-            // Note: The signing certificate used by default has a Distinguished name of "CN=STSTestCert",
-            // and is located in the Personal certificate store of the Local Computer. Before going into production,
-            // ensure that you change this certificate to a valid CA-issued certificate as appropriate.
-            //
             Scope scope = new Scope(request.AppliesTo.Uri.OriginalString,
                                     SecurityTokenServiceConfiguration.SigningCredentials);
 
@@ -135,6 +122,10 @@ namespace DotnetKoeln.STS.TokenService
                     {
                         outputIdentity.Claims.Add(new Claim(requestClaim.ClaimType, value));
                     }
+                }
+                if (!outputIdentity.Claims.Any(c => c.ClaimType == Security.ClaimTypes.Name))
+                {
+                    outputIdentity.Claims.Add(new Claim(Security.ClaimTypes.Name, webUser.Username));
                 }
             }
             return outputIdentity;

@@ -13,8 +13,8 @@ namespace UserGroup.Web.Controllers
             return View();
         }
 
-        [Authorize]
         [RequireSsl]
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your quintessential app description page.";

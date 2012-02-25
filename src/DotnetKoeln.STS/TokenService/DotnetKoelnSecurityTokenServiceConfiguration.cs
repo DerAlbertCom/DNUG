@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
-using System.Web.Configuration;
 using DotnetKoeln.STS.Settings;
 using Microsoft.IdentityModel.Configuration;
 using Microsoft.IdentityModel.SecurityTokenService;
@@ -36,8 +35,7 @@ namespace DotnetKoeln.STS.TokenService
                 {
                     lock (syncRoot)
                     {
-                        customConfiguration =
-                            httpAppState.Get(CustomSecurityTokenServiceConfigurationKey) as
+                        customConfiguration = httpAppState.Get(CustomSecurityTokenServiceConfigurationKey) as
                             DotnetKoelnSecurityTokenServiceConfiguration;
 
                         if (customConfiguration == null)
