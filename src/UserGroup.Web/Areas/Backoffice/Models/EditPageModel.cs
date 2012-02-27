@@ -4,27 +4,27 @@ using UserGroup.Web.Annotations;
 
 namespace UserGroup.Web.Areas.Backoffice.Models
 {
-    public class EditTalkModel
+    public class EditPageModel
     {
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [Required]
-        [StringLength(128)]
+        [StringLength(160)]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(256)]
-        [DataType(DataType.MultilineText)]
+        [StringLength(192)]
+        public string Slug { get; set; }
+
+        [StringLength(1024)]
         [Wiki]
+        [DataType(DataType.MultilineText)]
         public string Abstract { get; set; }
 
-        [UIHint("MeetingSelect")]
-        public int MeetingId { get; set; }
-
-        [StringLength(2048)]
-        [DataType(DataType.MultilineText)]
+        [StringLength(3096)]
         [Wiki]
-        public string Description { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string Content { get; set; }
     }
 }

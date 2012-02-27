@@ -59,6 +59,7 @@
     <Compile Include="Entities\ISlug.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Meeting.cs" />
+    <Compile Include="Entities\Page.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Speaker.cs" />
     <Compile Include="Entities\Talk.cs" />

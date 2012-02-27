@@ -29,8 +29,7 @@ namespace UserGroup.Web.Infrastructure.Initialize
                 url: "federationmetadata/2007-06/federationmetadata.xml",
                 defaults: new {controller = NameOf<MetadataController>(), action = "Federation"}
                 );
-
-
+            
             routes.MapRoute(
                 name: "ShowSpeakers",
                 url: "speakers",
@@ -65,6 +64,12 @@ namespace UserGroup.Web.Infrastructure.Initialize
                 name: "ShowLocation",
                 url: "location/{slug}",
                 defaults: new {controller = NameOf<ShowLocationController>(), action = "Details"}
+                );
+
+            routes.MapRoute(
+                name: "ShowPage",
+                url: "page/{slug}",
+                defaults: new {controller = NameOf<ShowPageController>(), action = "Details"}
                 );
             routes.MapRoute(
                 name: "Default",

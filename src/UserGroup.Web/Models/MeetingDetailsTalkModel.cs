@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using UserGroup.Web.Annotations;
 
 namespace UserGroup.Web.Models
 {
@@ -13,10 +14,10 @@ namespace UserGroup.Web.Models
         }
         public string Title { get; set; }
 
-        [UIHint("Wiki")]
+        [Wiki]
         public string Abstract { get; set; }
 
-        [UIHint("Wiki")]
+        [Wiki]
         public string Description { get; set; }
 
         [DataType(DataType.Url)]

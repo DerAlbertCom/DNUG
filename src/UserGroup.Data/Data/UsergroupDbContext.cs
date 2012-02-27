@@ -67,13 +67,14 @@ namespace UserGroup.Data
             modelBuilder.Entity<Person>();
             modelBuilder.Entity<Location>();
             modelBuilder.Entity<Talk>();
+            modelBuilder.Entity<Page>();
         }
 
         public DbSet<Talk> Talks { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
-
         public DbSet<Person> People { get; set; }
+
     }
 }

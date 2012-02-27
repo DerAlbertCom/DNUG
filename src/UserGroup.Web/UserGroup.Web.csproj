@@ -155,22 +155,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations\ShortDateAttribute.cs" />
+    <Compile Include="Annotations\ShortTimeAttribute.cs" />
     <Compile Include="Areas\Backoffice\BackofficeAreaRegistration.cs" />
     <Compile Include="Areas\Backoffice\Controllers\AdminController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\BackofficeController.cs" />
+    <Compile Include="Areas\Backoffice\Controllers\PageController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\LocationController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\TalkController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\SpeakerController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\MeetingController.cs" />
+    <Compile Include="Areas\Backoffice\Models\EditPageModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditLocationModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditTalkModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditSpeakerModel.cs" />
+    <Compile Include="Annotations\WikiAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MetadataController.cs" />
     <Compile Include="Controllers\ShowLocationController.cs" />
     <Compile Include="Controllers\ShowMeetingController.cs" />
+    <Compile Include="Controllers\ShowPageController.cs" />
     <Compile Include="Controllers\ShowSpeakerController.cs" />
     <Compile Include="Controllers\ShowTalkController.cs" />
     <Compile Include="Extensions\InputExtensions.cs" />
@@ -187,19 +193,24 @@
     <Compile Include="Infrastructure\IoC\SlugGeneratorConvention.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Mappings\LocationProfile.cs" />
-    <Compile Include="Mappings\LocationResolver.cs" />
-    <Compile Include="Mappings\LocationUrlResolver.cs" />
+    <Compile Include="Mappings\PageProfile.cs" />
+    <Compile Include="Mappings\Resolver\PageUrlResolver.cs" />
+    <Compile Include="Mappings\Resolver\LocationResolver.cs" />
+    <Compile Include="Mappings\Resolver\LocationUrlResolver.cs" />
     <Compile Include="Mappings\MeetingProfile.cs" />
-    <Compile Include="Mappings\MeetingResolver.cs" />
-    <Compile Include="Mappings\MeetingUrlResolver.cs" />
+    <Compile Include="Mappings\Resolver\MeetingResolver.cs" />
+    <Compile Include="Mappings\Resolver\MeetingUrlResolver.cs" />
+    <Compile Include="Mappings\Resolver\SpeakerUrlResolver.cs" />
     <Compile Include="Mappings\SpeakerProfile.cs" />
     <Compile Include="Mappings\TalkProfile.cs" />
-    <Compile Include="Mappings\TalkUrlResolver.cs" />
+    <Compile Include="Mappings\Resolver\TalkUrlResolver.cs" />
     <Compile Include="Models\MeetingDetailsTalkModel.cs" />
     <Compile Include="Models\MeetingLineModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditMeetingModel.cs" />
+    <Compile Include="Models\ShowHomeIndexModel.cs" />
     <Compile Include="Models\ShowLocationModel.cs" />
     <Compile Include="Models\ShowMeetingModel.cs" />
+    <Compile Include="Models\ShowPageModel.cs" />
     <Compile Include="Models\ShowSpeakerModel.cs" />
     <Compile Include="Models\SpeakerLineModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,8 +323,6 @@
     <Content Include="Images\twitter.png" />
     <Content Include="Images\windowsLive.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -376,8 +385,13 @@
     <Content Include="Areas\Backoffice\Views\Location\EditorTemplates\EditLocationModel.cshtml" />
     <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\LocationSelect.cshtml" />
     <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\MeetingSelect.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Page\Create.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Page\Delete.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Page\Details.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Page\Edit.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Page\Index.cshtml" />
     <None Include="Content\Site.scss" />
-    <Content Include="Views\ShowMeeting\DisplayTemplates\MeetingLineModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MeetingLineModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Wiki.cshtml" />
     <Content Include="Views\ShowMeeting\Details.cshtml" />
     <Content Include="Views\ShowMeeting\DisplayTemplates\ShowMeetingModel.cshtml" />
@@ -385,6 +399,7 @@
     <Content Include="Views\ShowSpeaker\Details.cshtml" />
     <Content Include="Views\ShowTalk\Details.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Address.cshtml" />
+    <Content Include="Views\ShowPage\Details.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

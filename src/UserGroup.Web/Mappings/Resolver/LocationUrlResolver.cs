@@ -3,7 +3,7 @@ using AutoMapper;
 using UserGroup.Entities;
 using UserGroup.Web.Services;
 
-namespace UserGroup.Web.Mappings
+namespace UserGroup.Web.Mappings.Resolver
 {
     public class LocationUrlResolver : ValueResolver<Location, string>
     {

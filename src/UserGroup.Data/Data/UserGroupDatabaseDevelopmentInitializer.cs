@@ -15,13 +15,16 @@ namespace UserGroup.Data
             AddSlugIndex(context, "Speakers");
             AddSlugIndex(context, "Talks");
             AddSlugIndex(context, "Locations");
+            AddSlugIndex(context, "Pages");
             AddToContext(context, new PeopleSeeder().GetPeople());
             AddToContext(context, new MeetingsSeeder().GetMeetings());
+            AddToContext(context, new PageSeeder().GetPages());
         }
 
         void AddSlugIndex(DbContext context, string tableName)
         {
-            context.Database.ExecuteSqlCommand(string.Format("CREATE UNIQUE INDEX IDX_{1}_{0} ON {1} ( {0})", "Slug", tableName));
+            context.Database.ExecuteSqlCommand(string.Format("CREATE UNIQUE INDEX IDX_{1}_{0} ON {1} ( {0})", "Slug",
+                                                             tableName));
         }
 
         void AddToContext<T>(DbContext context, IEnumerable<T> source) where T : class
@@ -31,6 +34,5 @@ namespace UserGroup.Data
                 context.Set<T>().Add(entity);
             }
         }
-  
     }
 }

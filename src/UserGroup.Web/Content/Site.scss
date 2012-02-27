@@ -1,14 +1,27 @@
-﻿html {
-    background-color: #e2e2e2;
+﻿$bgcolor : #e2e2e2;
+$headcolor: white;
+$textcolor: black;
+
+$fontsize: 11pt;
+$h4size: 13pt;
+$h3size: 15pt;
+$h2size: 18pt;
+$h1size: 20pt;
+
+$feature_background: #FF9900;
+$feature_background_gradient: #FFCC33;
+
+html {
+    background-color: $bgcolor;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
+    background-color: $headcolor;
     border-top: solid 10px #000;
-    color: #333;
-    font-size: .85em;
+    color: $textcolor;
+    font-size: $fontsize;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
@@ -62,19 +75,19 @@ h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: $h1size;
 }
 
 h2 {
-    font-size: 1.75em;
+    font-size: $h2size;
 }
 
 h3 {
-    font-size: 1.2em;
+    font-size: $h3size;
 }
 
 h4 {
-    font-size: 1.1em;
+    font-size: $h4size;
 }
 
 h5, h6 {
@@ -118,7 +131,7 @@ footer {
 .site-title {
     color: #c8c8c8;
     font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
-    font-size: 2.3em;
+    font-size: $fontsize*2.8;
     margin: 20px 0;
 }
 
@@ -134,7 +147,7 @@ footer {
 ----------------------------------------------------------*/
 #login {
     display: block;
-    font-size: .85em;
+    font-size: .9em;
     margin: 20px 0 12px;
     text-align: right;
 }
@@ -198,12 +211,12 @@ ul#menu {
 }
 
     .featured .content-wrapper {
-        background-color: #7ac0da;
-        background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
-        background-image: -webkit-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+        background-color: $feature_background;
+        background-image: -ms-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+        background-image: -o-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, $feature_background), color-stop(1, $feature_background_gradient));
+        background-image: -webkit-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+        background-image: linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
         color: #3e5667;
         padding: 20px 40px 30px 40px;
     }
@@ -213,7 +226,7 @@ ul#menu {
         }
 
         .featured p {
-            font-size: 1.1em;
+            font-size: 1.0em;
         }
 
 /* page titles */
@@ -303,22 +316,10 @@ aside {
     width: 50%;
 }
 
-/* contact */
-.contact h3 {
-    font-size: 1.2em;
-}
-
-.contact p {
-    margin: 5px 0 0 10px;
-}
-
-.contact iframe {
-    border: 1px solid #333;
-    margin: 5px 0 0 10px;
-}
 
 /* forms */
 .detail {
+	font-size: $fontsize;
     border: none;
     margin: 0;
     padding: 0;
@@ -337,7 +338,6 @@ aside {
 
      label {
         display: block;
-        font-size: 1.2em;
         font-weight: 600;
     }
 
@@ -346,10 +346,9 @@ aside {
     }
 
      input[type="text"],
-     input[type="password"] {
+     input[type="password"], select {
         border: 1px solid #e2e2e2;
         color: #333;
-        font-size: 1.2em;
         margin: 5px 0 6px 0;
         padding: 5px;
         width: 300px;
@@ -391,8 +390,8 @@ aside {
 }
 
     .modal-popup input[type="text"],
-    .modal-popup input[type="password"] {
-        width: 90%;
+    .modal-popup input[type="password"], select {
+        width: 70%;
     }
 
 /* info and errors */
@@ -405,14 +404,12 @@ aside {
 .message-error {
     clear: both;
     color: #e80c4d;
-    font-size: 1.1em;
     font-weight: bold;
     margin: 20px 0 10px 0;
 }
 
 .message-success {
     color: #7ac0da;
-    font-size: 1.3em;
     font-weight: bold;
     margin: 20px 0 10px 0;
 }
@@ -439,7 +436,6 @@ input[type="password"].input-validation-error {
 .validation-summary-errors {
     color: #e80c4d;
     font-weight: bold;
-    font-size: 1.1em;
 }
 
 .validation-summary-valid {
@@ -651,7 +647,7 @@ ul#social li {
 	clear:both;
 	.date {
 		margin-right: 1em;
-		background-color: grey;
+		background-color: $feature_background*0.5;
 		padding: 2pt;
 		float:right;
 		border-radius: 3pt;
@@ -659,21 +655,21 @@ ul#social li {
 		&:first-child {
 			font-size: 25pt;
 			line-height: 23pt;
-			color: white;
+			color: $feature_background*1.4;
 		}
 		&:last-child {
 			line-height: 35pt;
 			font-size: 50pt;
-			color: darkgrey;
+			color: $feature_background*0.8;
 		}	
 		}
 	}
 	.description {
 		p:first-child {
-			font-size: 20pt;
+			font-size: $h2size;
 		}
 		p {
-			font-size: 14pt;
+			font-size: $fontsize;
 		}
 	}
 }

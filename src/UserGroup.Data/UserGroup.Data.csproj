@@ -52,6 +52,7 @@
     <Compile Include="Data\IDatabaseContext.cs" />
     <Compile Include="Data\IEntityConfiguration.cs" />
     <Compile Include="Data\Seeders\MeetingsSeeder.cs" />
+    <Compile Include="Data\Seeders\PageSeeder.cs" />
     <Compile Include="Data\Seeders\PersonSeeder.cs" />
     <Compile Include="Data\UserGroupDatabaseDevelopmentInitializer.cs" />
     <Compile Include="Data\UserGroupDb.cs" />

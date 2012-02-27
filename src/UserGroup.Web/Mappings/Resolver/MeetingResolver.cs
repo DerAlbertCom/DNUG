@@ -4,7 +4,7 @@ using AutoMapper;
 using UserGroup.Data;
 using UserGroup.Entities;
 
-namespace UserGroup.Web.Mappings
+namespace UserGroup.Web.Mappings.Resolver
 {
     public class MeetingResolver : ValueResolver<int, Meeting>
     {

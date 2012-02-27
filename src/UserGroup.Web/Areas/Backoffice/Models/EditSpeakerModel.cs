@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using UserGroup.Web.Annotations;
 
 namespace UserGroup.Web.Areas.Backoffice.Models
 {
@@ -27,7 +28,7 @@ namespace UserGroup.Web.Areas.Backoffice.Models
 
         [StringLength(1024)]
         [DataType(DataType.MultilineText)]
-        [UIHint("Wiki")]
+        [Wiki]
         public string Vita { get; set; }
     }
 }

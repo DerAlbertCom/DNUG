@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using UserGroup.Web.Annotations;
 
 namespace UserGroup.Web.Models
 {
@@ -11,18 +12,18 @@ namespace UserGroup.Web.Models
         public string Title { get; set; }
 
         public string Slug { get; private set; }
-        [UIHint("Wiki")]
+        [Wiki]
         public string Description { get; set; }
 
-        [UIHint("Wiki")]
+        [Wiki]
         public string Text { get; set; }
 
         [DisplayName("Datum")]
-        [UIHint("ShortDate")]
+        [ShortDate]
         public DateTime StartDate { get; set; }
 
         [DisplayName("Uhrzeit")]
-        [UIHint("ShortTime")]
+        [ShortTime]
         public TimeSpan StartTime { get; set; }
 
         public int Duration { get; set; }

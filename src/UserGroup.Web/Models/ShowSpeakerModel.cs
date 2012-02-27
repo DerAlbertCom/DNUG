@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using UserGroup.Web.Annotations;
 
 namespace UserGroup.Web.Models
 {
@@ -12,7 +13,7 @@ namespace UserGroup.Web.Models
         public string Homepage { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [UIHint("Wiki")]
+        [Wiki]
         public string Vita { get; set; }
 
         public string FullName

@@ -56,7 +56,8 @@ Mit einer ARM7-Mikroprozessor-Platine bewaffnet, wird Holger Wendel in seinem Vo
                                   Title = "62. User Treffen der .net user Group Köln",
                                   Group = "dnugk",
                                   Description = ".NET Gadgeteer und Visual Studio vNext",
-                                  Location = location
+                                  Location = location,
+                                  StartTime = new DateTime(2012,03,06,19,0,0).ToUniversalTime()
                               };
             meeting.Talks.Add(talk1);
             meeting.Talks.Add(talk2);

@@ -1,31 +1,51 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Aperea.ActionFilter;
+using Aperea.Mappings;
+using UserGroup.Data;
+using UserGroup.Entities;
+using UserGroup.Web.Models;
 
 namespace UserGroup.Web.Controllers
 {
     public class HomeController : BaseController
     {
+        readonly IRepository<Meeting> meetingRepository;
+        readonly IRepository<Page> pageRepository;
+
+        public HomeController(IRepository<Meeting> meetingRepository, IRepository<Page> pageRepository)
+        {
+            this.meetingRepository = meetingRepository;
+            this.pageRepository = pageRepository;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            var model = new ShowHomeIndexModel
+                            {
+                                NextMeeting = GetNextMeeting().MapTo<MeetingLineModel>(),
+                                Page = GetHomepage().MapTo<ShowPageModel>()
+                            };
 
-            return View();
+
+            return View(model);
         }
 
-
-        public ActionResult About()
+        Page GetHomepage()
         {
-            ViewBag.Message = "Your quintessential app description page.";
-
-            return View();
+            return pageRepository.Entities.Single(p => p.Slug == "homepage");
         }
 
-        public ActionResult Contact()
+        Meeting GetNextMeeting()
         {
-            ViewBag.Message = "Your quintessential contact page.";
+            var currentDate = DateTime.Now.ToUniversalTime().Date.AddDays(-2);
 
-            return View();
+            var query = from m in meetingRepository.Entities
+                        where m.StartTime > currentDate
+                        orderby m.StartTime
+                        select m;
+            return query.Take(1).SingleOrDefault();
         }
     }
 }

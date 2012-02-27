@@ -20,10 +20,12 @@
                     </section>
                     <nav>
                         <ul id="menu">
+@* ReSharper disable Html.PathError *@
                             <li>@Html.ActionLink("Startseite", "Index", "Home", new { area = "" }, null)</li>
                             <li>@Html.ActionLink("Treffen", "Index", "ShowMeeting", new {area = ""}, null)</li>
-                            <li>@Html.ActionLink("Kontakt", "Contact", "Home", new { area = "" }, null)</li>
-                            <li>@Html.ActionLink("Backoffice", "Index", "Admin", new {area = "backoffice"}, null)</li>
+                            <li><a href="~/page/about">Über uns</a></li>
+                            <li><a href="~/page/contact">Kontakt</a></li>
+@* ReSharper restore Html.PathError *@
                         </ul>
                     </nav>
                 </div>
@@ -38,7 +40,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - .net user group Köln</p>
+                    <p>&copy; @DateTime.Now.Year - @Html.ActionLink(".net user group Köln", "Index", "Admin", new {area = "backoffice"}, null)</p>
                 </div>
                 <div class="float-right">
                     <ul id="social">
