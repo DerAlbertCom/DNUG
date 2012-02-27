@@ -25,8 +25,12 @@ namespace UserGroup.Data
                 {
                     if (entry.State == EntityState.Added && entry.Entity is ISlug)
                     {
-                        var generator = factory.GetSlugGenerator(entry.Entity.GetType());
-                        generator.Generate(entry.Entity);
+                        var sluggy = (ISlug) entry.Entity;
+                        if (string.IsNullOrWhiteSpace(sluggy.Slug))
+                        {
+                            var generator = factory.GetSlugGenerator(entry.Entity.GetType());
+                            generator.Generate(entry.Entity);
+                        }
                     }
                 }
 
@@ -71,6 +75,5 @@ namespace UserGroup.Data
         public DbSet<Speaker> Speakers { get; set; }
 
         public DbSet<Person> People { get; set; }
-
     }
 }

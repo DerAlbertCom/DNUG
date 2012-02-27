@@ -1,0 +1,13 @@
+﻿@using Microsoft.Practices.ServiceLocation
+@model int
+@{
+    var repository = ServiceLocator.Current.GetInstance<IRepository<Meeting>>();
+
+    var query = from l in repository.Entities
+                orderby l.StartTime descending 
+                select new {Text = l.Title, Value = l.Id};
+    var empty = new {Text = "<auswählen>", Value = 0};
+    var items = new[] {empty}.Concat(query.ToList());
+    var selectList = new SelectList(items, "Value","Text", Model);
+}
+@Html.DropDownList("",selectList)

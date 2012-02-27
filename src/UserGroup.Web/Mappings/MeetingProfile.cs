@@ -17,14 +17,14 @@ namespace UserGroup.Web.Mappings
             CreateMap<Meeting, ShowMeetingModel>()
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().TimeOfDay))
                 .ForMember(d => d.StartDate, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().Date))
-                .ForMember(d => d.LocationUrl, c => c.ResolveUsing<LocationUrlResolver>().FromMember(s=>s.Location));
+                .ForMember(d => d.LocationUrl, c => c.ResolveUsing<LocationUrlResolver>().FromMember(s => s.Location));
 
             CreateMap<Meeting, EditMeetingModel>();
 
             CreateMap<EditMeetingModel, Meeting>()
                 .ForMember(d => d.Slug, c => c.Ignore())
                 .ForMember(d => d.Id, c => c.Ignore())
-                .ForMember(d => d.Location, c => c.Ignore())
+                .ForMember(d => d.Location, c => c.ResolveUsing<LocationResolver>().FromMember(s => s.LocationId))
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToUniversalTime()))
                 .ForMember(d => d.DisplayFrom, c => c.ResolveUsing(s => s.DisplayFrom.ToUniversalTime()))
                 .ForMember(d => d.Talks, c => c.Ignore());

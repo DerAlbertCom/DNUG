@@ -11,8 +11,7 @@ namespace UserGroup.Entities
         {
             Speakers = new Collection<Speaker>();
         }
-
-
+        
         public int Id { get; private set; }
 
         [Required]
@@ -36,6 +35,8 @@ namespace UserGroup.Entities
         [StringLength(2048)]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
+
+        public Meeting Meeting { get; set; }
 
         public virtual ICollection<Speaker> Speakers { get; private set; }
     }

@@ -158,8 +158,12 @@
     <Compile Include="Areas\Backoffice\BackofficeAreaRegistration.cs" />
     <Compile Include="Areas\Backoffice\Controllers\AdminController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\BackofficeController.cs" />
+    <Compile Include="Areas\Backoffice\Controllers\LocationController.cs" />
+    <Compile Include="Areas\Backoffice\Controllers\TalkController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\SpeakerController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\MeetingController.cs" />
+    <Compile Include="Areas\Backoffice\Models\EditLocationModel.cs" />
+    <Compile Include="Areas\Backoffice\Models\EditTalkModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditSpeakerModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -169,6 +173,7 @@
     <Compile Include="Controllers\ShowMeetingController.cs" />
     <Compile Include="Controllers\ShowSpeakerController.cs" />
     <Compile Include="Controllers\ShowTalkController.cs" />
+    <Compile Include="Extensions\InputExtensions.cs" />
     <Compile Include="Extensions\MapperExtensions.cs" />
     <Compile Include="Extensions\WikiExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,8 +187,10 @@
     <Compile Include="Infrastructure\IoC\SlugGeneratorConvention.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Mappings\LocationProfile.cs" />
+    <Compile Include="Mappings\LocationResolver.cs" />
     <Compile Include="Mappings\LocationUrlResolver.cs" />
     <Compile Include="Mappings\MeetingProfile.cs" />
+    <Compile Include="Mappings\MeetingResolver.cs" />
     <Compile Include="Mappings\MeetingUrlResolver.cs" />
     <Compile Include="Mappings\SpeakerProfile.cs" />
     <Compile Include="Mappings\TalkProfile.cs" />
@@ -315,7 +322,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Backoffice\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -356,6 +362,20 @@
     <Content Include="Areas\Backoffice\Views\Speaker\Details.cshtml" />
     <Content Include="Areas\Backoffice\Views\Speaker\Edit.cshtml" />
     <Content Include="Areas\Backoffice\Views\Speaker\Index.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Talk\Create.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Talk\Delete.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Talk\Details.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Talk\Edit.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Talk\Index.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Location\Create.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Location\Delete.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Location\Details.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Location\Edit.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Location\Index.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Location\EditorTemplates\EditLocationModel.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\LocationSelect.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\MeetingSelect.cshtml" />
     <None Include="Content\Site.scss" />
     <Content Include="Views\ShowMeeting\DisplayTemplates\MeetingLineModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Wiki.cshtml" />

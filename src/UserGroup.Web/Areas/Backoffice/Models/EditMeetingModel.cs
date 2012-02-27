@@ -45,8 +45,9 @@ namespace UserGroup.Web.Areas.Backoffice.Models
 
         public int Duration { get; set; }
 
+        [UIHint("LocationSelect")]
         public int LocationId { get; set; }
-
+        
         [StringLength(512)]
         [DataType(DataType.Url)]
         public string RegistrationUrl { get; set; }

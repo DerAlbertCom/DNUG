@@ -24,6 +24,7 @@ namespace UserGroup.Web.Infrastructure.IoC
 
             For<ISlugGeneratorFactory>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
             For(typeof (IRepository<>)).LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Hybrid));
+            For(typeof(IDatabaseContext)).LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Hybrid));
         }
     }
 }
