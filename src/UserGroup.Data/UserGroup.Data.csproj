@@ -51,6 +51,8 @@
     <Compile Include="Data\DatabaseContext.cs" />
     <Compile Include="Data\IDatabaseContext.cs" />
     <Compile Include="Data\IEntityConfiguration.cs" />
+    <Compile Include="Data\Seeders\MeetingsSeeder.cs" />
+    <Compile Include="Data\Seeders\PersonSeeder.cs" />
     <Compile Include="Data\UserGroupDatabaseDevelopmentInitializer.cs" />
     <Compile Include="Data\UserGroupDb.cs" />
     <Compile Include="Data\UsergroupDbContext.cs" />
@@ -63,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Mappings\" />
-    <Folder Include="Data\Seeders\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UserGroup.Core\UserGroup.Core.csproj">

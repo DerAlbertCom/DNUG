@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+<configuration>
+    <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework"
+                 type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+        <section name="microsoft.identityModel"
+                 type="Microsoft.IdentityModel.Configuration.MicrosoftIdentityModelSection, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    </configSections>
+    <connectionStrings>
+        <add name="DefaultConnection"
+             connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-DNUG-201222020958;Integrated Security=True"
+             providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <appSettings>
+        <add key="webpages:Version" value="2.0.0.0" />
+        <add key="webpages:Enabled" value="true" />
+        <add key="PreserveLoginUrl" value="true" />
+        <add key="ClientValidationEnabled" value="true" />
+        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+        <add key="IoC.IncludeAssemblies" value="UserGroup" />
+        <add key="WebServer.HttpsPort" value="44301" />
+        <add key="Certificate.SigningCertificateName" value="CN=DefaultApplicationCertificate" />
+        <add key="Certificate.EncryptingCertificateName" value="CN=DefaultApplicationCertificate" />
+        <add key="Certificate.StoreName" value="My" />
+        <add key="Certificate.StoreLocation" value="LocalMachine" />
+
+        <add key="FederationMetadataLocation"
+             value="https://localhost:44301/sts/federationmetadata/2007-06/federationmetadata.xml" />
+    </appSettings>
+    <location path="Content">
+        <system.web>
+            <authorization>
+                <allow users="*" />
+            </authorization>
+        </system.web>
+    </location>
+    <location path="Images">
+        <system.web>
+            <authorization>
+                <allow users="*" />
+            </authorization>
+        </system.web>
+    </location>
+    <system.web>
+        <httpRuntime requestValidationType="UserGroup.Web.Security.WSFederationRequestValidator" />
+        <authentication mode="None" />
+        <compilation debug="true" targetFramework="4.0">
+            <assemblies>
+                <add assembly="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+            </assemblies>
+        </compilation>
+        <!--Commented out by FedUtil-->
+        <!--<authentication mode="Forms"><forms loginUrl="~/Account/Login" timeout="2880" /></authentication>-->
+        <pages>
+            <namespaces>
+                <add namespace="System.Web.Helpers" />
+                <add namespace="System.Web.Mvc" />
+                <add namespace="System.Web.Mvc.Ajax" />
+                <add namespace="System.Web.Mvc.Html" />
+                <add namespace="System.Web.Routing" />
+                <add namespace="System.Web.WebPages" />
+            </namespaces>
+        </pages>
+        <httpModules>
+            <add name="WSFederationAuthenticationModule"
+                 type="Microsoft.IdentityModel.Web.WSFederationAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            <add name="SessionAuthenticationModule"
+                 type="Microsoft.IdentityModel.Web.SessionAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        </httpModules>
+    </system.web>
+    <system.webServer>
+        <validation validateIntegratedModeConfiguration="false" />
+        <modules runAllManagedModulesForAllRequests="true">
+            <add name="WSFederationAuthenticationModule"
+                 type="Microsoft.IdentityModel.Web.WSFederationAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                 preCondition="managedHandler" />
+            <add name="SessionAuthenticationModule"
+                 type="Microsoft.IdentityModel.Web.SessionAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                 preCondition="managedHandler" />
+        </modules>
+    </system.webServer>
+    <system.codedom>
+        <compilers>
+            <compiler language="c#;cs;csharp" extension=".cs" warningLevel="4"
+                      type="Microsoft.CSharp.CSharpCodeProvider, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+                <providerOption name="CompilerVersion" value="v4.0" />
+            </compiler>
+        </compilers>
+    </system.codedom>
+    <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+            </dependentAssembly>
+        </assemblyBinding>
+    </runtime>
+    <microsoft.identityModel>
+        <service>
+            <audienceUris>
+                <add value="https://localhost:44301/usergroup/" />
+            </audienceUris>
+            <applicationService>
+                <claimTypeRequired>
+                    <claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" optional="false" />
+                    <claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" optional="true" />
+                </claimTypeRequired>
+            </applicationService>
+            <federatedAuthentication>
+                <wsFederation passiveRedirectEnabled="true" issuer="https://localhost:44301/sts/issuer/passive"
+                              realm="https://localhost:44301/usergroup/" requireHttps="true" />
+                <cookieHandler requireSsl="true" name=".authusergroup" />
+            </federatedAuthentication>
+            <serviceCertificate>
+                <certificateReference x509FindType="FindByThumbprint" findValue="09F85E42A088C4EC3CAB29FF9A2F2A9586560A03"
+                                      storeLocation="LocalMachine" storeName="My" />
+            </serviceCertificate>
+            <issuerNameRegistry
+type="Microsoft.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+                <trustedIssuers>
+                    <add thumbprint="4B3A4BC0DA7BC558F9C16946C5EB25DB3BCAE060" name="https://localhost:44301/sts/" />
+                </trustedIssuers>
+            </issuerNameRegistry>
+        </service>
+    </microsoft.identityModel>
+</configuration>

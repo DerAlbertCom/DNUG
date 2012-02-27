@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Data.Entity.Validation;
 using System.Web.Mvc;
-using UserGroup.Web.ActionFilter;
+using JetBrains.Annotations;
+using UserGroup.Web.Infrastructure.Mvc;
 
 namespace UserGroup.Web.Controllers
 {
@@ -28,17 +28,6 @@ namespace UserGroup.Web.Controllers
             Uri urlReferrer = HttpContext.Request.UrlReferrer;
             if (urlReferrer != null)
                 ViewBag.BackLinkUrl = urlReferrer.AbsolutePath;
-        }
-
-        public void ConvertEntityValidationException(DbEntityValidationException exception)
-        {
-            foreach (var error in exception.EntityValidationErrors)
-            {
-                foreach (var validationError in error.ValidationErrors)
-                {
-                    ModelState.AddModelError("", validationError.PropertyName + @" : " + validationError.ErrorMessage);
-                }
-            }
         }
     }
 }

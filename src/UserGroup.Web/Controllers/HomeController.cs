@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using UserGroup.Web.ActionFilter;
+using Aperea.ActionFilter;
 
 namespace UserGroup.Web.Controllers
 {
@@ -13,8 +13,7 @@ namespace UserGroup.Web.Controllers
             return View();
         }
 
-        [RequireSsl(Order = -1)]
-        [Authorize(Order = 100)]
+
         public ActionResult About()
         {
             ViewBag.Message = "Your quintessential app description page.";

@@ -1,6 +1,7 @@
 ﻿using System;
 using Aperea.Infrastructure.Bootstrap;
 using Aperea.Infrastructure.IoC;
+using Microsoft.IdentityModel.Web;
 
 namespace UserGroup.Web
 {

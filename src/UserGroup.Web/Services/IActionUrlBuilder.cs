@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 
 namespace UserGroup.Web.Services
 {

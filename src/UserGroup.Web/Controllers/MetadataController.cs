@@ -12,6 +12,7 @@ namespace UserGroup.Web.Controllers
             this.metadataGenerator = metadataGenerator;
         }
 
+        [OutputCache(Duration = 60*60)]
         public ActionResult Federation()
         {
             var metaData = metadataGenerator.GenerateAsString();

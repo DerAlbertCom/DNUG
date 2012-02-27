@@ -4,9 +4,8 @@
         <meta charset="utf-8" />
         <title>@ViewBag.Title - .net user group Köln</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <link href="@Url.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
-        <link href="@Url.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="@Url.ResolveBundleUrl("~/Scripts/js")"></script>
+        <link href="@Url.ResolveBundleUrl("~/resource/css")" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="@Url.ResolveBundleUrl("~/resource/js")"> </script>
         <meta name="viewport" content="width=device-width" />
     </head>
     <body>
@@ -21,9 +20,10 @@
                     </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Startseite", "Index", "Home", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("Treffen", "Index", "ShowMeeting", new {area = ""}, null)</li>
+                            <li>@Html.ActionLink("Kontakt", "Contact", "Home", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("Backoffice", "Index", "Admin", new {area = "backoffice"}, null)</li>
                         </ul>
                     </nav>
                 </div>
@@ -46,5 +46,10 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            $(function() {
+                $.i18n.setLocale("de");
+            });
+        </script>
     </body>
 </html>
