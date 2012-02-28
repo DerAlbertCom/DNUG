@@ -390,7 +390,12 @@
     <Content Include="Areas\Backoffice\Views\Page\Details.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Index.cshtml" />
-    <None Include="Content\Site.scss" />
+    <None Include="Content\Site.scss">
+      <Compile>True</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
     <Content Include="Views\Shared\DisplayTemplates\MeetingLineModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Wiki.cshtml" />
     <Content Include="Views\ShowMeeting\Details.cshtml" />

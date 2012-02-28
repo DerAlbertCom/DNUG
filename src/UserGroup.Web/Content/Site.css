@@ -179,13 +179,11 @@ ul#menu li a:hover {
 /* page titles */
 hgroup.title {
   margin-bottom: 10px; }
-
-hgroup.title h1, hgroup.title h2 {
-  display: inline; }
-
-hgroup.title h2 {
-  font-weight: normal;
-  margin-left: 3px; }
+  hgroup.title h1, hgroup.title h2 {
+    display: inline; }
+  hgroup.title h2 {
+    font-weight: normal;
+    margin-left: 3px; }
 
 /* features */
 section.feature {
@@ -197,19 +195,15 @@ section.feature {
 ol.round {
   list-style-type: none;
   padding-left: 0; }
-
-ol.round li {
-  margin: 25px 0;
-  padding-left: 45px; }
-
-ol.round li.one {
-  background: url("../Images/orderedListOne.png") no-repeat; }
-
-ol.round li.two {
-  background: url("../Images/orderedListTwo.png") no-repeat; }
-
-ol.round li.three {
-  background: url("../Images/orderedListThree.png") no-repeat; }
+  ol.round li {
+    margin: 25px 0;
+    padding-left: 45px; }
+    ol.round li.one {
+      background: url("../Images/orderedListOne.png") no-repeat; }
+    ol.round li.two {
+      background: url("../Images/orderedListTwo.png") no-repeat; }
+    ol.round li.three {
+      background: url("../Images/orderedListThree.png") no-repeat; }
 
 /* content */
 article {
@@ -219,32 +213,15 @@ article {
 aside {
   float: right;
   width: 25%; }
-
-aside ul {
-  list-style: none;
-  padding: 0; }
-
-aside ul li {
-  background: url("../Images/bullet.png") no-repeat 0 50%;
-  padding: 2px 0 2px 20px; }
+  aside ul {
+    list-style: none;
+    padding: 0; }
+    aside ul li {
+      background: url("../Images/bullet.png") no-repeat 0 50%;
+      padding: 2px 0 2px 20px; }
 
 .label {
   font-weight: 700; }
-
-/* login page */
-#loginForm {
-  border-right: solid 2px #c8c8c8;
-  float: left;
-  width: 45%; }
-
-#loginForm .validation-error {
-  display: block;
-  margin-left: 15px; }
-
-#socialLoginForm {
-  margin-left: 40px;
-  float: left;
-  width: 50%; }
 
 /* forms */
 .detail {

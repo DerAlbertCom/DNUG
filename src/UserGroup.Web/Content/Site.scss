@@ -108,15 +108,15 @@ h5, h6 {
     padding-bottom: 35px;
 }
 
-    .main-content {
-        background: url("../Images/accent.png") no-repeat;
-        padding-left: 10px;
-        padding-top: 30px;
-    }
+.main-content {
+    background: url("../Images/accent.png") no-repeat;
+    padding-left: 10px;
+    padding-top: 30px;
+}
 
-    .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
-    }
+.featured + .main-content {
+    background: url("../Images/heroAccent.png") no-repeat;
+}
 
 footer {
     clear: both;
@@ -152,28 +152,28 @@ footer {
     text-align: right;
 }
 
-    #login a {
-        background-color: #d3dce0;
-        margin-left: 10px;
-        margin-right: 3px;
-        padding: 2px 3px;
-        text-decoration: none;
-    }
+#login a {
+    background-color: #d3dce0;
+    margin-left: 10px;
+    margin-right: 3px;
+    padding: 2px 3px;
+    text-decoration: none;
+}
 
-    #login a.username {
-        background: none;
-        margin-left: 0px;
-        text-decoration: underline;
-    }
+#login a.username {
+    background: none;
+    margin-left: 0px;
+    text-decoration: underline;
+}
 
-    #login ul {
-        margin: 0;
-    }
+#login ul {
+    margin: 0;
+}
 
-    #login li {
-        display: inline;
-        list-style: none;
-    }
+#login li {
+    display: inline;
+    list-style: none;
+}
 
 
 /* menu
@@ -185,22 +185,22 @@ ul#menu {
     text-align: right;
 }
 
-    ul#menu li {
-        display: inline;
-        list-style: none;
-        padding-left: 15px;
-    }
+ul#menu li {
+    display: inline;
+    list-style: none;
+    padding-left: 15px;
+}
 
-        ul#menu li a {
-            background: none;
-            color: #999;
-            text-decoration: none;
-        }
+ul#menu li a {
+    background: none;
+    color: #999;
+    text-decoration: none;
+}
 
-        ul#menu li a:hover {
-            color: #333;
-            text-decoration: none;
-        }
+ul#menu li a:hover {
+    color: #333;
+    text-decoration: none;
+}
 
 
 /* page elements
@@ -210,38 +210,38 @@ ul#menu {
     background-color: #fff;
 }
 
-    .featured .content-wrapper {
-        background-color: $feature_background;
-        background-image: -ms-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
-        background-image: -o-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
-        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, $feature_background), color-stop(1, $feature_background_gradient));
-        background-image: -webkit-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
-        background-image: linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
-        color: #3e5667;
-        padding: 20px 40px 30px 40px;
-    }
+.featured .content-wrapper {
+    background-color: $feature_background;
+    background-image: -ms-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+    background-image: -o-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, $feature_background), color-stop(1, $feature_background_gradient));
+    background-image: -webkit-linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+    background-image: linear-gradient(left, $feature_background 0%, $feature_background_gradient 100%);
+    color: #3e5667;
+    padding: 20px 40px 30px 40px;
+}
 
-        .featured hgroup.title h1, .featured hgroup.title h2 {
-            color: #fff;
-        }
+.featured hgroup.title h1, .featured hgroup.title h2 {
+    color: #fff;
+}
 
-        .featured p {
-            font-size: 1.0em;
-        }
+.featured p {
+    font-size: 1.0em;
+}
 
 /* page titles */
 hgroup.title {
     margin-bottom: 10px;
+    h1, h2 {
+        display: inline;
+    }
+    h2 {
+        font-weight: normal;
+        margin-left: 3px;
+    }
 }
 
-hgroup.title h1, hgroup.title h2 {
-    display: inline;
-}
 
-hgroup.title h2 {
-    font-weight: normal;
-    margin-left: 3px;
-}
 
 /* features */
 section.feature {
@@ -254,24 +254,20 @@ section.feature {
 ol.round {
     list-style-type: none;
     padding-left: 0;
-}
-
-    ol.round li {
+    li {
         margin: 25px 0;
         padding-left: 45px;
-    }
-
-        ol.round li.one {
+		&.one {
             background: url("../Images/orderedListOne.png") no-repeat;
         }
-
-        ol.round li.two {
+		&.two {
             background: url("../Images/orderedListTwo.png") no-repeat;
         }
-
-        ol.round li.three {
+		&.three {
             background: url("../Images/orderedListThree.png") no-repeat;
         }
+    }
+}
 
 /* content */
 article {
@@ -282,38 +278,18 @@ article {
 aside {
     float: right;
     width: 25%;
-}
-
-    aside ul {
+    ul {
         list-style: none;
         padding: 0;
-    }
-
-        aside ul li {
+        li {
             background: url("../Images/bullet.png") no-repeat 0 50%;
             padding: 2px 0 2px 20px;
         }
+    }
+}
 
 .label {
     font-weight: 700;
-}
-
-/* login page */
-#loginForm {
-    border-right: solid 2px #c8c8c8;
-    float: left;
-    width: 45%;
-}
-
-    #loginForm .validation-error {
-        display: block;
-        margin-left: 15px;
-    }
-
-#socialLoginForm {
-    margin-left: 40px;
-    float: left;
-    width: 50%;
 }
 
 
@@ -328,24 +304,24 @@ aside {
         display: none;
     }
     
-     ol {
+    ol {
         padding: 0;
         list-style: none;
- li {
+        li {
             padding-bottom: 5px;
         }    }
 
 
-     label {
+    label {
         display: block;
         font-weight: 600;
     }
 
-     label.checkbox {
+    label.checkbox {
         display: inline;
     }
 
-     input[type="text"],
+    input[type="text"],
      input[type="password"], select {
         border: 1px solid #e2e2e2;
         color: #333;
@@ -354,12 +330,12 @@ aside {
         width: 300px;
     }
 
-         input[type="text"]:focus,
+    input[type="text"]:focus,
          input[type="password"]:focus {
-            border: 1px solid #7ac0da;
-        }
+        border: 1px solid #7ac0da;
+    }
 
-     input[type="submit"] {
+    input[type="submit"] {
         background-color: #d3dce0;
         border: 1px solid #787878;
         cursor: pointer;
@@ -368,18 +344,17 @@ aside {
         padding: 7px;
     }
 
-	 input[type=text],
+    input[type=text],
      input[type=password],
-	 textarea
-	  {
+	 textarea {
         width: 90%;
     }
 
-	.display-label	 {
+	.display-label {
 		display: block;
 		font-weight: bold;
 	}
-	.display-field	 {
+	.display-field {
 		display: block;
 		margin-bottom: 6pt;
 	}
@@ -389,10 +364,10 @@ aside {
     font-size: 0.7em;
 }
 
-    .modal-popup input[type="text"],
+.modal-popup input[type="text"],
     .modal-popup input[type="password"], select {
-        width: 70%;
-    }
+    width: 70%;
+}
 
 /* info and errors */
 .message-info {
@@ -447,27 +422,27 @@ ul#social li {
     list-style: none;
 }
 
-    ul#social li a {
-        color: #999;
-        text-decoration: none;
-    }
+ul#social li a {
+    color: #999;
+    text-decoration: none;
+}
 
-    a.facebook, a.twitter {
-        display: block;
-        float: left;
-        height: 24px;
-        padding-left: 17px;
-        text-indent: -9999px;
-        width: 16px;
-    }
+a.facebook, a.twitter {
+    display: block;
+    float: left;
+    height: 24px;
+    padding-left: 17px;
+    text-indent: -9999px;
+    width: 16px;
+}
 
-    a.facebook {
-        background: url("../Images/facebook.png") no-repeat;
-    }
+a.facebook {
+    background: url("../Images/facebook.png") no-repeat;
+}
 
-    a.twitter {
-        background: url("../Images/twitter.png") no-repeat;
-    }
+a.twitter {
+    background: url("../Images/twitter.png") no-repeat;
+}
 
 
 /********************
@@ -652,16 +627,16 @@ ul#social li {
 		float:right;
 		border-radius: 3pt;
 		span {
-		&:first-child {
-			font-size: 25pt;
-			line-height: 23pt;
-			color: $feature_background*1.4;
-		}
-		&:last-child {
-			line-height: 35pt;
-			font-size: 50pt;
-			color: $feature_background*0.8;
-		}	
+		    &:first-child {
+			    font-size: 25pt;
+			    line-height: 23pt;
+			    color: $feature_background*1.4;
+		    }
+		    &:last-child {
+			    line-height: 35pt;
+			    font-size: 50pt;
+			    color: $feature_background*0.8;
+		    }	
 		}
 	}
 	.description {
