@@ -6,8 +6,11 @@ using UserGroup.Entities;
 
 namespace UserGroup.Data
 {
-    internal class UserGroupDatabaseDevelopmentInitializer : DropCreateDatabaseIfModelChanges<UserGroupDbContext>
+    internal class UserGroupDatabaseDevelopmentInitializer : CreateDatabaseIfNotExists<UserGroupDbContext>
     {
+        public UserGroupDatabaseDevelopmentInitializer()
+        {
+        }
         protected override void Seed(UserGroupDbContext context)
         {
             base.Seed(context);
