@@ -10,6 +10,7 @@ src/packages
 *.user
 *.cache
 *.orig
+*.sdf
 system.config
 *.Publish.xml
 Deployed
