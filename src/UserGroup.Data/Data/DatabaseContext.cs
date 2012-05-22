@@ -9,7 +9,6 @@ namespace UserGroup.Data
 
         public DatabaseContext()
         {
-            
         }
 
         public DatabaseContext(UserGroupDbContext dbContext)

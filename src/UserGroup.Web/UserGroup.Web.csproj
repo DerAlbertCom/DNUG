@@ -47,9 +47,6 @@
     <Reference Include="Aperea.Identity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Aperea.Identity.0.7.3.63\lib\net40\Aperea.Identity.dll</HintPath>
     </Reference>
-    <Reference Include="AsyncCtpLibrary">
-      <HintPath>..\packages\AsyncCTP.0.3\lib\net40\AsyncCtpLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
     </Reference>

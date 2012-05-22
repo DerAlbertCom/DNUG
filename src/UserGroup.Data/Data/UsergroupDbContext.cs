@@ -13,6 +13,7 @@ namespace UserGroup.Data
         public UserGroupDbContext()
         {
             Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         ISlugGeneratorFactory factory = new SlugGeneratorFactory();

@@ -6,6 +6,7 @@ using UserGroup.Web.Models;
 
 namespace UserGroup.Web.Mappings
 {
+
     public class MeetingProfile : Profile
     {
         protected override void Configure()

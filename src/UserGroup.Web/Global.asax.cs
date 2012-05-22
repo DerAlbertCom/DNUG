@@ -14,6 +14,7 @@ namespace UserGroup.Web
         {
             RegisterStructureMap.Execute();
             Bootstrapper.Start();
+            AppDomain.CurrentDomain.SetData("SQLServerCompactEditionUnderWebHosting", true);
         }
 
         protected void Application_End()
