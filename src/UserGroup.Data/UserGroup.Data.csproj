@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.3.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -49,7 +54,9 @@
   <ItemGroup>
     <Compile Include="Data\CreateDatabaseIfNotExistsWithoutModelCheck.cs" />
     <Compile Include="Data\DatabaseContext.cs" />
+    <Compile Include="Data\DbContextFactory.cs" />
     <Compile Include="Data\IDatabaseContext.cs" />
+    <Compile Include="Data\IDbContextFactory.cs" />
     <Compile Include="Data\IEntityConfiguration.cs" />
     <Compile Include="Data\Seeders\MeetingsSeeder.cs" />
     <Compile Include="Data\Seeders\PageSeeder.cs" />

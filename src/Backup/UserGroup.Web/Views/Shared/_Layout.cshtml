@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - .net user group Köln</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="@Url.ResolveBundleUrl("~/resource/css")" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="@Url.ResolveBundleUrl("~/resource/js")"> </script>
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink(".net user group Köln", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+@* ReSharper disable Html.PathError *@
+                            <li>@Html.ActionLink("Startseite", "Index", "Home", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("Treffen", "Index", "ShowMeeting", new {area = ""}, null)</li>
+                            <li><a href="~/page/about">Über uns</a></li>
+                            <li><a href="~/page/contact">Kontakt</a></li>
+@* ReSharper restore Html.PathError *@
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - @Html.ActionLink(".net user group Köln", "Index", "Admin", new {area = "backoffice"}, null)</p>
+                </div>
+                <div class="float-right">
+                    <ul id="social">
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript">
+            $(function() {
+                $.i18n.setLocale("de");
+            });
+        </script>
+    </body>
+</html>

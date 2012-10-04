@@ -10,13 +10,14 @@ namespace UserGroup.Data
 {
     public class UserGroupDbContext : DbContext
     {
-        public UserGroupDbContext()
+        public UserGroupDbContext(ISlugGeneratorFactory factory)
         {
+            _factory = factory;
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = false;
         }
 
-        ISlugGeneratorFactory factory = new SlugGeneratorFactory();
+        readonly ISlugGeneratorFactory _factory;
 
         public override int SaveChanges()
         {
@@ -29,7 +30,7 @@ namespace UserGroup.Data
                         var sluggy = (ISlug) entry.Entity;
                         if (string.IsNullOrWhiteSpace(sluggy.Slug))
                         {
-                            var generator = factory.GetSlugGenerator(entry.Entity.GetType());
+                            var generator = _factory.GetSlugGenerator(entry.Entity.GetType());
                             generator.Generate(entry.Entity);
                         }
                     }

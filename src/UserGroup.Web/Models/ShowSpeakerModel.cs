@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using UserGroup.Web.Annotations;
 
 namespace UserGroup.Web.Models
@@ -12,10 +14,12 @@ namespace UserGroup.Web.Models
         [DataType(DataType.Url)]
         public string Homepage { get; set; }
 
-        [DataType(DataType.MultilineText)]
         [Wiki]
+        [DataType(DataType.MultilineText)]
         public string Vita { get; set; }
 
+        [ReadOnly(true)]
+        [HiddenInput(DisplayValue = false)]
         public string FullName
         {
             get { return string.Format("{0} {1}", GivenName, LastName); }

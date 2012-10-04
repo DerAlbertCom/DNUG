@@ -1,0 +1,11 @@
+﻿@model ShowSpeakerModel
+
+@{
+    ViewBag.Title = Model.FullName;
+}
+
+<h2>@Model.FullName</h2>
+
+<p>@Html.DisplayFor(s=>s.FullName)</p>
+
+<p>@Html.DisplayFor(s=>s.Homepage)</p>

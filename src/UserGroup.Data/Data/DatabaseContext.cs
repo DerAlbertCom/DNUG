@@ -5,28 +5,34 @@ namespace UserGroup.Data
 {
     public class DatabaseContext : IDatabaseContext
     {
-        UserGroupDbContext dbContext;
+        readonly IDbContextFactory _factory;
+        Lazy<DbContext> _dbContext;
 
-        public DatabaseContext()
+        public DatabaseContext(IDbContextFactory factory)
         {
+            _factory = factory;
+            _dbContext = new Lazy<DbContext>(CreateDbContext);
         }
 
-        public DatabaseContext(UserGroupDbContext dbContext)
+        DbContext CreateDbContext()
         {
-            this.dbContext = dbContext;
+            return _factory.Create();
         }
 
         public DbContext DbContext
         {
-            get { return dbContext ?? (dbContext = new UserGroupDbContext()); }
+            get { return _dbContext.Value; }
         }
 
         public void Dispose()
         {
-            if (dbContext == null) return;
+            if (_dbContext == null || !_dbContext.IsValueCreated) return;
 
-            dbContext.Dispose();
-            dbContext = null;
+            if (_dbContext.IsValueCreated)
+            {
+                _dbContext.Value.Dispose();
+            }
+            _dbContext = null;
         }
     }
 }

@@ -5,26 +5,22 @@ namespace UserGroup.Services
 {
     public class SlugGeneratorFactory : ISlugGeneratorFactory
     {
-        readonly IServiceLocator locator;
+        readonly IServiceLocator _locator;
 
         public SlugGeneratorFactory(IServiceLocator locator)
         {
-            this.locator = locator;
-        }
-
-        public SlugGeneratorFactory() : this(ServiceLocator.Current)
-        {
+            _locator = locator;
         }
 
         public ISlugGenerator<T> GetSlugGenerator<T>()
         {
-            return locator.GetInstance<ISlugGenerator<T>>();
+            return _locator.GetInstance<ISlugGenerator<T>>();
         }
 
         public ISlugGenerator GetSlugGenerator(Type entityType)
         {
-            var slugGenType= typeof (ISlugGenerator<>).MakeGenericType(entityType);
-            return (ISlugGenerator) locator.GetInstance(slugGenType);
+            var slugGenType = typeof (ISlugGenerator<>).MakeGenericType(entityType);
+            return (ISlugGenerator) _locator.GetInstance(slugGenType);
         }
     }
 }

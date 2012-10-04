@@ -5,11 +5,11 @@ namespace UserGroup.Services
 {
     public abstract class BaseSlugGenerator<T> : ISlugGenerator<T>
     {
-        readonly ISlugger generator;
+        readonly ISlugger _generator;
 
         protected BaseSlugGenerator(ISlugger generator)
         {
-            this.generator = generator;
+            this._generator = generator;
         }
 
         public void Generate(T entity)
@@ -19,7 +19,7 @@ namespace UserGroup.Services
             {
                 throw new ArgumentException("must implement ISlug", "entity");
             }
-            slug.SetSlug(generator.GenerateFrom(GetSlugSource(entity)));
+            slug.SetSlug(_generator.GenerateFrom(GetSlugSource(entity)));
         }
 
         protected abstract string GetSlugSource(T entity);

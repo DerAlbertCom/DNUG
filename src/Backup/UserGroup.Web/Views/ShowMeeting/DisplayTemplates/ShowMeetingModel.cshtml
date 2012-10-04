@@ -1,0 +1,42 @@
+﻿@model ShowMeetingModel
+
+<div class="meetinglist">
+    <div class="date">
+        <span>@Html.DisplayFor(meeting => meeting.StartDate)</span><br/>
+        <span>@Html.DisplayFor(meeting => meeting.StartTime)</span>
+    </div>
+    <div class="description">
+        <h3>@Model.Title</h3>
+        <p>@Html.DisplayFor(meeting => meeting.Description)</p>
+        @foreach (var talk in Model.Talks)
+        {
+            <h4>@Html.DisplayFor(m => talk.Title)<h4></h4>
+                @Html.DisplayFor(m => talk.Abstract)</h4>
+            if (!string.IsNullOrWhiteSpace(talk.Description))
+            {
+                <p>@Html.DisplayFor(m => talk.Description)</p>
+            }
+
+            <p>Sprecher: <em>
+                             @foreach (var speaker in talk.Speakers)
+                             {
+                                 <a href="@speaker.SpeakerUrl">@speaker.FullName</a>
+                             }
+                         </em></p>
+        }
+        <h3>Beschreibung</h3>
+        <p>@Html.DisplayFor(meeting => meeting.Text)</p>
+        <p>Datum: <strong>@Html.DisplayFor(m => m.StartDate)</strong> Uhrzeit: <strong>@Html.DisplayFor(m => m.StartTime)</strong></p>
+        @if (!string.IsNullOrWhiteSpace(Model.LocationName))
+        {
+            <p>Ort: <a href="@Model.LocationUrl">@Model.LocationName</a></p>
+        }
+        
+
+        @if (!string.IsNullOrWhiteSpace(Model.RegistrationUrl))
+        {
+            <p><a href="@Model.RegistrationUrl">Weiter zur Anmeldung</a></p>
+        }
+
+    </div>
+</div>

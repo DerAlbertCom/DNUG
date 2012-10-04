@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Aperea.Mappings;
+using Aperea.Infrastructure.Mappings;
 using UserGroup.Data;
 using UserGroup.Entities;
 using UserGroup.Web.Models;
