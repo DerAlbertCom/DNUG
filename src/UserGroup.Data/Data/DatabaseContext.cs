@@ -5,18 +5,11 @@ namespace UserGroup.Data
 {
     public class DatabaseContext : IDatabaseContext
     {
-        readonly IDbContextFactory _factory;
         Lazy<DbContext> _dbContext;
 
-        public DatabaseContext(IDbContextFactory factory)
+        public DatabaseContext(IDbContextFactory cbContextfactory)
         {
-            _factory = factory;
-            _dbContext = new Lazy<DbContext>(CreateDbContext);
-        }
-
-        DbContext CreateDbContext()
-        {
-            return _factory.Create();
+            _dbContext = new Lazy<DbContext>(cbContextfactory.Create);
         }
 
         public DbContext DbContext

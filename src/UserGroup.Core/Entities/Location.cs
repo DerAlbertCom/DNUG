@@ -28,7 +28,7 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            Slug = slug;
+            this.SetSlug(slug, 196);
         }
 
         public Address Address { get; set; }

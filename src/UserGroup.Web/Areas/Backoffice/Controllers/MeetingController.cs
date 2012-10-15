@@ -11,16 +11,16 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class MeetingController : BackofficeController
     {
-        readonly IRepository<Meeting> repository;
+        readonly IRepository<Meeting> _repository;
 
         public MeetingController(IRepository<Meeting> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
-            return View(repository.Entities.ToList<EditMeetingModel>());
+            return View(_repository.Entities.ToList<EditMeetingModel>());
         }
 
         //
@@ -28,7 +28,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Details(int id)
         {
-            EditMeetingModel model = GetMeeting(id).MapTo<EditMeetingModel>();
+            var model = GetMeeting(id).MapTo<EditMeetingModel>();
             return View(model);
         }
 
@@ -50,8 +50,8 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
             {
                 var meeting = new Meeting();
                 model.MapTo(meeting);
-                repository.Add(meeting);
-                repository.SaveChanges();
+                _repository.Add(meeting);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -67,7 +67,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Meeting GetMeeting(int id)
         {
-            return repository
+            return _repository
                 .Include(m => m.Location)
                 .Single(m => m.Id == id);
         }
@@ -82,7 +82,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
             {
                 var meeting = GetMeeting(id);
                 model.MapTo(meeting);
-                repository.SaveChanges();
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

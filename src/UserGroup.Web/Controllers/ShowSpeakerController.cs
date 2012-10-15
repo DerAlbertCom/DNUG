@@ -9,16 +9,16 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowSpeakerController : BaseController
     {
-        readonly IRepository<Speaker> repository;
+        readonly IRepository<Speaker> _repository;
 
         public ShowSpeakerController(IRepository<Speaker> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Details(string slug)
         {
-            return View(repository.Entities.Single(l => l.Slug == slug).MapTo<ShowSpeakerModel>());
+            return View(_repository.Entities.Single(l => l.Slug == slug).MapTo<ShowSpeakerModel>());
         }
     }
 }

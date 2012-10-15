@@ -11,16 +11,16 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class LocationController : BackofficeController
     {
-        readonly IRepository<Location> repository;
+        readonly IRepository<Location> _repository;
 
         public LocationController(IRepository<Location> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
-            return View(repository.Entities.ToList<EditLocationModel>());
+            return View(_repository.Entities.ToList<EditLocationModel>());
         }
 
         //
@@ -28,7 +28,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Details(int id)
         {
-            EditLocationModel model = GetLocation(id).MapTo<EditLocationModel>();
+            var model = GetLocation(id).MapTo<EditLocationModel>();
             return View(model);
         }
 
@@ -48,10 +48,10 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Location = new Location();
-                model.MapTo(Location);
-                repository.Add(Location);
-                repository.SaveChanges();
+                var location = new Location();
+                model.MapTo(location);
+                _repository.Add(location);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -67,7 +67,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Location GetLocation(int id)
         {
-            return repository.Entities
+            return _repository.Entities
                 .Single(m => m.Id == id);
         }
 
@@ -79,9 +79,9 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Location = GetLocation(id);
-                model.MapTo(Location);
-                repository.SaveChanges();
+                var location = GetLocation(id);
+                model.MapTo(location);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

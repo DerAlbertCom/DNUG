@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace UserGroup.Web.Annotations
+namespace UserGroup.Web.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class ShortDateAttribute : UIHintAttribute

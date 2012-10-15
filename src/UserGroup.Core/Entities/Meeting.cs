@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserGroup.Entities
 {
-    public class Meeting : ISlug
+    public  class Meeting : ISlug
     {
         public Meeting()
         {
@@ -27,7 +27,7 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            Slug = slug;
+            this.SetSlug(slug, 196);
         }
 
 
@@ -58,6 +58,6 @@ namespace UserGroup.Entities
         [StringLength(512)]
         public string RegistrationUrl { get; set; }
 
-        public virtual ICollection<Talk> Talks { get; private set; }
+        public ICollection<Talk> Talks { get; private set; }
     }
 }

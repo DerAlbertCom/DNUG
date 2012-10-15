@@ -11,16 +11,16 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class PageController : BackofficeController
     {
-        readonly IRepository<Page> repository;
+        readonly IRepository<Page> _repository;
 
         public PageController(IRepository<Page> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
-            return View(repository.Entities.ToList<EditPageModel>());
+            return View(_repository.Entities.ToList<EditPageModel>());
         }
 
         //
@@ -28,7 +28,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Details(int id)
         {
-            EditPageModel model = GetPage(id).MapTo<EditPageModel>();
+            var model = GetPage(id).MapTo<EditPageModel>();
             return View(model);
         }
 
@@ -48,10 +48,10 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Page = new Page();
-                model.MapTo(Page);
-                repository.Add(Page);
-                repository.SaveChanges();
+                var page = new Page();
+                model.MapTo(page);
+                _repository.Add(page);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -67,7 +67,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Page GetPage(int id)
         {
-            return repository.Entities
+            return _repository.Entities
                 .Single(m => m.Id == id);
         }
 
@@ -79,9 +79,9 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Page = GetPage(id);
-                model.MapTo(Page);
-                repository.SaveChanges();
+                var page = GetPage(id);
+                model.MapTo(page);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

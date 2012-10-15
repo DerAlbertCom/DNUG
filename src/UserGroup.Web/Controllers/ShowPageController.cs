@@ -9,11 +9,11 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowPageController : Controller
     {
-        readonly IRepository<Page> repository;
+        readonly IRepository<Page> _repository;
 
         public ShowPageController(IRepository<Page> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Details(string slug)
@@ -23,7 +23,7 @@ namespace UserGroup.Web.Controllers
 
         Page GetPage(string slug)
         {
-            return repository.Entities.Single(p => p.Slug == slug);
+            return _repository.Entities.Single(p => p.Slug == slug);
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using UserGroup.Web.Annotations;
+using UserGroup.Web.DataAnnotations;
 
 namespace UserGroup.Web.Models
 {

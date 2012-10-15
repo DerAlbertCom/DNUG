@@ -25,7 +25,7 @@ namespace UserGroup.Web.Controllers
 
         protected void SetReferrerAsBacklink()
         {
-            Uri urlReferrer = HttpContext.Request.UrlReferrer;
+            var urlReferrer = HttpContext.Request.UrlReferrer;
             if (urlReferrer != null)
                 ViewBag.BackLinkUrl = urlReferrer.AbsolutePath;
         }

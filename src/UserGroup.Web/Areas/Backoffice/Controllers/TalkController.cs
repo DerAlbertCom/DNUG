@@ -11,16 +11,16 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class TalkController : BackofficeController
     {
-        readonly IRepository<Talk> repository;
+        readonly IRepository<Talk> _repository;
 
         public TalkController(IRepository<Talk> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
-            return View(repository.Entities.ToList<EditTalkModel>());
+            return View(_repository.Entities.ToList<EditTalkModel>());
         }
 
         //
@@ -28,7 +28,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Details(int id)
         {
-            EditTalkModel model = GetTalk(id).MapTo<EditTalkModel>();
+            var model = GetTalk(id).MapTo<EditTalkModel>();
             return View(model);
         }
 
@@ -48,10 +48,10 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Talk = new Talk();
-                model.MapTo(Talk);
-                repository.Add(Talk);
-                repository.SaveChanges();
+                var talk = new Talk();
+                model.MapTo(talk);
+                _repository.Add(talk);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -67,7 +67,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Talk GetTalk(int id)
         {
-            return repository.Include(t => t.Meeting)
+            return _repository.Include(t => t.Meeting)
                 .Single(m => m.Id == id);
         }
 
@@ -79,9 +79,9 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Talk = GetTalk(id);
-                model.MapTo(Talk);
-                repository.SaveChanges();
+                var talk = GetTalk(id);
+                model.MapTo(talk);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

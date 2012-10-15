@@ -9,16 +9,16 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowLocationController : BaseController
     {
-        readonly IRepository<Location> repository;
+        readonly IRepository<Location> _repository;
 
         public ShowLocationController(IRepository<Location> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Details(string slug)
         {
-            return View(repository.Entities.Single(l => l.Slug == slug).MapTo<ShowLocationModel>());
+            return View(_repository.Entities.Single(l => l.Slug == slug).MapTo<ShowLocationModel>());
         }
     }
 }

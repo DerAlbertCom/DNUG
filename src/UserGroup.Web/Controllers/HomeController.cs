@@ -10,13 +10,13 @@ namespace UserGroup.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        readonly IRepository<Meeting> meetingRepository;
-        readonly IRepository<Page> pageRepository;
+        readonly IRepository<Meeting> _meetingRepository;
+        readonly IRepository<Page> _pageRepository;
 
         public HomeController(IRepository<Meeting> meetingRepository, IRepository<Page> pageRepository)
         {
-            this.meetingRepository = meetingRepository;
-            this.pageRepository = pageRepository;
+            _meetingRepository = meetingRepository;
+            _pageRepository = pageRepository;
         }
 
         public ActionResult Index()
@@ -33,14 +33,14 @@ namespace UserGroup.Web.Controllers
 
         Page GetHomepage()
         {
-            return pageRepository.Entities.Single(p => p.Slug == "homepage");
+            return _pageRepository.Entities.Single(p => p.Slug == "homepage");
         }
 
         Meeting GetNextMeeting()
         {
             var currentDate = DateTime.Now.ToUniversalTime().Date.AddDays(-2);
 
-            var query = from m in meetingRepository.Entities
+            var query = from m in _meetingRepository.Entities
                         where m.StartTime > currentDate
                         orderby m.StartTime
                         select m;

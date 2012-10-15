@@ -6,22 +6,21 @@ using UserGroup.Data;
 using UserGroup.Entities;
 using UserGroup.Web.Areas.Backoffice.Models;
 using UserGroup.Web.Extensions;
-using UserGroup.Web.Models;
 
 namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class SpeakerController : BackofficeController
     {
-        readonly IRepository<Speaker> repository;
+        readonly IRepository<Speaker> _repository;
 
         public SpeakerController(IRepository<Speaker> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
-            return View(repository.Entities.ToList<EditSpeakerModel>());
+            return View(_repository.Entities.ToList<EditSpeakerModel>());
         }
 
         //
@@ -29,7 +28,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Details(int id)
         {
-            EditSpeakerModel model = GetSpeaker(id).MapTo<EditSpeakerModel>();
+            var model = GetSpeaker(id).MapTo<EditSpeakerModel>();
             return View(model);
         }
 
@@ -49,10 +48,10 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Speaker = new Speaker();
-                model.MapTo(Speaker);
-                repository.Add(Speaker);
-                repository.SaveChanges();
+                var speaker = new Speaker();
+                model.MapTo(speaker);
+                _repository.Add(speaker);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -61,6 +60,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         //
         // GET: /Backoffice/Speaker/Edit/5
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             return View(GetSpeaker(id).MapTo<EditSpeakerModel>());
@@ -68,7 +68,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Speaker GetSpeaker(int id)
         {
-            return repository.Entities
+            return _repository.Entities
                 .Single(m => m.Id == id);
         }
 
@@ -80,9 +80,9 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Speaker = GetSpeaker(id);
-                model.MapTo(Speaker);
-                repository.SaveChanges();
+                var speaker = GetSpeaker(id);
+                model.MapTo(speaker);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -91,6 +91,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
         //
         // GET: /Backoffice/Speaker/Delete/5
 
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             return View();

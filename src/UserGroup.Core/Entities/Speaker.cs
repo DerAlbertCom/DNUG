@@ -21,7 +21,7 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            Slug = slug;
+            this.SetSlug(slug, 196);
         }
 
         [StringLength(256)]

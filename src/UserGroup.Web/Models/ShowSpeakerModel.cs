@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using UserGroup.Web.Annotations;
+using UserGroup.Web.DataAnnotations;
 
 namespace UserGroup.Web.Models
 {

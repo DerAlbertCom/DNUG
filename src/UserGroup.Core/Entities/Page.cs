@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserGroup.Entities
 {
-    public class Page
+    public class Page : ISlug
     {
         public int Id { get; private set; }
 
@@ -23,7 +23,7 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            Slug = slug;
+            this.SetSlug(slug, 192);
         }
     }
 }

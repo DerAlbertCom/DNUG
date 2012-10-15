@@ -11,17 +11,17 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowMeetingController : BaseController
     {
-        readonly IRepository<Meeting> repository;
+        readonly IRepository<Meeting> _repository;
 
         public ShowMeetingController(IRepository<Meeting> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
 
-            var model = repository.Entities.OrderByDescending(e => e.StartTime).ToList<MeetingLineModel>();
+            var model = _repository.Entities.OrderByDescending(e => e.StartTime).ToList<MeetingLineModel>();
             return View(model);
         }
 
@@ -33,7 +33,7 @@ namespace UserGroup.Web.Controllers
 
         Meeting GetMeeting(string slug)
         {
-            return repository.Include("Location","Talks").Single(m=>m.Slug==slug);
+            return _repository.Include("Location","Talks").Single(m=>m.Slug==slug);
         }
     }
 }

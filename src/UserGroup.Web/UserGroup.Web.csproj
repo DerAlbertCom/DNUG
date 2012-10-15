@@ -145,8 +145,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Annotations\ShortDateAttribute.cs" />
-    <Compile Include="Annotations\ShortTimeAttribute.cs" />
+    <Compile Include="DataAnnotations\ShortDateAttribute.cs" />
+    <Compile Include="DataAnnotations\ShortTimeAttribute.cs" />
     <Compile Include="Areas\Backoffice\BackofficeAreaRegistration.cs" />
     <Compile Include="Areas\Backoffice\Controllers\AdminController.cs" />
     <Compile Include="Areas\Backoffice\Controllers\BackofficeController.cs" />
@@ -159,7 +159,7 @@
     <Compile Include="Areas\Backoffice\Models\EditLocationModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditTalkModel.cs" />
     <Compile Include="Areas\Backoffice\Models\EditSpeakerModel.cs" />
-    <Compile Include="Annotations\WikiAttribute.cs" />
+    <Compile Include="DataAnnotations\WikiAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -181,6 +181,7 @@
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Infrastructure\IoC\RegistryForApplication.cs" />
     <Compile Include="Infrastructure\IoC\SlugGeneratorConvention.cs" />
+    <Compile Include="Infrastructure\IoC\StructureMapViewPageActivator.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Mappings\LocationProfile.cs" />
     <Compile Include="Mappings\PageProfile.cs" />
@@ -276,7 +277,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <TypeScriptCompile Include="js\Testing.ts" />
+    <Content Include="js\Testing.js">
+      <DependentUpon>Testing.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.9-RC1.js" />

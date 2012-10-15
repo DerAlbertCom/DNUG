@@ -11,7 +11,7 @@ namespace UserGroup.Entities
         {
             Speakers = new Collection<Speaker>();
         }
-        
+
         public int Id { get; private set; }
 
         [Required]
@@ -24,7 +24,7 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            Slug = slug;
+            this.SetSlug(slug, 196);
         }
 
         [Required]

@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using UserGroup.Entities;
+using UserGroup.Web.DataAnnotations;
 
 namespace UserGroup.Web.Areas.Backoffice.Models
 {
@@ -21,6 +22,7 @@ namespace UserGroup.Web.Areas.Backoffice.Models
 
         [StringLength(2048)]
         [DataType(DataType.MultilineText)]
+        [Wiki]
         public string Description { get; set; }
 
         [StringLength(2048)]

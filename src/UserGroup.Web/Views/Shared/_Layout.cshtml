@@ -41,7 +41,15 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - @Html.ActionLink(".net user group Köln", "Index", "Admin", new {area = "backoffice"}, null)</p>
+                    @if (Request.IsLocal)
+                    {
+                        <p>&copy; @DateTime.Now.Year - @Html.ActionLink(".net user group Köln", "Index", "Admin", new {area = "backoffice"}, null)</p>
+                    }
+                    else
+                    {
+                    <p>&copy; @DateTime.Now.Year - <a href="https://dotnet-koelnbonn.de/dotnet-koeln/backoffice">.net user group Köln</a></p>
+                        
+                    }
                 </div>
                 <div class="float-right">
                     <ul id="social">
@@ -50,7 +58,7 @@
             </div>
         </footer>
         <script type="text/javascript">
-            $(function() {
+            $(function () {
                 $.i18n.setLocale("de");
             });
         </script>

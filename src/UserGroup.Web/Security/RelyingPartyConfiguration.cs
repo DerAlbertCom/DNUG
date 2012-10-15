@@ -12,46 +12,46 @@ namespace UserGroup.Web.Security
 {
     public class RelyingPartyConfiguration : Aperea.Identity.IRelyingPartyConfiguration
     {
-        readonly IActionUrlBuilder urlBuilder;
-        readonly IEncryptionSettings encryptionSettings;
-        readonly ISigningSettings signingSettings;
+        readonly IActionUrlBuilder _urlBuilder;
+        readonly IEncryptionSettings _encryptionSettings;
+        readonly ISigningSettings _signingSettings;
 
         public RelyingPartyConfiguration(IActionUrlBuilder urlBuilder, IEncryptionSettings encryptionSettings,
                                          ISigningSettings signingSettings)
         {
-            this.urlBuilder = urlBuilder;
-            this.encryptionSettings = encryptionSettings;
-            this.signingSettings = signingSettings;
+            _urlBuilder = urlBuilder;
+            _encryptionSettings = encryptionSettings;
+            _signingSettings = signingSettings;
         }
 
         public string IssuerUri
         {
-            get { return urlBuilder.GetActionUrl("Index", "Home"); }
+            get { return _urlBuilder.GetActionUrl("Index", "Home"); }
         }
 
         public X509Certificate2 EncryptionCertificate
         {
-            get { return encryptionSettings.Certificate; }
+            get { return _encryptionSettings.Certificate; }
         }
 
         public bool Encrypt
         {
-            get { return encryptionSettings.Encrypt; }
+            get { return _encryptionSettings.Encrypt; }
         }
 
         public bool Sign
         {
-            get { return signingSettings.Sign; }
+            get { return _signingSettings.Sign; }
         }
 
         public X509Certificate2 SigningCertificate
         {
-            get { return signingSettings.Certificate; }
+            get { return _signingSettings.Certificate; }
         }
 
         public IEnumerable<string> GetPassiveRequestorEndpoints()
         {
-            yield return urlBuilder.GetActionUrl("Index", "Home");
+            yield return _urlBuilder.GetActionUrl("Index", "Home");
         }
 
         public IEnumerable<DisplayClaim> GetClaimTypsRequested()

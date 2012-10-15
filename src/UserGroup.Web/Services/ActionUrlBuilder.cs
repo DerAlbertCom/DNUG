@@ -7,13 +7,15 @@ namespace UserGroup.Web.Services
 {
     public class ActionUrlBuilder : IActionUrlBuilder
     {
-        readonly HttpContextBase httpContext;
-        readonly HttpRequestBase httpRequest;
+        readonly HttpContextBase _httpContext;
+        readonly HttpRequestBase _httpRequest;
 
         public ActionUrlBuilder(HttpContextBase httpContext, HttpRequestBase httpRequest)
         {
-            this.httpContext = httpContext;
-            this.httpRequest = httpRequest;
+            if (httpContext == null) throw new ArgumentNullException("httpContext");
+            if (httpRequest == null) throw new ArgumentNullException("httpRequest");
+            _httpContext = httpContext;
+            _httpRequest = httpRequest;
         }
 
         public string GetActionUrl(string action, string controller)
@@ -35,12 +37,12 @@ namespace UserGroup.Web.Services
 
         string GetBaseUrl()
         {
-            return string.Format("{0}://{1}", httpRequest.Url.Scheme, httpRequest.Url.Authority);
+            return string.Format("{0}://{1}", _httpRequest.Url.Scheme, _httpRequest.Url.Authority);
         }
 
         RequestContext CreateRequestContext()
         {
-            return new RequestContext(httpContext, RouteTable.Routes.GetRouteData(httpContext));
+            return new RequestContext(_httpContext, RouteTable.Routes.GetRouteData(_httpContext));
         }
     }
 }
