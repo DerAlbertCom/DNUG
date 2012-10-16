@@ -3,7 +3,7 @@ using Aperea.Infrastructure.Bootstrap;
 
 namespace UserGroup.Web.Infrastructure.Initialize
 {
-    public class InitalizeBundle : BootstrapItem
+    public class InitializeBundle : BootstrapItem
     {
         public override int Order
         {

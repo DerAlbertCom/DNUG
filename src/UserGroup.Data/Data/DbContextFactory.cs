@@ -7,16 +7,16 @@ namespace UserGroup.Data
 {
     public class DbContextFactory : IDbContextFactory
     {
-        readonly IServiceLocator _locator;
+        readonly IServiceLocator locator;
 
         public DbContextFactory(IServiceLocator locator)
         {
-            _locator = locator;
+            this.locator = locator;
         }
 
         public DbContext Create()
         {
-            return new UserGroupDbContext(_locator.GetInstance<ISlugGeneratorFactory>());
+            return new UserGroupDbContext(locator.GetInstance<ISlugGeneratorFactory>());
         }
     }
 }

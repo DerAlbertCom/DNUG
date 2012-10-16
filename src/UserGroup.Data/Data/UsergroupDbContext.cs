@@ -10,6 +10,8 @@ namespace UserGroup.Data
 {
     public class UserGroupDbContext : DbContext
     {
+        readonly ISlugGeneratorFactory factory;
+
         public UserGroupDbContext(ISlugGeneratorFactory factory)
         {
             this.factory = factory;
@@ -17,7 +19,10 @@ namespace UserGroup.Data
             Configuration.ProxyCreationEnabled = false;
         }
 
-        readonly ISlugGeneratorFactory factory;
+        public UserGroupDbContext()
+        {
+            
+        }
 
         public override int SaveChanges()
         {
@@ -68,7 +73,7 @@ namespace UserGroup.Data
             modelBuilder.Entity<Meeting>();
             modelBuilder.Entity<Person>();
             modelBuilder.Entity<Location>();
-            modelBuilder.Entity<Talk>();//.HasMany(t => t.Speakers).WithMany();
+            modelBuilder.Entity<Talk>().HasMany(t => t.Speakers).WithMany();
             modelBuilder.Entity<Page>();
         }
 

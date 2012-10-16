@@ -8,7 +8,7 @@ namespace UserGroup.Web.Infrastructure.Initialize
     {
         public override void Execute()
         {
-            Database.SetInitializer(UserGroupDb.GetDevelopmentInitializer());
+            Database.SetInitializer(UserGroupDb.GetDatabaseInitializer());
         }
     }
 }

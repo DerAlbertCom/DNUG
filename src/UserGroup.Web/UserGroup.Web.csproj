@@ -175,7 +175,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Initialize\InitalizeBundle.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeBundle.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeDatabase.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Infrastructure\IoC\RegistryForApplication.cs" />
