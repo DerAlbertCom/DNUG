@@ -177,7 +177,6 @@
     </Compile>
     <Compile Include="Infrastructure\Initialize\InitalizeBundle.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeDatabase.cs" />
-    <Compile Include="Infrastructure\Initialize\InitializeHttpRoutes.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Infrastructure\IoC\RegistryForApplication.cs" />
     <Compile Include="Infrastructure\IoC\SlugGeneratorConvention.cs" />
@@ -213,7 +212,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css">
-      <DependentUpon>Site.scss</DependentUpon>
+      <DependentUpon>Site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.less</DependentUpon>
     </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -285,8 +287,8 @@
     </Content>
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
-    <Content Include="Scripts\jquery-ui-1.9-RC1.js" />
-    <Content Include="Scripts\jquery-ui-1.9-RC1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
     <Content Include="Scripts\jquery-ui-i18n.js" />
     <Content Include="Scripts\jquery-ui-i18n.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -390,7 +392,7 @@
     <Content Include="Areas\Backoffice\Views\Page\Details.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Index.cshtml" />
-    <None Include="Content\Site.scss">
+    <None Include="Content\Site.less">
       <Compile>True</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
