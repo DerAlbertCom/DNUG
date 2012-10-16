@@ -5,27 +5,27 @@ namespace UserGroup.Data
 {
     public class DatabaseContext : IDatabaseContext
     {
-        Lazy<DbContext> _dbContext;
+        Lazy<DbContext> dbContext;
 
         public DatabaseContext(IDbContextFactory cbContextfactory)
         {
-            _dbContext = new Lazy<DbContext>(cbContextfactory.Create);
+            dbContext = new Lazy<DbContext>(cbContextfactory.Create);
         }
 
         public DbContext DbContext
         {
-            get { return _dbContext.Value; }
+            get { return dbContext.Value; }
         }
 
         public void Dispose()
         {
-            if (_dbContext == null || !_dbContext.IsValueCreated) return;
+            if (dbContext == null || !dbContext.IsValueCreated) return;
 
-            if (_dbContext.IsValueCreated)
+            if (dbContext.IsValueCreated)
             {
-                _dbContext.Value.Dispose();
+                dbContext.Value.Dispose();
             }
-            _dbContext = null;
+            dbContext = null;
         }
     }
 }

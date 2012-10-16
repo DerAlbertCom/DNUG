@@ -12,12 +12,12 @@ namespace UserGroup.Data
     {
         public UserGroupDbContext(ISlugGeneratorFactory factory)
         {
-            _factory = factory;
+            this.factory = factory;
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = false;
         }
 
-        readonly ISlugGeneratorFactory _factory;
+        readonly ISlugGeneratorFactory factory;
 
         public override int SaveChanges()
         {
@@ -27,10 +27,10 @@ namespace UserGroup.Data
                 {
                     if (entry.State == EntityState.Added && entry.Entity is ISlug)
                     {
-                        var sluggy = (ISlug) entry.Entity;
+                        var sluggy = (ISlug)entry.Entity;
                         if (string.IsNullOrWhiteSpace(sluggy.Slug))
                         {
-                            var generator = _factory.GetSlugGenerator(entry.Entity.GetType());
+                            var generator = factory.GetSlugGenerator(entry.Entity.GetType());
                             generator.Generate(entry.Entity);
                         }
                     }
@@ -42,7 +42,7 @@ namespace UserGroup.Data
             catch (DbEntityValidationException e)
             {
                 // Diese Exception sollte im Betrieb nicht auftreten, jedoch kann es beim Entwickeln dazu kommen dass
-                // die Werte mit der die Datenbank beim erstellen initialisiert wird Fehler enthält. Dazu einfach bei
+                // die Werte mit der die Datenbank beim erstellen initialisiert wird Fehler enthält. Dazu einfach beim
                 // throw einen Breakpoint setzten und reindebuggen
                 var sb = new StringBuilder();
                 foreach (var entityValidationError in e.EntityValidationErrors)
@@ -68,7 +68,7 @@ namespace UserGroup.Data
             modelBuilder.Entity<Meeting>();
             modelBuilder.Entity<Person>();
             modelBuilder.Entity<Location>();
-            modelBuilder.Entity<Talk>();
+            modelBuilder.Entity<Talk>();//.HasMany(t => t.Speakers).WithMany();
             modelBuilder.Entity<Page>();
         }
 
