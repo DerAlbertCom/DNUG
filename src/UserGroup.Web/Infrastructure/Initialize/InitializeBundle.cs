@@ -22,11 +22,16 @@ namespace UserGroup.Web.Infrastructure.Initialize
 
             var jsBundle = new ScriptBundle("~/resources/js").Include(
                 "~/Scripts/jquery-1.8.2.js",
-                "~/Scripts/modernizr-2.6.2.js",
-                "~/Scripts/jquery-ui-i18n.js");
+                "~/Scripts/modernizr-2.6.2.js"
+                );
 
+            var jsValBundle = new ScriptBundle("~/resources/jsval").Include(
+                "~/Scripts/jquery.validate.min.js",
+                "~/Scripts/jquery.validate.unobtrusive.min.js"
+                );
             bundles.Add(cssBundle);
             bundles.Add(jsBundle);
+            bundles.Add(jsValBundle);
         }
     }
 }

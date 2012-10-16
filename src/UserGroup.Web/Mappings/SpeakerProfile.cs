@@ -11,6 +11,7 @@ namespace UserGroup.Web.Mappings
         protected override void Configure()
         {
             CreateMap<Speaker, EditSpeakerModel>();
+            CreateMap<Speaker, DisplaySpeakerLineModel>();
             CreateMap<Speaker, ShowSpeakerModel>();
             CreateMap<EditSpeakerModel, Speaker>()
                 .ForMember(c => c.Slug, c => c.Ignore());

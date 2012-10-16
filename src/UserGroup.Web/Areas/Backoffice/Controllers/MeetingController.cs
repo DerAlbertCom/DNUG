@@ -11,16 +11,16 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class MeetingController : BackofficeController
     {
-        readonly IRepository<Meeting> _repository;
+        readonly IRepository<Meeting> repository;
 
         public MeetingController(IRepository<Meeting> repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public ActionResult Index()
         {
-            return View(_repository.Entities.ToList<EditMeetingModel>());
+            return View(repository.Entities.OrderByDescending(m => m.StartTime).ToList<DisplayMeetingLineModel>());
         }
 
         //
@@ -37,7 +37,8 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Create()
         {
-            return View(new EditMeetingModel());
+            var model = new Meeting().MapTo<EditMeetingModel>();
+            return View(model);
         }
 
         //
@@ -50,8 +51,8 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
             {
                 var meeting = new Meeting();
                 model.MapTo(meeting);
-                _repository.Add(meeting);
-                _repository.SaveChanges();
+                repository.Add(meeting);
+                repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -67,7 +68,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Meeting GetMeeting(int id)
         {
-            return _repository
+            return repository
                 .Include(m => m.Location)
                 .Single(m => m.Id == id);
         }
@@ -82,7 +83,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
             {
                 var meeting = GetMeeting(id);
                 model.MapTo(meeting);
-                _repository.SaveChanges();
+                repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

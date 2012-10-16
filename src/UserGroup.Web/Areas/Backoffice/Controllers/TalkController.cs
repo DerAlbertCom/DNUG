@@ -11,16 +11,18 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 {
     public class TalkController : BackofficeController
     {
-        readonly IRepository<Talk> _repository;
+        readonly IRepository<Talk> repository;
+        readonly IRepository<Speaker> speakerRepository;
 
-        public TalkController(IRepository<Talk> repository)
+        public TalkController(IRepository<Talk> repository, IRepository<Speaker> speakerRepository)
         {
-            _repository = repository;
+            this.repository = repository;
+            this.speakerRepository = speakerRepository;
         }
 
         public ActionResult Index()
         {
-            return View(_repository.Entities.ToList<EditTalkModel>());
+            return View(repository.Entities.OrderByDescending(t=>t.Meeting.StartTime).ToList<DisplayTalkLineModel>());
         }
 
         //
@@ -28,16 +30,32 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Details(int id)
         {
-            var model = GetTalk(id).MapTo<EditTalkModel>();
+            var model = GetTalk(id).MapTo<DisplayTalkModel>();
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult AddSpeaker(int id, int speakerId)
+        {
+            var talk = (from t in repository.Include("Speakers")
+                       where t.Id == id
+                       select t).Single();
+            if (talk.Speakers.All(s => s.Id != speakerId))
+            {
+                var speaker = speakerRepository.Entities.Single(s => s.Id == speakerId);
+                talk.Speakers.Add(speaker);
+                repository.SaveChanges();
+            }
+            
+            return RedirectToAction("Details",new {id});
+        }
         //
         // GET: /Backoffice/Talk/Create
 
         public ActionResult Create()
         {
-            return View(new EditTalkModel());
+            var model = new Talk().MapTo<EditTalkModel>();
+            return View(model);
         }
 
         //
@@ -50,8 +68,8 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
             {
                 var talk = new Talk();
                 model.MapTo(talk);
-                _repository.Add(talk);
-                _repository.SaveChanges();
+                repository.Add(talk);
+                repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -67,7 +85,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         Talk GetTalk(int id)
         {
-            return _repository.Include(t => t.Meeting)
+            return repository.Include("Meeting","Speakers")
                 .Single(m => m.Id == id);
         }
 
@@ -81,7 +99,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
             {
                 var talk = GetTalk(id);
                 model.MapTo(talk);
-                _repository.SaveChanges();
+                repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

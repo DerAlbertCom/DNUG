@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using UserGroup.Web.DataAnnotations;
 
 namespace UserGroup.Web.Areas.Backoffice.Models
@@ -46,9 +49,12 @@ namespace UserGroup.Web.Areas.Backoffice.Models
 
         public int Duration { get; set; }
 
-        [UIHint("LocationSelect")]
+        [UIHint("DropDown")]
+        [DisplayName("Location")]
         public int LocationId { get; set; }
-        
+
+        public IEnumerable<SelectListItem> LocationSelectList { get; set; }
+
         [StringLength(512)]
         [DataType(DataType.Url)]
         public string RegistrationUrl { get; set; }

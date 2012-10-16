@@ -33,7 +33,7 @@ namespace UserGroup.Web.Controllers
 
         Meeting GetMeeting(string slug)
         {
-            return _repository.Include("Location","Talks").Single(m=>m.Slug==slug);
+            return _repository.Include("Location","Talks.Speakers").Single(m=>m.Slug==slug);
         }
     }
 }

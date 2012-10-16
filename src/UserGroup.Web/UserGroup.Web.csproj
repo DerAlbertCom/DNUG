@@ -61,9 +61,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Aperea.Identity.0.7.3.68\lib\net40\Aperea.Identity.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=2.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+    <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.2.2.1-ci8\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="ColorCode">
       <HintPath>..\packages\ColorCode.1.0.1\lib\ColorCode.dll</HintPath>
@@ -145,6 +145,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Backoffice\Models\DisplayMeetingLineModel.cs" />
+    <Compile Include="Areas\Backoffice\Models\DisplaySpeakerLineModel.cs" />
+    <Compile Include="Areas\Backoffice\Models\DisplayTalkLineModel.cs" />
+    <Compile Include="Areas\Backoffice\Models\DisplayTalkModel.cs" />
     <Compile Include="DataAnnotations\ShortDateAttribute.cs" />
     <Compile Include="DataAnnotations\ShortTimeAttribute.cs" />
     <Compile Include="Areas\Backoffice\BackofficeAreaRegistration.cs" />
@@ -177,6 +181,7 @@
     </Compile>
     <Compile Include="Infrastructure\Initialize\InitializeBundle.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeDatabase.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeIdentity.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Infrastructure\IoC\RegistryForApplication.cs" />
     <Compile Include="Infrastructure\IoC\SlugGeneratorConvention.cs" />
@@ -184,12 +189,15 @@
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Mappings\LocationProfile.cs" />
     <Compile Include="Mappings\PageProfile.cs" />
+    <Compile Include="Mappings\Resolver\LocationSelectListResolver.cs" />
+    <Compile Include="Mappings\Resolver\MeetingSelectListResolver.cs" />
     <Compile Include="Mappings\Resolver\PageUrlResolver.cs" />
     <Compile Include="Mappings\Resolver\LocationResolver.cs" />
     <Compile Include="Mappings\Resolver\LocationUrlResolver.cs" />
     <Compile Include="Mappings\MeetingProfile.cs" />
     <Compile Include="Mappings\Resolver\MeetingResolver.cs" />
     <Compile Include="Mappings\Resolver\MeetingUrlResolver.cs" />
+    <Compile Include="Mappings\Resolver\SpeakerSelectListResolver.cs" />
     <Compile Include="Mappings\Resolver\SpeakerUrlResolver.cs" />
     <Compile Include="Mappings\SpeakerProfile.cs" />
     <Compile Include="Mappings\TalkProfile.cs" />
@@ -279,6 +287,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\EditMeetingModel.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\EditTalkModel.cshtml" />
     <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <TypeScriptCompile Include="js\Testing.ts" />
@@ -333,6 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Backoffice\Views\Meeting\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -385,8 +396,7 @@
     <Content Include="Areas\Backoffice\Views\Location\Index.cshtml" />
     <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\Address.cshtml" />
     <Content Include="Areas\Backoffice\Views\Location\EditorTemplates\EditLocationModel.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\LocationSelect.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\MeetingSelect.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\DropDown.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Create.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Delete.cshtml" />
     <Content Include="Areas\Backoffice\Views\Page\Details.cshtml" />

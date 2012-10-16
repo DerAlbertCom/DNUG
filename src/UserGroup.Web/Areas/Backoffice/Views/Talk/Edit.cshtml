@@ -1,4 +1,5 @@
-﻿@model EditTalkModel
+﻿@using System.Web.Optimization
+@model EditTalkModel
 
 @{
     ViewBag.Title = "Edit";
@@ -6,8 +7,7 @@
 
 <h2>Bearbeiten: @Model.Title</h2>
 
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+@Scripts.Render("~/resources/jsval")
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()

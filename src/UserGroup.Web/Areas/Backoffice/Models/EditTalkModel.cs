@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using UserGroup.Web.DataAnnotations;
 
 namespace UserGroup.Web.Areas.Backoffice.Models
@@ -19,8 +21,10 @@ namespace UserGroup.Web.Areas.Backoffice.Models
         [Wiki]
         public string Abstract { get; set; }
 
-        [UIHint("MeetingSelect")]
+        [UIHint("DropDown")]
         public int MeetingId { get; set; }
+
+        public IEnumerable<SelectListItem> MeetingSelectList { get; set; }
 
         [StringLength(2048)]
         [DataType(DataType.MultilineText)]

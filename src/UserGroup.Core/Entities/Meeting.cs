@@ -11,7 +11,6 @@ namespace UserGroup.Entities
         {
             DisplayFrom = DateTime.UtcNow;
             StartTime = DateTime.UtcNow;
-
             Talks = new Collection<Talk>();
         }
 
@@ -23,11 +22,12 @@ namespace UserGroup.Entities
 
         [Required]
         [StringLength(196)]
-        public string Slug { get; private set; }
+        public string Slug { get; set; }
 
         public void SetSlug(string slug)
         {
-            this.SetSlug(slug, 196);
+            this.SetSlugInternal(slug, 196);
+
         }
 
 

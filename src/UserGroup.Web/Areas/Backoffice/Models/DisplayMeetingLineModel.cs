@@ -1,14 +1,13 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using UserGroup.Web.DataAnnotations;
 
-namespace UserGroup.Web.Models
+namespace UserGroup.Web.Areas.Backoffice.Models
 {
-    public class MeetingLineModel
+    public class DisplayMeetingLineModel
     {
         public int Id { get; set; }
-        public string Slug { get; set; }
-        
+
         [DisplayName("Datum")]
         [ShortDate]
         public DateTime StartDate { get; set; }
@@ -16,14 +15,12 @@ namespace UserGroup.Web.Models
         [DisplayName("Uhrzeit")]
         [ShortTime]
         public TimeSpan StartTime { get; set; }
-        
-        [DisplayName("Titel")]
-        public string Title { get; set; }
 
         [DisplayName("Beschreibung")]
         [Wiki]
         public string Description { get; set; }
 
-        public string MeetingDetailUrl { get; set; }
+        [DisplayName("Titel")]
+        public string Title { get; set; }
     }
 }

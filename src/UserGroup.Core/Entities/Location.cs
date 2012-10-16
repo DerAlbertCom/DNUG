@@ -18,7 +18,7 @@ namespace UserGroup.Entities
 
         [Required]
         [StringLength(196)]
-        public string Slug { get; private set; }
+        public string Slug { get; set; }
 
         [StringLength(2048)]
         public string Description { get; set; }
@@ -28,7 +28,8 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            this.SetSlug(slug, 196);
+            this.SetSlugInternal(slug, 196);
+
         }
 
         public Address Address { get; set; }

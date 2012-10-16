@@ -23,7 +23,7 @@ namespace UserGroup.Entities
 
         public void SetSlug(string slug)
         {
-            this.SetSlug(slug, 192);
+            this.SetSlugInternal(slug, 192);
         }
     }
 }

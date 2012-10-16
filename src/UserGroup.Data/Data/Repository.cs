@@ -15,12 +15,10 @@ namespace UserGroup.Data
         readonly IDatabaseContext context;
 
         readonly Lazy<DbSet<T>> database;
-        readonly ISlugGeneratorFactory generatorFactory;
 
-        public Repository(IDatabaseContext context, ISlugGeneratorFactory generatorFactory)
+        public Repository(IDatabaseContext context)
         {
             this.context = context;
-            this.generatorFactory = generatorFactory;
             database = new Lazy<DbSet<T>>(() => context.DbContext.Set<T>(), isThreadSafe: false);
         }
 
@@ -31,14 +29,6 @@ namespace UserGroup.Data
 
         public void Add(T entity)
         {
-            var slugger = entity as ISlug;
-            if (slugger!=null)
-            {
-                if (string.IsNullOrWhiteSpace(slugger.Slug))
-                {
-                    var generator = generatorFactory.GetSlugGenerator<T>();
-                }
-            }
             database.Value.Add(entity);
         }
 
@@ -56,7 +46,7 @@ namespace UserGroup.Data
             }
             return query;
         }
-        
+
         public void Update(T person)
         {
             context.DbContext.Entry(person).State = EntityState.Modified;

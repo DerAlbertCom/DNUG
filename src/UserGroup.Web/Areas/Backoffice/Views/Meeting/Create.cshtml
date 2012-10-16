@@ -1,4 +1,6 @@
-﻿@model UserGroup.Web.Areas.Backoffice.Models.EditMeetingModel
+﻿@* ReSharper disable RedundantNameQualifier *@
+@model UserGroup.Web.Areas.Backoffice.Models.EditMeetingModel
+@* ReSharper restore RedundantNameQualifier *@
 
 @{
     ViewBag.Title = "Create";
@@ -6,20 +8,15 @@
 
 <h2>Create</h2>
 
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+@Scripts.Render("~/resources/jsval")
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-
     <div class="detail create">
         @Html.EditorForModel()
-    </div>
-
-        <p>
-            <input type="submit" value="Create" />
+    </div><p>
+            <button type="submit">Erstellen</button>
         </p>
 }
 

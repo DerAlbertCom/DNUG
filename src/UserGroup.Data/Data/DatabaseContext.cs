@@ -14,7 +14,14 @@ namespace UserGroup.Data
 
         public DbContext DbContext
         {
-            get { return dbContext.Value; }
+            get
+            {
+#if DEBUG
+                if (dbContext==null)
+                    throw new InvalidOperationException("the db context is null, it seems that the DbContext is access directly on a view, this is forbidden. Please use the Controller to gather all data for the view");
+#endif
+                return dbContext.Value;
+            }
         }
 
         public void Dispose()

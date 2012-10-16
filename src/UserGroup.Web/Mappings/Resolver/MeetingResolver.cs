@@ -1,4 +1,5 @@
 using System;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using UserGroup.Data;

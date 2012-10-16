@@ -1,0 +1,5 @@
+﻿@model int
+@{
+    IEnumerable<SelectListItem> list = ViewBag.List; 
+}
+@Html.DropDownList("", list)

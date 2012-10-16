@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EditTalkModel>
+﻿@model IEnumerable<DisplayTalkLineModel>
 
 @{
     ViewBag.Title = "Index";
@@ -14,6 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
+        <th>@Html.DisplayNameFor(model => model.MeetingTitle)</th>
         <th></th>
     </tr>
 
@@ -21,8 +22,9 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Title, "Details", new {id = item.Id}) |
+                @Html.ActionLink(item.Title, "Details", new {id = item.Id})
             </td>
+            <td>@item.MeetingTitle</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
                 @Html.ActionLink("Delete", "Delete", new {id = item.Id})

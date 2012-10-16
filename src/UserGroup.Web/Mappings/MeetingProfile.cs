@@ -15,12 +15,18 @@ namespace UserGroup.Web.Mappings
                 .ForMember(d => d.StartDate, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().Date))
                 .ForMember(d => d.MeetingDetailUrl, c => c.ResolveUsing<MeetingUrlResolver>());
 
+            CreateMap<Meeting, DisplayMeetingLineModel>()
+                .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().TimeOfDay))
+                .ForMember(d => d.StartDate, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().Date));
+
             CreateMap<Meeting, ShowMeetingModel>()
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().TimeOfDay))
                 .ForMember(d => d.StartDate, c => c.ResolveUsing(s => s.StartTime.ToLocalTime().Date))
                 .ForMember(d => d.LocationUrl, c => c.ResolveUsing<LocationUrlResolver>().FromMember(s => s.Location));
 
             CreateMap<Meeting, EditMeetingModel>()
+                .ForMember(d => d.LocationSelectList,
+                           c => c.ResolveUsing<LocationSelectListResolver>().FromMember(s=>s.Location.Id))
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToLocalTime()))
                 .ForMember(d => d.DisplayFrom, c => c.ResolveUsing(s => s.DisplayFrom.ToLocalTime()));
 

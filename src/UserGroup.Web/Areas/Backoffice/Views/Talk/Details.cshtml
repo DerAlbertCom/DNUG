@@ -1,4 +1,4 @@
-﻿@model EditTalkModel
+﻿@model DisplayTalkModel
 
 @{
     ViewBag.Title = "Details";
@@ -10,6 +10,20 @@
 @Html.DisplayForModel()
 </div>
 
+<h2>Sprecher</h2>
+<ol>
+    @foreach (var speaker in Model.Speakers)
+    {
+        <li>@speaker.FullName</li>
+    }
+</ol>
+@using (Html.BeginForm("AddSpeaker","Talk"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id);
+    @Html.DropDownList("SpeakerId",Model.SpeakerSelectList)<br/>
+    <button type="submit">Sprecher hinzufügen</button>
+}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
