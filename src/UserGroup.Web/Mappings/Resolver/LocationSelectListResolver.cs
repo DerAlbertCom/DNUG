@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
@@ -8,7 +7,7 @@ using UserGroup.Entities;
 
 namespace UserGroup.Web.Mappings.Resolver
 {
-    public class LocationSelectListResolver : ValueResolver<int, IEnumerable<SelectListItem>>
+    public class LocationSelectListResolver : ValueResolver<IHasLocation, IEnumerable<SelectListItem>>
     {
         readonly IRepository<Location> repository;
 
@@ -17,17 +16,21 @@ namespace UserGroup.Web.Mappings.Resolver
             this.repository = repository;
         }
 
-        protected override IEnumerable<SelectListItem> ResolveCore(int source)
+        protected override IEnumerable<SelectListItem> ResolveCore(IHasLocation source)
         {
             var query = from l in repository.Entities
                         orderby l.Name
                         select new {Text = l.Name, Value = l.Id};
-            var items = from i in query.ToList()
-                        select
-                            new SelectListItem() { Text = i.Text, Value = i.Value.ToString(CultureInfo.InvariantCulture), Selected = i.Value.ToString(CultureInfo.InvariantCulture) == source.ToString(CultureInfo.InvariantCulture) };
-            var empty = new SelectListItem {Text = "<auswählen>", Value = 0.ToString(CultureInfo.InvariantCulture)};
+            var empty = new {Text = "<auswählen>", Value = 0};
+            return new SelectList(new[] {empty}.Concat(query.ToList()), "Value", "Text", GetSelectedValue(source));
+        }
 
-            return new[] {empty}.Concat(items.ToList());
+        static int GetSelectedValue(IHasLocation source)
+        {
+            var locationId = 0;
+            if (source !=null && source.Location != null)
+                locationId = source.Location.Id;
+            return locationId;
         }
     }
 }

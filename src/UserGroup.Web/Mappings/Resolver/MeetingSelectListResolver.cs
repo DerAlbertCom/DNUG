@@ -9,7 +9,7 @@ using UserGroup.Entities;
 
 namespace UserGroup.Web.Mappings.Resolver
 {
-    public class MeetingSelectListResolver : ValueResolver<int, IEnumerable<SelectListItem>>
+    public class MeetingSelectListResolver : ValueResolver<IHasMeeting, IEnumerable<SelectListItem>>
     {
         readonly IRepository<Meeting> repository;
 
@@ -18,18 +18,21 @@ namespace UserGroup.Web.Mappings.Resolver
             this.repository = repository;
         }
 
-        protected override IEnumerable<SelectListItem> ResolveCore(int source)
+        protected override IEnumerable<SelectListItem> ResolveCore(IHasMeeting source)
         {
             var query = from l in repository.Entities
                         orderby l.StartTime descending 
                         select new { Text = l.Title, Value = l.Id };
+            var empty = new  { Text = "<auswählen>", Value = 0 };
+            return new SelectList(new[] { empty }.Concat(query.ToList()),"Value","Text", GetSelectedValue(source));
+        }
 
-            var items = from i in query.ToList()
-                        select
-                            new SelectListItem() { Text = i.Text, Value = i.Value.ToString(CultureInfo.InvariantCulture), Selected = i.Value.ToString(CultureInfo.InvariantCulture) == source.ToString(CultureInfo.InvariantCulture) };
-            var empty = new SelectListItem { Text = "<auswählen>", Value = 0.ToString(CultureInfo.InvariantCulture) };
-
-            return new[] { empty }.Concat(items.ToList());
+        static int GetSelectedValue(IHasMeeting source)
+        {
+            var meetingId = 0;
+            if (source!=null && source.Meeting != null)
+                meetingId = source.Meeting.Id;
+            return meetingId;
         }
     }
 }

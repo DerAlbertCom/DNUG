@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ShowPageController.cs" />
     <Compile Include="Controllers\ShowSpeakerController.cs" />
     <Compile Include="Controllers\ShowTalkController.cs" />
+    <Compile Include="Extensions\DisplayExtensions.cs" />
     <Compile Include="Extensions\InputExtensions.cs" />
     <Compile Include="Extensions\MapperExtensions.cs" />
     <Compile Include="Extensions\WikiExtensions.cs" />

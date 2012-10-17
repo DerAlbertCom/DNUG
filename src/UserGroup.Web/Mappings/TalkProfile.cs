@@ -20,7 +20,7 @@ namespace UserGroup.Web.Mappings
 
             CreateMap<Talk, EditTalkModel>()
                 .ForMember(d => d.MeetingSelectList,
-                           c => c.ResolveUsing<MeetingSelectListResolver>().FromMember(s => s.Meeting.Id));
+                           c => c.ResolveUsing<MeetingSelectListResolver>());
 
             CreateMap<EditTalkModel, Talk>()
                 .ForMember(c => c.Slug, c => c.Ignore())

@@ -26,7 +26,7 @@ namespace UserGroup.Web.Mappings
 
             CreateMap<Meeting, EditMeetingModel>()
                 .ForMember(d => d.LocationSelectList,
-                           c => c.ResolveUsing<LocationSelectListResolver>().FromMember(s=>s.Location.Id))
+                           c => c.ResolveUsing<LocationSelectListResolver>())
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToLocalTime()))
                 .ForMember(d => d.DisplayFrom, c => c.ResolveUsing(s => s.DisplayFrom.ToLocalTime()));
 

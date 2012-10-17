@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Aperea.Infrastructure.Mappings;
@@ -22,7 +23,7 @@ namespace UserGroup.Web.Areas.Backoffice.Controllers
 
         public ActionResult Index()
         {
-            return View(repository.Entities.OrderByDescending(t=>t.Meeting.StartTime).ToList<DisplayTalkLineModel>());
+            return View(repository.Entities.Include(t=>t.Meeting).OrderByDescending(t=>t.Meeting.StartTime).ToList<DisplayTalkLineModel>());
         }
 
         //

@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\IHasLocation.cs" />
     <Compile Include="Entities\ISlug.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Meeting.cs" />

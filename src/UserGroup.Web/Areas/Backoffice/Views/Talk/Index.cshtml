@@ -22,9 +22,9 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Title, "Details", new {id = item.Id})
+                @Html.ActionLink(Html.DisplayFor(m => item.Title, 50), "Details", new {id = item.Id})
             </td>
-            <td>@item.MeetingTitle</td>
+            <td>@Html.DisplayFor(m => item.MeetingTitle, 40)</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
                 @Html.ActionLink("Delete", "Delete", new {id = item.Id})
