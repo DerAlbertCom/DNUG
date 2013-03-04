@@ -20,17 +20,32 @@ namespace UserGroup.Web.Infrastructure.Initialize
             bundles.Clear();
             var cssBundle = new StyleBundle("~/resources/css").Include("~/content/site.css");
 
+
             var jsBundle = new ScriptBundle("~/resources/js").Include(
-                "~/Scripts/jquery-1.8.2.js",
-                "~/Scripts/modernizr-2.6.2.js"
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/modernizr-{version}.js"
+                );
+
+            var cssBackofficeBundle = new StyleBundle("~/resources/backoffice")
+                .Include("~/content/bootstrap.css","~/content/backoffice.css");
+            var jsBackofficeBundle = new ScriptBundle("~/resources/backoffice").Include(
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/angular.js",
+                "~/Scripts/angular-sanitize.js",
+                "~/Scripts/angular-resource.js",
+                "~/Scripts/angular-bootstrap.js",
+                "~/Scripts/i18n/angular-locale_de-de.js",
+                "~/Scripts/i18n/angular-locale_en-us.js"
                 );
 
             var jsValBundle = new ScriptBundle("~/resources/jsval").Include(
-                "~/Scripts/jquery.validate.min.js",
-                "~/Scripts/jquery.validate.unobtrusive.min.js"
+                "~/Scripts/jquery.validate.js",
+                "~/Scripts/jquery.validate.unobtrusive.js"
                 );
+
             bundles.Add(cssBundle);
             bundles.Add(jsBundle);
+            bundles.Add(jsBackofficeBundle);
             bundles.Add(jsValBundle);
         }
     }
