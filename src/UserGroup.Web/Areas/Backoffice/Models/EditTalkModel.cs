@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using UserGroup.Web.DataAnnotations;
 
 namespace UserGroup.Web.Areas.Backoffice.Models
 {
+    [DisplayName("Vortrag bearbeiten")]
     public class EditTalkModel
     {
         [ScaffoldColumn(false)]
