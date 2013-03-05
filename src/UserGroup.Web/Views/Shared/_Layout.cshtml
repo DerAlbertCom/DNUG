@@ -7,7 +7,8 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         @Styles.Render("~/resources/css")
         @Scripts.Render("~/resources/js")
-        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+                <meta name="viewport" content="width=device-width" />
     </head>
     <body>
         <header>
@@ -21,12 +22,10 @@
                     </section>
                     <nav>
                         <ul id="menu">
-@* ReSharper disable Html.PathError *@
                             <li>@Html.ActionLink("Startseite", "Index", "Home", new { area = "" }, null)</li>
                             <li>@Html.ActionLink("Treffen", "Index", "ShowMeeting", new {area = ""}, null)</li>
-                            <li><a href="~/page/about">Über uns</a></li>
-                            <li><a href="~/page/contact">Kontakt</a></li>
-@* ReSharper restore Html.PathError *@
+                            <li>@Html.ActionLink("Über uns", "Details", "ShowPage", new {area = "", slug="about"}, null)</li>
+                            <li>@Html.ActionLink("Kontakt", "Details", "ShowPage", new {area = "", slug="contact"}, null)</li>
                         </ul>
                     </nav>
                 </div>

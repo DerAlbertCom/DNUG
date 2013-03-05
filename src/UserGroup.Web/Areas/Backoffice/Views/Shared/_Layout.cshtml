@@ -1,0 +1,55 @@
+@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - .net user group Köln</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/resources/backofficecss")
+    @Scripts.Render("~/resources/js")
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="masthead">
+            <h2>.net user group Köln</h2>
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li>@Html.ActionLink("Treffen", "Index", "Meeting")</li>
+                            <li>@Html.ActionLink("Vorträge", "Index", "Talk")</li>
+                            <li>@Html.ActionLink("Sprecher", "Index", "Speaker")</li>
+                            <li>@Html.ActionLink("Seiten", "Index", "Page")</li>
+                            <li>@Html.ActionLink("Orte", "Index", "Location")</li>
+                            <li>@Html.Partial("_LoginPartial")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.navbar -->
+        </div>
+        @RenderBody()
+        <hr />
+        <div class="footer">
+            @if (Request.IsLocal)
+            {
+                <p>&copy; @DateTime.Now.Year - @Html.ActionLink(".net user group Köln", "Index", "Admin", new { area = "backoffice" }, null)</p>
+            }
+            else
+            {
+                <p>&copy; @DateTime.Now.Year - <a href="https://dotnet-koelnbonn.de/dotnet-koeln/backoffice">.net user group Köln</a></p>
+                        
+            }
+        </div>
+    </div>
+    <!-- /container -->
+    @Scripts.Render("~/resources/backofficejs")
+    @RenderSection("scripts", false)
+</body>
+</html>

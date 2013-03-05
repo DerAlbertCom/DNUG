@@ -227,6 +227,8 @@
     <Compile Include="Services\IActionUrlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Backoffice\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Backoffice\Views\Shared\_LoginPartial.cshtml" />
     <None Include="Content\backoffice.less" />
     <Content Include="Content\backoffice.css">
       <DependentUpon>backoffice.less</DependentUpon>
@@ -481,6 +483,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backoffice\Views\Meeting\EditorTemplates\" />
+    <Folder Include="backofficeapp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

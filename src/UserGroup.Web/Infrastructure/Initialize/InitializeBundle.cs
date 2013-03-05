@@ -26,9 +26,13 @@ namespace UserGroup.Web.Infrastructure.Initialize
                 "~/Scripts/modernizr-{version}.js"
                 );
 
-            var cssBackofficeBundle = new StyleBundle("~/resources/backoffice")
-                .Include("~/content/bootstrap.css","~/content/backoffice.css");
-            var jsBackofficeBundle = new ScriptBundle("~/resources/backoffice").Include(
+            var cssBackofficeBundle = new StyleBundle("~/resources/backofficecss")
+                .Include(
+                    "~/content/bootstrap.css",
+                    "~/content/bootstrap-responsive.css",
+                    "~/content/backoffice.css");
+
+            var jsBackofficeBundle = new ScriptBundle("~/resources/backofficejs").Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-sanitize.js",
@@ -44,6 +48,7 @@ namespace UserGroup.Web.Infrastructure.Initialize
                 );
 
             bundles.Add(cssBundle);
+            bundles.Add(cssBackofficeBundle);
             bundles.Add(jsBundle);
             bundles.Add(jsBackofficeBundle);
             bundles.Add(jsValBundle);
