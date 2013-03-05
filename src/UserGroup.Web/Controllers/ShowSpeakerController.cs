@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
-using UserGroup.Data;
 using UserGroup.Entities;
 using UserGroup.Web.Models;
 
@@ -9,16 +9,16 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowSpeakerController : BaseController
     {
-        readonly IRepository<Speaker> _repository;
+        readonly IRepository<Speaker> repository;
 
         public ShowSpeakerController(IRepository<Speaker> repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public ActionResult Details(string slug)
         {
-            return View(_repository.Entities.Single(l => l.Slug == slug).MapTo<ShowSpeakerModel>());
+            return View(repository.Entities.Single(l => l.Slug == slug).MapTo<ShowSpeakerModel>());
         }
     }
 }

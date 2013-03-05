@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using Aperea.Data;
 using Microsoft.IdentityModel.Claims;
 using Microsoft.Practices.ServiceLocation;
-using UserGroup.Data;
 using UserGroup.Entities;
 
 namespace UserGroup.Web.Security

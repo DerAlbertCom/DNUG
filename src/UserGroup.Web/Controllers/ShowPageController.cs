@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
-using UserGroup.Data;
 using UserGroup.Entities;
 using UserGroup.Web.Models;
 
@@ -9,11 +9,11 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowPageController : Controller
     {
-        readonly IRepository<Page> _repository;
+        readonly IRepository<Page> repository;
 
         public ShowPageController(IRepository<Page> repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public ActionResult Details(string slug)
@@ -23,7 +23,7 @@ namespace UserGroup.Web.Controllers
 
         Page GetPage(string slug)
         {
-            return _repository.Entities.Single(p => p.Slug == slug);
+            return repository.Entities.Single(p => p.Slug == slug);
         }
     }
 }

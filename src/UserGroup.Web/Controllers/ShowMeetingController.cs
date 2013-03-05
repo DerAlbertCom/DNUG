@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
-using UserGroup.Data;
 using UserGroup.Entities;
 using UserGroup.Web.Extensions;
 using UserGroup.Web.Models;
@@ -11,17 +11,17 @@ namespace UserGroup.Web.Controllers
 {
     public class ShowMeetingController : BaseController
     {
-        readonly IRepository<Meeting> _repository;
+        readonly IRepository<Meeting> repository;
 
         public ShowMeetingController(IRepository<Meeting> repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public ActionResult Index()
         {
 
-            var model = _repository.Entities.OrderByDescending(e => e.StartTime).ToList<MeetingLineModel>();
+            var model = repository.Entities.OrderByDescending(e => e.StartTime).ToList<MeetingLineModel>();
             return View(model);
         }
 
@@ -33,7 +33,7 @@ namespace UserGroup.Web.Controllers
 
         Meeting GetMeeting(string slug)
         {
-            return _repository.Include("Location","Talks.Speakers").Single(m=>m.Slug==slug);
+            return repository.Include("Location","Talks.Speakers").Single(m=>m.Slug==slug);
         }
     }
 }

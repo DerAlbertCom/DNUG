@@ -1,8 +1,7 @@
 using System;
-using System.Data.Entity;
 using System.Linq;
+using Aperea.Data;
 using AutoMapper;
-using UserGroup.Data;
 using UserGroup.Entities;
 
 namespace UserGroup.Web.Mappings.Resolver

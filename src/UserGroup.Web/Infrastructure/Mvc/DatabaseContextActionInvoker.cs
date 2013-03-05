@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
+using Aperea.Data;
 using Microsoft.Practices.ServiceLocation;
-using UserGroup.Data;
 
 namespace UserGroup.Web.Infrastructure.Mvc
 {

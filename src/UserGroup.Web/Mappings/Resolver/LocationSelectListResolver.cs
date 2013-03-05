@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Aperea.Data;
 using AutoMapper;
-using UserGroup.Data;
 using UserGroup.Entities;
 
 namespace UserGroup.Web.Mappings.Resolver
