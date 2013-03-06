@@ -3,13 +3,8 @@
 @{
     ViewBag.Title = "Administration";
 }
+ <div data-ng-view></div>
 
-<h2>Administration</h2>
-
-<ul>
-    <li>@Html.ActionLink("Treffen", "Index", "Meeting")</li>
-    <li>@Html.ActionLink("Vorträge", "Index", "Talk")</li>
-    <li>@Html.ActionLink("Sprecher", "Index", "Speaker")</li>
-    <li>@Html.ActionLink("Seiten", "Index", "Page")</li>
-    <li>@Html.ActionLink("Orte", "Index", "Location")</li>
-</ul>
+@section scripts {
+    @Scripts.Render("~/resources/backofficejs")
+}

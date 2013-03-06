@@ -1,4 +1,5 @@
-﻿using Aperea.Data;
+﻿using System;
+using Aperea.Data;
 using Aperea.Identity;
 using Aperea.Infrastructure.IoC;
 using StructureMap;
@@ -20,8 +21,9 @@ namespace UserGroup.Web.Infrastructure.IoC
                     s.AssembliesFromApplicationBaseDirectory(StructureMapAssemblyFilter.Filter);
                     s.ConnectImplementationsToTypesClosing(typeof (ISlugGenerator<>))
                      .OnAddedPluginTypes(c => c.LifecycleIs(InstanceScope.Singleton));
+                    s.With(new WebApiControllerConvention());
                 });
-                
+
             For<ISlugGeneratorFactory>().Singleton();
             For<IDatabaseContext>().HybridHttpOrThreadLocalScoped();
             For<UserGroupDbContext>().Use<UserGroupDbContext>();

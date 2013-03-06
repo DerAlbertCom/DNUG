@@ -1,0 +1,27 @@
+﻿<section>
+    <h3>Treffen bearbeiten</h3>
+    <table class="table table-striped table-bordered table-condensed">
+        <caption>Alle Treffen</caption>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Beschreibung</th>
+                <th>Datum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="meeting in meetings">
+                <td><a href="" data-ng-click="setCurrent(meeting)">{{meeting.Title}}</a></td>
+                <td>{{meeting.Description}}</td>
+                <td>{{meeting.StartDate | date:shortDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <form data-ng-submit="update()">
+        <input type="hidden" data-ng-model="currentMeeting.Id" name="Id" />
+        <input type="text" data-ng-model="currentMeeting.Title" name="Title" />
+        <input type="text" data-ng-model="currentMeeting.Description" name="Description" />
+        <input type="text" value="{{currentMeeting.StartDate | date:shortDate}}" name="StartDate" />
+        <input type="time" value="{{currentMeeting.StartTime | date:shortTime}}" name="StartTime" />
+    </form>
+</section>

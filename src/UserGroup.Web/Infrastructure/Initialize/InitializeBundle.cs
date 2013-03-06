@@ -32,15 +32,19 @@ namespace UserGroup.Web.Infrastructure.Initialize
                     "~/content/bootstrap-responsive.css",
                     "~/content/backoffice.css");
 
-            var jsBackofficeBundle = new ScriptBundle("~/resources/backofficejs").Include(
+            var jsSpaJs = new ScriptBundle("~/resources/spajs").Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-sanitize.js",
                 "~/Scripts/angular-resource.js",
                 "~/Scripts/angular-bootstrap.js",
-                "~/Scripts/i18n/angular-locale_de-de.js",
-                "~/Scripts/i18n/angular-locale_en-us.js"
+                "~/Scripts/i18n/angular-locale_de-de.js"
                 );
+
+            var jsBackhoffice = new ScriptBundle("~/resources/backofficejs")
+                .IncludeDirectory("~/backofficeapp/js", "*.js", true)
+                .Include("~/backofficeapp/App.js");
+
 
             var jsValBundle = new ScriptBundle("~/resources/jsval").Include(
                 "~/Scripts/jquery.validate.js",
@@ -49,8 +53,9 @@ namespace UserGroup.Web.Infrastructure.Initialize
 
             bundles.Add(cssBundle);
             bundles.Add(cssBackofficeBundle);
+            bundles.Add(jsBackhoffice);
             bundles.Add(jsBundle);
-            bundles.Add(jsBackofficeBundle);
+            bundles.Add(jsSpaJs);
             bundles.Add(jsValBundle);
         }
     }

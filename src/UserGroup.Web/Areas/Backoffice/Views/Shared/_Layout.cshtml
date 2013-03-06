@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
-<body>
+<body data-ng-app="Backoffice" data-app-root="@Url.Content("~/")">
 
 
     <div class="container">
@@ -22,11 +22,8 @@
                 <div class="navbar-inner">
                     <div class="container">
                         <ul class="nav">
-                            <li>@Html.ActionLink("Treffen", "Index", "Meeting")</li>
-                            <li>@Html.ActionLink("Vorträge", "Index", "Talk")</li>
-                            <li>@Html.ActionLink("Sprecher", "Index", "Speaker")</li>
-                            <li>@Html.ActionLink("Seiten", "Index", "Page")</li>
-                            <li>@Html.ActionLink("Orte", "Index", "Location")</li>
+                            <li><a ng-href="#/">Startseite</a></li>
+                            <li><a ng-href="#/meetings">Treffen</a></li>
                             <li>@Html.Partial("_LoginPartial")</li>
                         </ul>
                     </div>
@@ -37,19 +34,11 @@
         @RenderBody()
         <hr />
         <div class="footer">
-            @if (Request.IsLocal)
-            {
-                <p>&copy; @DateTime.Now.Year - @Html.ActionLink(".net user group Köln", "Index", "Admin", new { area = "backoffice" }, null)</p>
-            }
-            else
-            {
-                <p>&copy; @DateTime.Now.Year - <a href="https://dotnet-koelnbonn.de/dotnet-koeln/backoffice">.net user group Köln</a></p>
-                        
-            }
+                <p>UserGroup Backoffice Version <span app-version></span></p>
         </div>
     </div>
     <!-- /container -->
-    @Scripts.Render("~/resources/backofficejs")
+    @Scripts.Render("~/resources/spajs")
     @RenderSection("scripts", false)
 </body>
 </html>

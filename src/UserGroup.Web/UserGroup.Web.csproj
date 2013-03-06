@@ -90,6 +90,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
@@ -99,6 +102,15 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -109,6 +121,12 @@
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -152,6 +170,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Backoffice\Controllers\MeetingsController.cs" />
     <Compile Include="Areas\Backoffice\Models\DisplayMeetingLineModel.cs" />
     <Compile Include="Areas\Backoffice\Models\DisplaySpeakerLineModel.cs" />
     <Compile Include="Areas\Backoffice\Models\DisplayTalkLineModel.cs" />
@@ -191,9 +210,13 @@
     <Compile Include="Infrastructure\Initialize\InitializeDatabase.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeIdentity.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeWebApi.cs" />
     <Compile Include="Infrastructure\IoC\RegistryForApplication.cs" />
     <Compile Include="Infrastructure\IoC\SlugGeneratorConvention.cs" />
+    <Compile Include="Infrastructure\IoC\StructureMapDependencyScope.cs" />
     <Compile Include="Infrastructure\IoC\StructureMapViewPageActivator.cs" />
+    <Compile Include="Infrastructure\IoC\StructureMapWebApiDependencyResolver.cs" />
+    <Compile Include="Infrastructure\IoC\WebApiControllerConvention.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Mappings\LocationProfile.cs" />
     <Compile Include="Mappings\PageProfile.cs" />
@@ -229,7 +252,37 @@
   <ItemGroup>
     <Content Include="Areas\Backoffice\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Backoffice\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="backofficeapp\App.js.map">
+      <DependentUpon>App.ts</DependentUpon>
+    </Content>
+    <Content Include="backofficeapp\js\AdminController.js.map">
+      <DependentUpon>AdminController.ts</DependentUpon>
+    </Content>
+    <Content Include="backofficeapp\js\MeetingsController.js.map">
+      <DependentUpon>MeetingsController.ts</DependentUpon>
+    </Content>
+    <Content Include="backofficeapp\js\Url.js.map">
+      <DependentUpon>Url.ts</DependentUpon>
+    </Content>
     <None Include="Content\backoffice.less" />
+    <TypeScriptCompile Include="backofficeapp\App.ts" />
+    <Content Include="backofficeapp\App.js">
+      <DependentUpon>App.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="backofficeapp\js\AdminController.ts" />
+    <Content Include="backofficeapp\js\AdminController.js">
+      <DependentUpon>AdminController.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="backofficeapp\js\MeetingsController.ts" />
+    <Content Include="backofficeapp\js\MeetingsController.js">
+      <DependentUpon>MeetingsController.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="backofficeapp\js\Url.ts" />
+    <Content Include="backofficeapp\js\Url.js">
+      <DependentUpon>Url.ts</DependentUpon>
+    </Content>
+    <Content Include="backofficeapp\partials\admin.html" />
+    <Content Include="backofficeapp\partials\meetings.html" />
     <Content Include="Content\backoffice.css">
       <DependentUpon>backoffice.less</DependentUpon>
     </Content>
@@ -253,10 +306,6 @@
     <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\EditMeetingModel.cshtml" />
     <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\EditTalkModel.cshtml" />
     <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
-    <TypeScriptCompile Include="js\Testing.ts" />
-    <Content Include="js\Testing.js">
-      <DependentUpon>Testing.ts</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
@@ -483,7 +532,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backoffice\Views\Meeting\EditorTemplates\" />
-    <Folder Include="backofficeapp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
