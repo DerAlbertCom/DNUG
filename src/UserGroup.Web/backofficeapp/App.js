@@ -1,15 +1,9 @@
-/// <reference path="js/Url.ts" />
-/// <reference path="js/MeetingsController.ts" />
-/// <reference path="js/AdminController.ts" />
-/// <reference path="../Scripts/typings/angularjs/angular-sanitize.d.ts" />
-/// <reference path="../Scripts/typings/angularjs/angular.d.ts" />
 var Backoffice;
 (function (Backoffice) {
-    var backoffice = angular.module('Backoffice', ['ngSanitize', 'ngResource']);
-    backoffice.config([
+    angular.module('Backoffice', ['ngSanitize', 'ngResource']).controller(Backoffice.Controllers).config([
         '$routeProvider',
         function ($routeProvider) {
-            $routeProvider.when("/", { templateUrl: Backoffice.Url.View("admin"), controller: Backoffice.AdminController }).when("/meetings", { templateUrl: Backoffice.Url.View("meetings"), controller: Backoffice.MeetingsController }).when("/meetings/:id", { templateUrl: Backoffice.Url.View("meetings"), controller: Backoffice.MeetingsController }).otherwise({ redirectTo: '/' });
+            $routeProvider.when("/", { templateUrl: Backoffice.Url.View("admin"), controller: 'AdminCtrl' }).when("/meetings", { templateUrl: Backoffice.Url.View("meetings"), controller: 'MeetingsCtrl' }).when("/meetings/:id", { templateUrl: Backoffice.Url.View("meetings"), controller: 'MeetingsCtrl' }).otherwise({ redirectTo: '/' });
         }
     ]);
 })(Backoffice || (Backoffice = {}));

@@ -1,11 +1,11 @@
 /// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
-module Backoffice {
+module Backoffice.AdminControllers {
 
-    export interface IAdminControllerScope extends ng.IScope {
+    interface IAdminControllerScope extends ng.IScope {
     }
 
-    export class AdminController {
-        constructor($scope: IAdminControllerScope) {
-        }
+    function AdminController($scope: IAdminControllerScope) {
     }
+
+    export var AdminCtrl = ['$scope', AdminController];
 }

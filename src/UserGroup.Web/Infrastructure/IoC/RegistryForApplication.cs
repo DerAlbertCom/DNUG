@@ -21,7 +21,6 @@ namespace UserGroup.Web.Infrastructure.IoC
                     s.AssembliesForApplication();
                     s.ConnectImplementationsToTypesClosing(typeof (ISlugGenerator<>))
                      .OnAddedPluginTypes(c => c.LifecycleIs(InstanceScope.Singleton));
-                    s.With(new WebApiControllerConvention());
                 });
 
             For<ISlugGeneratorFactory>().Singleton();

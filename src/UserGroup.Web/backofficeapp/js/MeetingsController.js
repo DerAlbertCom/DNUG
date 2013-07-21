@@ -1,15 +1,17 @@
-/// <reference path="Url.ts" />
-/// <reference path="../../Scripts/typings/angularjs/angular-resource.d.ts" />
-/// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
 var Backoffice;
 (function (Backoffice) {
-    var MeetingsController = (function () {
+    /// <reference path="Url.ts" />
+    /// <reference path="../../Scripts/typings/angularjs/angular-resource.d.ts" />
+    /// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
+    (function (Controllers) {
+        Controllers.MeetingsCtrl = $['$scope', '$route', '$routeParams', '$resource', MeetingsController];
+
         function MeetingsController($scope, $route, $routeParams, $resource) {
             $scope.route = $route;
             $scope.routeParams = $routeParams;
 
-            $scope.newMeeting = this.emptyMeeting();
-            $scope.currentMeeting = this.emptyMeeting();
+            $scope.newMeeting = EmptyMeeting();
+            $scope.currentMeeting = EmptyMeeting();
 
             $scope.meetingsResource = $resource(Backoffice.Url.Api("meetings/:id"));
 
@@ -18,21 +20,21 @@ var Backoffice;
             });
 
             $scope.setCurrent = function (meeting) {
-                $scope.meetingsResource.get({ id: meeting.Id }, function (details) {
-                    $scope.currentMeeting = details;
+                return $scope.meetingsResource.get({ id: meeting.Id }, function (details) {
+                    return $scope.currentMeeting = details;
                 });
             };
         }
-        MeetingsController.prototype.emptyMeeting = function () {
+
+        function EmptyMeeting() {
             return {
                 Id: 0,
                 Title: '',
                 Description: '',
                 StartDate: null
             };
-        };
-        return MeetingsController;
-    })();
-    Backoffice.MeetingsController = MeetingsController;
+        }
+    })(Backoffice.Controllers || (Backoffice.Controllers = {}));
+    var Controllers = Backoffice.Controllers;
 })(Backoffice || (Backoffice = {}));
 //@ sourceMappingURL=MeetingsController.js.map

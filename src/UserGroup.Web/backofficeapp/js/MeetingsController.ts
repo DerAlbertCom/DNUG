@@ -2,16 +2,16 @@
 /// <reference path="../../Scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
 
-module Backoffice {
+module Backoffice.Controllers {
 
-    export interface MeetingLine {
+    interface MeetingLine {
         Id: number;
         Title: string;
         Description?: string;
         StartDate: Date;
     }
 
-    export interface IMeetingsControllerScope extends ng.IScope {
+     interface IMeetingsControllerScope extends ng.IScope {
         meetings: MeetingLine[];
         route: ng.IRouteService;
         routeParams: ng.IRouteParamsService;
@@ -21,39 +21,33 @@ module Backoffice {
         setCurrent: (meeting: MeetingLine) => void;
     }
 
-    export class MeetingsController {
-        constructor($scope: IMeetingsControllerScope,
-            $route: ng.IRouteService,
-            $routeParams: ng.IRouteParamsService,
-            $resource: ng.resource.IResourceService) {
+    export var MeetingsCtrl = $['$scope', '$route', '$routeParams', '$resource', MeetingsController];
 
-            $scope.route = $route;
-            $scope.routeParams = $routeParams;
+    function MeetingsController($scope: IMeetingsControllerScope,     $route: ng.IRouteService,
+        $routeParams: ng.IRouteParamsService,   $resource: ng.resource.IResourceService) {
 
-            $scope.newMeeting = this.emptyMeeting();
-            $scope.currentMeeting = this.emptyMeeting();
+        $scope.route = $route;
+        $scope.routeParams = $routeParams;
 
-            $scope.meetingsResource = $resource(Url.Api("meetings/:id"));
+        $scope.newMeeting = EmptyMeeting();
+        $scope.currentMeeting = EmptyMeeting();
 
-            $scope.meetingsResource.query((meetings: MeetingLine[]) => {
-                $scope.meetings = meetings;
-            });
+        $scope.meetingsResource = $resource(Url.Api("meetings/:id"));
 
-            $scope.setCurrent = meeting => {
-                $scope.meetingsResource.get({ id: meeting.Id }, (details) => {
-                    $scope.currentMeeting = details;
-                });
-            };
+        $scope.meetingsResource.query((meetings: MeetingLine[]) => {
+            $scope.meetings = meetings;
+        });
 
-        }
+        $scope.setCurrent = meeting => $scope.meetingsResource.get({ id: meeting.Id }, (details) => $scope.currentMeeting = details);
+    }
 
-        emptyMeeting(): MeetingLine {
+
+     function EmptyMeeting(): MeetingLine {
             return {
                 Id: 0,
                 Title: '',
                 Description: '',
                 StartDate: null
-            }
+            };
         }
-    }
 }

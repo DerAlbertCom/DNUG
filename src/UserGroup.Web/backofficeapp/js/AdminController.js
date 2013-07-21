@@ -1,11 +1,12 @@
-/// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
 var Backoffice;
 (function (Backoffice) {
-    var AdminController = (function () {
+    /// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
+    (function (AdminControllers) {
         function AdminController($scope) {
         }
-        return AdminController;
-    })();
-    Backoffice.AdminController = AdminController;
+
+        AdminControllers.AdminCtrl = ['$scope', AdminController];
+    })(Backoffice.AdminControllers || (Backoffice.AdminControllers = {}));
+    var AdminControllers = Backoffice.AdminControllers;
 })(Backoffice || (Backoffice = {}));
 //@ sourceMappingURL=AdminController.js.map
