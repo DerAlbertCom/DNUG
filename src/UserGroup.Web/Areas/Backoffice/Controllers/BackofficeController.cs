@@ -2,7 +2,7 @@
 using Aperea.ActionFilter;
 using UserGroup.Web.Controllers;
 
-namespace UserGroup.Web.Areas.Backoffice.Controllers
+namespace UserGroup.Web.Areas.BackOffice.Controllers
 {
     [RequireSsl(Order = -1)]
     [Authorize(Roles = UserGroup.Security.Roles.Administrator, Order = 100)]

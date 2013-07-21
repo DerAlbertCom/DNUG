@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using UserGroup.Entities;
-using UserGroup.Web.Areas.Backoffice.Models;
+using UserGroup.Web.Areas.BackOffice.Models;
 using UserGroup.Web.Mappings.Resolver;
 using UserGroup.Web.Models;
 

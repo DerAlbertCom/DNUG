@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace UserGroup.Web.Areas.Backoffice
+namespace UserGroup.Web.Areas.BackOffice
 {
     public class BackofficeAreaRegistration : AreaRegistration
     {

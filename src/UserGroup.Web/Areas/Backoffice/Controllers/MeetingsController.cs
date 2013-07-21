@@ -4,9 +4,9 @@ using System.Web.Http;
 using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
 using UserGroup.Entities;
-using UserGroup.Web.Areas.Backoffice.Models;
+using UserGroup.Web.Areas.BackOffice.Models;
 
-namespace UserGroup.Web.Areas.Backoffice.Controllers
+namespace UserGroup.Web.Areas.BackOffice.Controllers
 {
     [Authorize(Roles = UserGroup.Security.Roles.Administrator)]
     public class MeetingsController : ApiController

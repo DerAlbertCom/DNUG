@@ -1,6 +1,4 @@
-﻿using System;
-using Aperea.Infrastructure.Bootstrap;
-using Aperea.Infrastructure.IoC;
+﻿using Aperea.Infrastructure.Bootstrap;
 
 namespace UserGroup.Web
 {
@@ -11,7 +9,6 @@ namespace UserGroup.Web
     {
         protected void Application_Start()
         {
-            RegisterStructureMap.Execute();
             Bootstrapper.Start();
         }
 

@@ -5,7 +5,7 @@ module Backoffice {
     }
 
     export class AdminController {
-        constructor(public $scope: IAdminControllerScope) {
+        constructor($scope: IAdminControllerScope) {
         }
     }
 }

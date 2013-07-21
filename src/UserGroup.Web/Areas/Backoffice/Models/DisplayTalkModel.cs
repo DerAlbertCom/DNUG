@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using UserGroup.Web.DataAnnotations;
 
-namespace UserGroup.Web.Areas.Backoffice.Models
+namespace UserGroup.Web.Areas.BackOffice.Models
 {
     public class DisplayTalkModel
     {

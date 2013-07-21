@@ -7,9 +7,15 @@
 /// <reference path="angular.d.ts" />
 
 ///////////////////////////////////////////////////////////////////////////////
+// functions attached to global object (window)
+///////////////////////////////////////////////////////////////////////////////
+declare var module: (...modules: any[]) => any;
+declare var inject: (...fns: Function[]) => any;
+
+///////////////////////////////////////////////////////////////////////////////
 // ngMock module (angular-mocks.js)
 ///////////////////////////////////////////////////////////////////////////////
-module ng {
+declare module ng {
 
     ///////////////////////////////////////////////////////////////////////////
     // AngularStatic
@@ -24,7 +30,7 @@ module ng {
         debug(obj: any): string;
                 
         // see http://docs.angularjs.org/api/angular.mock.inject
-        inject(...fns: Function[]): void;
+        inject(...fns: Function[]): any;
         
         // see http://docs.angularjs.org/api/angular.mock.module
         module(...modules: any[]): any;
@@ -71,7 +77,7 @@ module ng {
     // see http://docs.angularjs.org/api/ngMock.$httpBackend
     ///////////////////////////////////////////////////////////////////////////
     interface IHttpBackendService {
-        flush(count: number): void;
+        flush(count?: number): void;
         resetExpectations(): void;
         verifyNoOutstandingExpectation(): void;
         verifyNoOutstandingRequest(): void;

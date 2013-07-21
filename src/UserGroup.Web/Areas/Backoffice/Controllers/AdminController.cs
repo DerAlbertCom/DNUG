@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace UserGroup.Web.Areas.Backoffice.Controllers
+namespace UserGroup.Web.Areas.BackOffice.Controllers
 {
     public class AdminController : BackofficeController
     {

@@ -5,10 +5,10 @@ using System.Web.Mvc;
 using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
 using UserGroup.Entities;
-using UserGroup.Web.Areas.Backoffice.Models;
+using UserGroup.Web.Areas.BackOffice.Models;
 using UserGroup.Web.Extensions;
 
-namespace UserGroup.Web.Areas.Backoffice.Controllers
+namespace UserGroup.Web.Areas.BackOffice.Controllers
 {
     public class TalkController : BackofficeController
     {

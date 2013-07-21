@@ -18,7 +18,7 @@ namespace UserGroup.Web.Infrastructure.IoC
             Scan(
                 s =>
                 {
-                    s.AssembliesFromApplicationBaseDirectory(StructureMapAssemblyFilter.Filter);
+                    s.AssembliesForApplication();
                     s.ConnectImplementationsToTypesClosing(typeof (ISlugGenerator<>))
                      .OnAddedPluginTypes(c => c.LifecycleIs(InstanceScope.Singleton));
                     s.With(new WebApiControllerConvention());

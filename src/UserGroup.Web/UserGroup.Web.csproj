@@ -27,6 +27,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,25 +47,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap, Version=0.7.3.72, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap, Version=0.7.3.73, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.72\lib\net40\Aperea.Bootstrap.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.73\lib\net40\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.3.72, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.3.73, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.72\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.73\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.72, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.73, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.72\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.73\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Identity, Version=0.7.3.72, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Identity, Version=0.7.3.73, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Identity.0.7.3.72\lib\net40\Aperea.Identity.dll</HintPath>
+      <HintPath>..\packages\Aperea.Identity.0.7.3.73\lib\net40\Aperea.Identity.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -76,6 +76,9 @@
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -91,7 +94,7 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -102,16 +105,33 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    <Reference Include="System.IO">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.2.13.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net40\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.13.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,37 +140,36 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -161,34 +180,33 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
     <Reference Include="WikiPlex">
       <HintPath>..\packages\WikiPlex.2.0\lib\Net40\WikiPlex.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Backoffice\Controllers\MeetingsController.cs" />
-    <Compile Include="Areas\Backoffice\Models\DisplayMeetingLineModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\DisplaySpeakerLineModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\DisplayTalkLineModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\DisplayTalkModel.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\MeetingsController.cs" />
+    <Compile Include="Areas\BackOffice\Models\DisplayMeetingLineModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\DisplaySpeakerLineModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\DisplayTalkLineModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\DisplayTalkModel.cs" />
     <Compile Include="DataAnnotations\ShortDateAttribute.cs" />
     <Compile Include="DataAnnotations\ShortTimeAttribute.cs" />
-    <Compile Include="Areas\Backoffice\BackofficeAreaRegistration.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\BackofficeController.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\PageController.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\LocationController.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\TalkController.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\SpeakerController.cs" />
-    <Compile Include="Areas\Backoffice\Controllers\MeetingController.cs" />
-    <Compile Include="Areas\Backoffice\Models\EditPageModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\EditLocationModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\EditTalkModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\EditSpeakerModel.cs" />
+    <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AdminController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\BackOfficeController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\PageController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\LocationController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\TalkController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\SpeakerController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\MeetingController.cs" />
+    <Compile Include="Areas\BackOffice\Models\EditPageModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\EditLocationModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\EditTalkModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\EditSpeakerModel.cs" />
     <Compile Include="DataAnnotations\WikiAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -235,7 +253,7 @@
     <Compile Include="Mappings\Resolver\TalkUrlResolver.cs" />
     <Compile Include="Models\MeetingDetailsTalkModel.cs" />
     <Compile Include="Models\MeetingLineModel.cs" />
-    <Compile Include="Areas\Backoffice\Models\EditMeetingModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\EditMeetingModel.cs" />
     <Compile Include="Models\ShowHomeIndexModel.cs" />
     <Compile Include="Models\ShowLocationModel.cs" />
     <Compile Include="Models\ShowMeetingModel.cs" />
@@ -250,44 +268,44 @@
     <Compile Include="Services\IActionUrlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Backoffice\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="backofficeapp\App.js.map">
+    <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="BackOfficeApp\App.js.map">
       <DependentUpon>App.ts</DependentUpon>
     </Content>
-    <Content Include="backofficeapp\js\AdminController.js.map">
+    <Content Include="BackOfficeApp\js\AdminController.js.map">
       <DependentUpon>AdminController.ts</DependentUpon>
     </Content>
-    <Content Include="backofficeapp\js\MeetingsController.js.map">
+    <Content Include="BackOfficeApp\js\MeetingsController.js.map">
       <DependentUpon>MeetingsController.ts</DependentUpon>
     </Content>
-    <Content Include="backofficeapp\js\Url.js.map">
+    <Content Include="BackOfficeApp\js\Url.js.map">
       <DependentUpon>Url.ts</DependentUpon>
     </Content>
-    <None Include="Content\backoffice.less" />
-    <TypeScriptCompile Include="backofficeapp\App.ts" />
-    <Content Include="backofficeapp\App.js">
+    <None Include="Content\BackOffice.less" />
+    <TypeScriptCompile Include="BackOfficeApp\App.ts" />
+    <Content Include="BackOfficeApp\App.js">
       <DependentUpon>App.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="backofficeapp\js\AdminController.ts" />
-    <Content Include="backofficeapp\js\AdminController.js">
+    <TypeScriptCompile Include="BackOfficeApp\js\AdminController.ts" />
+    <Content Include="BackOfficeApp\js\AdminController.js">
       <DependentUpon>AdminController.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="backofficeapp\js\MeetingsController.ts" />
-    <Content Include="backofficeapp\js\MeetingsController.js">
+    <TypeScriptCompile Include="BackOfficeApp\js\MeetingsController.ts" />
+    <Content Include="BackOfficeApp\js\MeetingsController.js">
       <DependentUpon>MeetingsController.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="backofficeapp\js\Url.ts" />
-    <Content Include="backofficeapp\js\Url.js">
+    <TypeScriptCompile Include="BackOfficeApp\js\Url.ts" />
+    <Content Include="BackOfficeApp\js\Url.js">
       <DependentUpon>Url.ts</DependentUpon>
     </Content>
-    <Content Include="backofficeapp\partials\admin.html" />
-    <Content Include="backofficeapp\partials\meetings.html" />
-    <Content Include="Content\backoffice.css">
-      <DependentUpon>backoffice.less</DependentUpon>
+    <Content Include="BackOfficeApp\partials\admin.html" />
+    <Content Include="BackOfficeApp\partials\meetings.html" />
+    <Content Include="Content\BackOffice.css">
+      <DependentUpon>BackOffice.less</DependentUpon>
     </Content>
-    <Content Include="Content\backoffice.min.css">
-      <DependentUpon>backoffice.less</DependentUpon>
+    <Content Include="Content\BackOffice.min.css">
+      <DependentUpon>BackOffice.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
@@ -303,200 +321,28 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\EditMeetingModel.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\EditTalkModel.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\EditMeetingModel.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\EditTalkModel.cshtml" />
     <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\angular-bootstrap-prettify.js" />
-    <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
-    <Content Include="Scripts\angular-bootstrap.js" />
-    <Content Include="Scripts\angular-bootstrap.min.js" />
-    <Content Include="Scripts\angular-cookies.js" />
-    <Content Include="Scripts\angular-cookies.min.js" />
-    <Content Include="Scripts\angular-loader.js" />
-    <Content Include="Scripts\angular-loader.min.js" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-resource.js" />
-    <Content Include="Scripts\angular-resource.min.js" />
-    <Content Include="Scripts\angular-sanitize.js" />
-    <Content Include="Scripts\angular-sanitize.min.js" />
-    <Content Include="Scripts\angular-scenario.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\i18n\angular-locale_am-et.js" />
-    <Content Include="Scripts\i18n\angular-locale_am.js" />
-    <Content Include="Scripts\i18n\angular-locale_ar-eg.js" />
-    <Content Include="Scripts\i18n\angular-locale_ar.js" />
-    <Content Include="Scripts\i18n\angular-locale_bg-bg.js" />
-    <Content Include="Scripts\i18n\angular-locale_bg.js" />
-    <Content Include="Scripts\i18n\angular-locale_bn-bd.js" />
-    <Content Include="Scripts\i18n\angular-locale_bn.js" />
-    <Content Include="Scripts\i18n\angular-locale_ca-es.js" />
-    <Content Include="Scripts\i18n\angular-locale_ca.js" />
-    <Content Include="Scripts\i18n\angular-locale_cs-cz.js" />
-    <Content Include="Scripts\i18n\angular-locale_cs.js" />
-    <Content Include="Scripts\i18n\angular-locale_da-dk.js" />
-    <Content Include="Scripts\i18n\angular-locale_da.js" />
-    <Content Include="Scripts\i18n\angular-locale_de-at.js" />
-    <Content Include="Scripts\i18n\angular-locale_de-be.js" />
-    <Content Include="Scripts\i18n\angular-locale_de-ch.js" />
-    <Content Include="Scripts\i18n\angular-locale_de-de.js" />
-    <Content Include="Scripts\i18n\angular-locale_de-lu.js" />
-    <Content Include="Scripts\i18n\angular-locale_de.js" />
-    <Content Include="Scripts\i18n\angular-locale_el-gr.js" />
-    <Content Include="Scripts\i18n\angular-locale_el-polyton.js" />
-    <Content Include="Scripts\i18n\angular-locale_el.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-as.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-au.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-dsrt-us.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-dsrt.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-gb.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-gu.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-ie.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-iso.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-mh.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-mp.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-sg.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-um.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-us.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-vi.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-za.js" />
-    <Content Include="Scripts\i18n\angular-locale_en-zz.js" />
-    <Content Include="Scripts\i18n\angular-locale_en.js" />
-    <Content Include="Scripts\i18n\angular-locale_es-es.js" />
-    <Content Include="Scripts\i18n\angular-locale_es.js" />
-    <Content Include="Scripts\i18n\angular-locale_et-ee.js" />
-    <Content Include="Scripts\i18n\angular-locale_et.js" />
-    <Content Include="Scripts\i18n\angular-locale_eu-es.js" />
-    <Content Include="Scripts\i18n\angular-locale_eu.js" />
-    <Content Include="Scripts\i18n\angular-locale_fa-ir.js" />
-    <Content Include="Scripts\i18n\angular-locale_fa.js" />
-    <Content Include="Scripts\i18n\angular-locale_fi-fi.js" />
-    <Content Include="Scripts\i18n\angular-locale_fi.js" />
-    <Content Include="Scripts\i18n\angular-locale_fil-ph.js" />
-    <Content Include="Scripts\i18n\angular-locale_fil.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-bl.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-ca.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-fr.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-gp.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-mc.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-mf.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-mq.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr-re.js" />
-    <Content Include="Scripts\i18n\angular-locale_fr.js" />
-    <Content Include="Scripts\i18n\angular-locale_gl-es.js" />
-    <Content Include="Scripts\i18n\angular-locale_gl.js" />
-    <Content Include="Scripts\i18n\angular-locale_gsw-ch.js" />
-    <Content Include="Scripts\i18n\angular-locale_gsw.js" />
-    <Content Include="Scripts\i18n\angular-locale_gu-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_gu.js" />
-    <Content Include="Scripts\i18n\angular-locale_he-il.js" />
-    <Content Include="Scripts\i18n\angular-locale_he.js" />
-    <Content Include="Scripts\i18n\angular-locale_hi-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_hi.js" />
-    <Content Include="Scripts\i18n\angular-locale_hr-hr.js" />
-    <Content Include="Scripts\i18n\angular-locale_hr.js" />
-    <Content Include="Scripts\i18n\angular-locale_hu-hu.js" />
-    <Content Include="Scripts\i18n\angular-locale_hu.js" />
-    <Content Include="Scripts\i18n\angular-locale_id-id.js" />
-    <Content Include="Scripts\i18n\angular-locale_id.js" />
-    <Content Include="Scripts\i18n\angular-locale_in.js" />
-    <Content Include="Scripts\i18n\angular-locale_is-is.js" />
-    <Content Include="Scripts\i18n\angular-locale_is.js" />
-    <Content Include="Scripts\i18n\angular-locale_it-it.js" />
-    <Content Include="Scripts\i18n\angular-locale_it.js" />
-    <Content Include="Scripts\i18n\angular-locale_iw.js" />
-    <Content Include="Scripts\i18n\angular-locale_ja-jp.js" />
-    <Content Include="Scripts\i18n\angular-locale_ja.js" />
-    <Content Include="Scripts\i18n\angular-locale_kn-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_kn.js" />
-    <Content Include="Scripts\i18n\angular-locale_ko-kr.js" />
-    <Content Include="Scripts\i18n\angular-locale_ko.js" />
-    <Content Include="Scripts\i18n\angular-locale_ln-cd.js" />
-    <Content Include="Scripts\i18n\angular-locale_ln.js" />
-    <Content Include="Scripts\i18n\angular-locale_lt-lt.js" />
-    <Content Include="Scripts\i18n\angular-locale_lt.js" />
-    <Content Include="Scripts\i18n\angular-locale_lv-lv.js" />
-    <Content Include="Scripts\i18n\angular-locale_lv.js" />
-    <Content Include="Scripts\i18n\angular-locale_ml-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_ml.js" />
-    <Content Include="Scripts\i18n\angular-locale_mo.js" />
-    <Content Include="Scripts\i18n\angular-locale_mr-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_mr.js" />
-    <Content Include="Scripts\i18n\angular-locale_ms-my.js" />
-    <Content Include="Scripts\i18n\angular-locale_ms.js" />
-    <Content Include="Scripts\i18n\angular-locale_mt-mt.js" />
-    <Content Include="Scripts\i18n\angular-locale_mt.js" />
-    <Content Include="Scripts\i18n\angular-locale_nl-nl.js" />
-    <Content Include="Scripts\i18n\angular-locale_nl.js" />
-    <Content Include="Scripts\i18n\angular-locale_no.js" />
-    <Content Include="Scripts\i18n\angular-locale_or-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_or.js" />
-    <Content Include="Scripts\i18n\angular-locale_pl-pl.js" />
-    <Content Include="Scripts\i18n\angular-locale_pl.js" />
-    <Content Include="Scripts\i18n\angular-locale_pt-br.js" />
-    <Content Include="Scripts\i18n\angular-locale_pt-pt.js" />
-    <Content Include="Scripts\i18n\angular-locale_pt.js" />
-    <Content Include="Scripts\i18n\angular-locale_ro-ro.js" />
-    <Content Include="Scripts\i18n\angular-locale_ro.js" />
-    <Content Include="Scripts\i18n\angular-locale_ru-ru.js" />
-    <Content Include="Scripts\i18n\angular-locale_ru.js" />
-    <Content Include="Scripts\i18n\angular-locale_sk-sk.js" />
-    <Content Include="Scripts\i18n\angular-locale_sk.js" />
-    <Content Include="Scripts\i18n\angular-locale_sl-si.js" />
-    <Content Include="Scripts\i18n\angular-locale_sl.js" />
-    <Content Include="Scripts\i18n\angular-locale_sq-al.js" />
-    <Content Include="Scripts\i18n\angular-locale_sq.js" />
-    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-rs.js" />
-    <Content Include="Scripts\i18n\angular-locale_sr-latn-rs.js" />
-    <Content Include="Scripts\i18n\angular-locale_sr-rs.js" />
-    <Content Include="Scripts\i18n\angular-locale_sr.js" />
-    <Content Include="Scripts\i18n\angular-locale_sv-se.js" />
-    <Content Include="Scripts\i18n\angular-locale_sv.js" />
-    <Content Include="Scripts\i18n\angular-locale_sw-tz.js" />
-    <Content Include="Scripts\i18n\angular-locale_sw.js" />
-    <Content Include="Scripts\i18n\angular-locale_ta-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_ta.js" />
-    <Content Include="Scripts\i18n\angular-locale_te-in.js" />
-    <Content Include="Scripts\i18n\angular-locale_te.js" />
-    <Content Include="Scripts\i18n\angular-locale_th-th.js" />
-    <Content Include="Scripts\i18n\angular-locale_th.js" />
-    <Content Include="Scripts\i18n\angular-locale_tl-ph.js" />
-    <Content Include="Scripts\i18n\angular-locale_tl.js" />
-    <Content Include="Scripts\i18n\angular-locale_tr-tr.js" />
-    <Content Include="Scripts\i18n\angular-locale_tr.js" />
-    <Content Include="Scripts\i18n\angular-locale_uk-ua.js" />
-    <Content Include="Scripts\i18n\angular-locale_uk.js" />
-    <Content Include="Scripts\i18n\angular-locale_ur-pk.js" />
-    <Content Include="Scripts\i18n\angular-locale_ur.js" />
-    <Content Include="Scripts\i18n\angular-locale_vi-vn.js" />
-    <Content Include="Scripts\i18n\angular-locale_vi.js" />
-    <Content Include="Scripts\i18n\angular-locale_zh-cn.js" />
-    <Content Include="Scripts\i18n\angular-locale_zh-hans-cn.js" />
-    <Content Include="Scripts\i18n\angular-locale_zh-hans.js" />
-    <Content Include="Scripts\i18n\angular-locale_zh-hk.js" />
-    <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
-    <Content Include="Scripts\i18n\angular-locale_zh.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jstd-scenario-adapter-config.js" />
-    <Content Include="Scripts\jstd-scenario-adapter.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular-resource.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <Content Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular.d.ts" />
     <Content Include="Scripts\typings\jquery\jquery.d.ts" />
     <Content Include="Web.config">
@@ -531,10 +377,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Backoffice\Views\Meeting\EditorTemplates\" />
+    <Folder Include="Areas\BackOffice\Views\Meeting\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UserGroup.Core\UserGroup.Core.csproj">
@@ -547,7 +395,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Backoffice\Views\Web.config" />
+    <Content Include="Areas\BackOffice\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ShowMeeting\Index.cshtml" />
@@ -559,37 +407,37 @@
     <Content Include="Views\Shared\DisplayTemplates\ShortTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Backoffice\Views\Meeting\Index.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Meeting\Details.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Meeting\Create.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Meeting\Edit.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Meeting\Delete.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Admin\Index.cshtml" />
-    <Content Include="Areas\Backoffice\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Meeting\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Meeting\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Meeting\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Meeting\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Meeting\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Web.config" />
-    <Content Include="Areas\Backoffice\Views\Speaker\Create.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Speaker\Delete.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Speaker\Details.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Speaker\Edit.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Speaker\Index.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Talk\Create.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Talk\Delete.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Talk\Details.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Talk\Edit.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Talk\Index.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Location\Create.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Location\Delete.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Location\Details.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Location\Edit.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Location\Index.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\Address.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Location\EditorTemplates\EditLocationModel.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Shared\EditorTemplates\DropDown.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Page\Create.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Page\Delete.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Page\Details.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Page\Edit.cshtml" />
-    <Content Include="Areas\Backoffice\Views\Page\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Speaker\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Speaker\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Speaker\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Speaker\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Speaker\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Talk\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Talk\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Talk\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Talk\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Talk\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Location\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Location\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Location\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Location\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Location\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Location\EditorTemplates\EditLocationModel.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\DropDown.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Page\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Page\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Page\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Page\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Page\Index.cshtml" />
     <None Include="Content\Site.less">
       <Compile>True</Compile>
       <Minify>False</Minify>
@@ -610,6 +458,17 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptIncludeComments>true</TypeScriptIncludeComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptIncludeComments>false</TypeScriptIncludeComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -641,4 +500,5 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.7\tools\Microsoft.Bcl.Build.targets" />
 </Project>

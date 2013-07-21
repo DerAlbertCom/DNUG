@@ -1,4 +1,4 @@
-html {
+﻿html {
   background-color: #e2e2e2;
   margin: 0;
   padding: 0;
@@ -178,7 +178,7 @@ ul#menu li a:hover {
   background-image: -o-linear-gradient(left, #ff9900 0%, #ffcc33 100%);
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #ff9900), color-stop(1, #ffcc33));
   background-image: -webkit-linear-gradient(left, #ff9900 0%, #ffcc33 100%);
-  background-image: linear-gradient(left, #ff9900 0%, #ffcc33 100%);
+  background-image: linear-gradient(90deg, #ff9900 0%, #ffcc33 100%);
   color: #3e5667;
   padding: 20px 40px 30px 40px;
 }
