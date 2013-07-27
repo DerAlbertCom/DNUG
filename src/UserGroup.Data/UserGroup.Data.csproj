@@ -33,13 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aperea.Bootstrap, Version=0.7.3.73, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap, Version=0.7.3.74, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.73\lib\net40\Aperea.Bootstrap.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.74\lib\net40\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.73, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.74, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.73\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.74\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>

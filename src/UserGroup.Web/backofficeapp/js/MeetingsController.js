@@ -4,7 +4,7 @@ var Backoffice;
     /// <reference path="../../Scripts/typings/angularjs/angular-resource.d.ts" />
     /// <reference path="../../Scripts/typings/angularjs/angular.d.ts" />
     (function (Controllers) {
-        Controllers.MeetingsCtrl = $['$scope', '$route', '$routeParams', '$resource', MeetingsController];
+        Controllers.MeetingsCtrl = ['$scope', '$route', '$routeParams', '$resource', MeetingsController];
 
         function MeetingsController($scope, $route, $routeParams, $resource) {
             $scope.route = $route;

@@ -6,7 +6,7 @@ using Aperea.Infrastructure.Mappings;
 using UserGroup.Entities;
 using UserGroup.Web.Areas.BackOffice.Models;
 
-namespace UserGroup.Web.Areas.BackOffice.Controllers
+namespace UserGroup.Web.Areas.BackOffice.ApiControllers
 {
     [Authorize(Roles = UserGroup.Security.Roles.Administrator)]
     public class MeetingsController : ApiController

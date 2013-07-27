@@ -11,11 +11,11 @@ namespace UserGroup.Web.Specs
     {
         Establish context = () =>
             {
-                var query =
+                var profiles =
                             from t in typeof(MeetingProfile).Assembly.GetExportedTypes()
                             where typeof (Profile).IsAssignableFrom(t)
                             select t;
-                foreach (var profile in query)
+                foreach (var profile in profiles)
                 {
                     Mapper.AddProfile((Profile) Activator.CreateInstance(profile));
                 }

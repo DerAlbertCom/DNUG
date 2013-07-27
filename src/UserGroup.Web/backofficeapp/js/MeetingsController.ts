@@ -11,7 +11,7 @@ module Backoffice.Controllers {
         StartDate: Date;
     }
 
-     interface IMeetingsControllerScope extends ng.IScope {
+    interface IMeetingsControllerScope extends ng.IScope {
         meetings: MeetingLine[];
         route: ng.IRouteService;
         routeParams: ng.IRouteParamsService;
@@ -21,10 +21,11 @@ module Backoffice.Controllers {
         setCurrent: (meeting: MeetingLine) => void;
     }
 
-    export var MeetingsCtrl = $['$scope', '$route', '$routeParams', '$resource', MeetingsController];
 
-    function MeetingsController($scope: IMeetingsControllerScope,     $route: ng.IRouteService,
-        $routeParams: ng.IRouteParamsService,   $resource: ng.resource.IResourceService) {
+    export var MeetingsCtrl = ['$scope', '$route', '$routeParams', '$resource', MeetingsController];
+
+    function MeetingsController($scope: IMeetingsControllerScope, $route: ng.IRouteService,
+        $routeParams: ng.IRouteParamsService, $resource: ng.resource.IResourceService) {
 
         $scope.route = $route;
         $scope.routeParams = $routeParams;
@@ -39,15 +40,14 @@ module Backoffice.Controllers {
         });
 
         $scope.setCurrent = meeting => $scope.meetingsResource.get({ id: meeting.Id }, (details) => $scope.currentMeeting = details);
+    }   
+    
+    function EmptyMeeting(): MeetingLine {
+        return {
+            Id: 0,
+            Title: '',
+            Description: '',
+            StartDate: null
+        };
     }
-
-
-     function EmptyMeeting(): MeetingLine {
-            return {
-                Id: 0,
-                Title: '',
-                Description: '',
-                StartDate: null
-            };
-        }
 }
