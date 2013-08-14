@@ -1,3 +1,30 @@
-﻿body {
-    background-color: #ff6a00;
+﻿@navcolor: #ff6a00;
+@backcolor: #fff;
+
+body {
+    background-color: @backcolor;
+}
+
+.ug-footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.ug-nav {
+    background-color: @navcolor;
+
+    .navbar-brand {
+        white-space: nowrap;
+        font-weight: bold;
+        color: black;
+    }
+
+    .navbar-nav {
+        > li {
+            > a {
+                font-weight: bold;
+                color: darken(@navcolor,20%);
+            }
+        }
+    }
 }

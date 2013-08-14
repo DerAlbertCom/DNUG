@@ -1,16 +1,12 @@
 /// <reference path="../../Scripts/typings/jquery/jquery.d.ts" />
 var Backoffice;
 (function (Backoffice) {
-    var AppRoot = function () {
-        return $('body').data('appRoot');
-    };
-
     Backoffice.Url = {
         Api: function (url) {
-            return AppRoot() + "api/backoffice/" + url;
+            return $('body').data('apiRoot') + "backoffice/" + url;
         },
         View: function (viewName) {
-            return AppRoot() + "backofficeapp/partials/" + viewName + ".html";
+            return $('body').data('appRoot') + "BackOfficeApp/partials/" + viewName + ".html";
         }
     };
 })(Backoffice || (Backoffice = {}));

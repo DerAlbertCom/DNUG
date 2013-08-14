@@ -25,13 +25,8 @@ namespace UserGroup.Web.Infrastructure.Initialize
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("images/{*pathInfo}");
 
-            routes.MapHttpRoute(
-                    name:"Backoffice API Default",
-                    routeTemplate: "api/backoffice/{controller}/{id}",
-                    defaults: new {id=RouteParameter.Optional}
-                );
             routes.MapRoute(
-                name: "FederationMedatadata",
+                name: "FederationMetaData",
                 url: "federationmetadata/2007-06/federationmetadata.xml",
                 defaults: new {controller = NameOf<MetadataController>(), action = "Federation"}
                 );

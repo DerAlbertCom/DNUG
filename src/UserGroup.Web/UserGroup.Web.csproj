@@ -50,24 +50,28 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap, Version=0.7.3.74, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.74\lib\net40\Aperea.Bootstrap.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.75\lib\net40\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.3.74, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.74\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.75\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap.WebApi">
-      <HintPath>..\packages\Aperea.Bootstrap.WebApi.0.7.3.74\lib\net40\Aperea.Bootstrap.WebApi.dll</HintPath>
-    </Reference>
-    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.74, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.74\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.WebApi.0.7.3.75\lib\net40\Aperea.Bootstrap.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Identity, Version=0.7.3.74, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Common">
+      <HintPath>..\packages\Aperea.Common.0.7.3.75\lib\net40\Aperea.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Identity.0.7.3.74\lib\net40\Aperea.Identity.dll</HintPath>
+      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.75\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Aperea.Identity, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aperea.Identity.0.7.3.75\lib\net40\Aperea.Identity.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -193,7 +197,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\BackOffice\ApiControllers\MeetingsController.cs" />
     <Compile Include="Areas\BackOffice\Models\DisplayMeetingLineModel.cs" />
     <Compile Include="Areas\BackOffice\Models\DisplaySpeakerLineModel.cs" />
     <Compile Include="Areas\BackOffice\Models\DisplayTalkLineModel.cs" />
@@ -279,11 +282,15 @@
     <Content Include="BackOfficeApp\js\AdminController.js.map">
       <DependentUpon>AdminController.ts</DependentUpon>
     </Content>
-    <Content Include="BackOfficeApp\js\MeetingsController.js.map">
-      <DependentUpon>MeetingsController.ts</DependentUpon>
+    <Content Include="BackOfficeApp\js\backoffice.d.ts" />
+    <Content Include="BackOfficeApp\js\Meetings.js">
+      <DependentUpon>Meetings.ts</DependentUpon>
     </Content>
     <Content Include="BackOfficeApp\js\Url.js.map">
       <DependentUpon>Url.ts</DependentUpon>
+    </Content>
+    <Content Include="BackOfficeApp\js\Meetings.js.map">
+      <DependentUpon>Meetings.ts</DependentUpon>
     </Content>
     <None Include="Content\BackOffice.less" />
     <TypeScriptCompile Include="BackOfficeApp\App.ts" />
@@ -294,10 +301,7 @@
     <Content Include="BackOfficeApp\js\AdminController.js">
       <DependentUpon>AdminController.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="BackOfficeApp\js\MeetingsController.ts" />
-    <Content Include="BackOfficeApp\js\MeetingsController.js">
-      <DependentUpon>MeetingsController.ts</DependentUpon>
-    </Content>
+    <TypeScriptCompile Include="BackOfficeApp\js\Meetings.ts" />
     <TypeScriptCompile Include="BackOfficeApp\js\Url.ts" />
     <Content Include="BackOfficeApp\js\Url.js">
       <DependentUpon>Url.ts</DependentUpon>
@@ -310,12 +314,10 @@
     <Content Include="Content\BackOffice.min.css">
       <DependentUpon>BackOffice.less</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap-responsive.css" />
-    <Content Include="Content\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\glyphicons-halflings-white.png" />
-    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\bootstrap\bootstrap-glyphicons.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.svg" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
@@ -326,6 +328,10 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\EditMeetingModel.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\EditTalkModel.cshtml" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.otf" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.eot" />
     <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
@@ -341,9 +347,9 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
@@ -648,6 +654,7 @@
     <Content Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular.d.ts" />
+    <Content Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
     <Content Include="Scripts\typings\jquery\jquery.d.ts" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -689,6 +696,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UserGroup.Api\UserGroup.Api.csproj">
+      <Project>{663981a5-2763-4f7f-ba3f-b00f0535631f}</Project>
+      <Name>UserGroup.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserGroup.Core\UserGroup.Core.csproj">
       <Project>{471EF252-A8E7-4275-868C-938B42010B98}</Project>
       <Name>UserGroup.Core</Name>

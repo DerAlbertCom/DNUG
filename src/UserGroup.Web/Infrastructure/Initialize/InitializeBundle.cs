@@ -26,8 +26,8 @@ namespace UserGroup.Web.Infrastructure.Initialize
 
             bundles.Add(new StyleBundle("~/resources/backofficecss")
                 .Include(
-                    "~/content/bootstrap.css",
-                    "~/content/bootstrap-responsive.css",
+                    "~/content/bootstrap/bootstrap-glyphicons.css",
+                    "~/content/bootstrap/bootstrap.css",
                     "~/content/backoffice.css"));
 
             bundles.Add(new ScriptBundle("~/resources/spajs").Include(

@@ -3,10 +3,10 @@ using System.Linq;
 using System.Web.Http;
 using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
+using UserGroup.Api.Models;
 using UserGroup.Entities;
-using UserGroup.Web.Areas.BackOffice.Models;
 
-namespace UserGroup.Web.Areas.BackOffice.ApiControllers
+namespace UserGroup.Api.Controllers
 {
     [Authorize(Roles = UserGroup.Security.Roles.Administrator)]
     public class MeetingsController : ApiController
