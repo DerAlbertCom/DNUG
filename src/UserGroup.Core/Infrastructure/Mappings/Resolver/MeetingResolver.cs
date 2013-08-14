@@ -1,12 +1,13 @@
-using System;
 using System.Linq;
+using Aperea;
 using Aperea.Data;
 using AutoMapper;
 using UserGroup.Entities;
 
-namespace UserGroup.Web.Mappings.Resolver
+namespace UserGroup.Infrastructure.Mappings.Resolver
 {
-    public class MeetingResolver : ValueResolver<int, Meeting>
+    [UsedImplicitly]
+    public sealed class MeetingResolver : ValueResolver<int, Meeting>
     {
         readonly IRepository<Meeting> repository;
 

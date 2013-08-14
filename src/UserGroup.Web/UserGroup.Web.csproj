@@ -247,10 +247,8 @@
     <Compile Include="Mappings\Resolver\LocationSelectListResolver.cs" />
     <Compile Include="Mappings\Resolver\MeetingSelectListResolver.cs" />
     <Compile Include="Mappings\Resolver\PageUrlResolver.cs" />
-    <Compile Include="Mappings\Resolver\LocationResolver.cs" />
     <Compile Include="Mappings\Resolver\LocationUrlResolver.cs" />
     <Compile Include="Mappings\MeetingProfile.cs" />
-    <Compile Include="Mappings\Resolver\MeetingResolver.cs" />
     <Compile Include="Mappings\Resolver\MeetingUrlResolver.cs" />
     <Compile Include="Mappings\Resolver\SpeakerSelectListResolver.cs" />
     <Compile Include="Mappings\Resolver\SpeakerUrlResolver.cs" />

@@ -1,14 +1,15 @@
-using System;
 using System.Linq;
+using Aperea;
 using Aperea.Data;
 using AutoMapper;
 using UserGroup.Entities;
 
-namespace UserGroup.Web.Mappings.Resolver
+namespace UserGroup.Infrastructure.Mappings.Resolver
 {
+    [UsedImplicitly]
     public class LocationResolver : ValueResolver<int, Location>
     {
-        readonly IRepository<Location> repository;
+        private readonly IRepository<Location> repository;
 
         public LocationResolver(IRepository<Location> repository)
         {
