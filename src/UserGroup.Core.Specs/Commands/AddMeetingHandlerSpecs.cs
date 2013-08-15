@@ -33,7 +33,7 @@ namespace UserGroup.Core.Specs.Commands
         It should_call_the_findLocation_with_id_4711 = () => The<IFindLocation>().WasToldTo(fl => fl.Execute(4711));
 
         It should_save_change_to_the_repository =
-            () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveChanges());
+            () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
 
         It should_have_the_der_title_in_the_creating_meeting = () => meeting.Title.ShouldEqual("Der Title");
 

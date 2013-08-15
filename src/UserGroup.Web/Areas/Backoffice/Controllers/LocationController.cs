@@ -51,7 +51,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
                 var location = new Location();
                 model.MapTo(location);
                 _repository.Add(location);
-                _repository.SaveChanges();
+                _repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -81,7 +81,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
             {
                 var location = GetLocation(id);
                 model.MapTo(location);
-                _repository.SaveChanges();
+                _repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

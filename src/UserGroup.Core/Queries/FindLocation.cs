@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Aperea;
+using Aperea.Data;
 using UserGroup.Entities;
 
 namespace UserGroup.Queries

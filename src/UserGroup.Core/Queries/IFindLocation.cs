@@ -2,7 +2,7 @@
 
 namespace UserGroup.Queries
 {
-    public interface IFindLocation : IQuery
+    public interface IFindLocation
     {
         Location Execute(int locationId);
     }

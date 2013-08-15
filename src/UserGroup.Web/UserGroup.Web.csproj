@@ -50,28 +50,29 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap, Version=0.7.3.76, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.75\lib\net40\Aperea.Bootstrap.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.76\lib\net40\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Bootstrap.Mvc, Version=0.7.3.76, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.75\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.76\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Aperea.Bootstrap.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Bootstrap.WebApi.0.7.3.75\lib\net40\Aperea.Bootstrap.WebApi.dll</HintPath>
+      <HintPath>..\packages\Aperea.Bootstrap.WebApi.0.7.3.76\lib\net40\Aperea.Bootstrap.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Common">
-      <HintPath>..\packages\Aperea.Common.0.7.3.75\lib\net40\Aperea.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.75\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Aperea.Common.0.7.3.76\lib\net40\Aperea.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Identity, Version=0.7.3.75, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aperea.Data.EntityFramework, Version=0.7.3.76, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aperea.Identity.0.7.3.75\lib\net40\Aperea.Identity.dll</HintPath>
+      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.76\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Aperea.Identity, Version=0.7.3.76, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aperea.Identity.0.7.3.76\lib\net40\Aperea.Identity.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

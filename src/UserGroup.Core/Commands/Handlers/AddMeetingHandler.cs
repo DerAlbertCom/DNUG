@@ -25,7 +25,7 @@ namespace UserGroup.Commands.Handlers
             var mapping = command.MapTo<Meeting>();
             mapping.Location = location.Execute(command.LocationId);
             meetings.Add(mapping);
-            meetings.SaveChanges();
+            meetings.SaveAllChanges();
         }
     }
 }

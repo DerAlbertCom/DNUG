@@ -52,7 +52,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
                 var meeting = new Meeting();
                 model.MapTo(meeting);
                 repository.Add(meeting);
-                repository.SaveChanges();
+                repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -83,7 +83,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
             {
                 var meeting = GetMeeting(id);
                 model.MapTo(meeting);
-                repository.SaveChanges();
+                repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

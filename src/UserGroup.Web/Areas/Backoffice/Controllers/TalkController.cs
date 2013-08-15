@@ -45,7 +45,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
             {
                 var speaker = speakerRepository.Entities.Single(s => s.Id == speakerId);
                 talk.Speakers.Add(speaker);
-                repository.SaveChanges();
+                repository.SaveAllChanges();
             }
             
             return RedirectToAction("Details",new {id});
@@ -70,7 +70,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
                 var talk = new Talk();
                 model.MapTo(talk);
                 repository.Add(talk);
-                repository.SaveChanges();
+                repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -100,7 +100,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
             {
                 var talk = GetTalk(id);
                 model.MapTo(talk);
-                repository.SaveChanges();
+                repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

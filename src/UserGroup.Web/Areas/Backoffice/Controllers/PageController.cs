@@ -51,7 +51,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
                 var page = new Page();
                 model.MapTo(page);
                 _repository.Add(page);
-                _repository.SaveChanges();
+                _repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -81,7 +81,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
             {
                 var page = GetPage(id);
                 model.MapTo(page);
-                _repository.SaveChanges();
+                _repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

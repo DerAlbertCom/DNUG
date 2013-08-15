@@ -22,7 +22,7 @@ namespace UserGroup.Api.Controllers
         public IEnumerable<DisplayMeetingLineModel> GetAllMeetings()
         {
             var list = repository.Entities.OrderByDescending(m => m.StartTime).ToList();
-            return list.MapTo<IEnumerable<DisplayMeetingLineModel>>();
+            return list.MapTo<DisplayMeetingLineModel>();
         }
 
         [HttpGet]

@@ -51,7 +51,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
                 var speaker = new Speaker();
                 model.MapTo(speaker);
                 _repository.Add(speaker);
-                _repository.SaveChanges();
+                _repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -82,7 +82,7 @@ namespace UserGroup.Web.Areas.BackOffice.Controllers
             {
                 var speaker = GetSpeaker(id);
                 model.MapTo(speaker);
-                _repository.SaveChanges();
+                _repository.SaveAllChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
