@@ -15,8 +15,9 @@ namespace UserGroup.Core.Specs.Commands
         {
             meetings = new[]
             {
-                new Meeting {Title = "Foo"},
-                new Meeting {Title = "Bar"}
+                new Meeting {Title = "Eins", Description = "EinsDesc"},
+                new Meeting {Title = "Zwei", Description = "ZweiDesc"},
+                new Meeting {Title = "Drei", Description = "DreiDesc"}
             };
             With(new BehaviorRepository<Meeting>(meetings));
         };

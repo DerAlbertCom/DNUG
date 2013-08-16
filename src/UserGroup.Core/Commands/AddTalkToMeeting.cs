@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Aperea.Commands;
 
 namespace UserGroup.Commands
 {
-    public class AddTalkToMeeting
+    public class AddTalkToMeeting : ICommand
     {
         [Required]
         [StringLength(128)]

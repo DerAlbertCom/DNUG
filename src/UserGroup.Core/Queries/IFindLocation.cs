@@ -6,4 +6,9 @@ namespace UserGroup.Queries
     {
         Location Execute(int locationId);
     }
+
+    public interface IFindSpeaker
+    {
+        Speaker Execute(int speakerId);
+    }
 }
