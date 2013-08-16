@@ -2,8 +2,8 @@
 
 namespace UserGroup.Commands
 {
-    public class EditMeeting : ICommand
+    public class EditMeeting : AddMeeting
     {
-         
+         public int Id { get; set; }
     }
 }

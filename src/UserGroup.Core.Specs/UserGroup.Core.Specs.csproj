@@ -87,6 +87,7 @@
     <Compile Include="BehaviorRepository.cs" />
     <Compile Include="Commands\AddMeetingHandlerSpecs.cs" />
     <Compile Include="Commands\DeleteMeetingHandlerSpecs.cs" />
+    <Compile Include="Commands\EditMeetingHandlerSpecs.cs" />
     <Compile Include="CoreMappingSpecs.cs" />
     <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
