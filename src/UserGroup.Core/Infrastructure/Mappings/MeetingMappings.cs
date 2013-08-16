@@ -16,6 +16,12 @@ namespace UserGroup.Infrastructure.Mappings
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToUniversalTime()))
                 .ForMember(d => d.DisplayFrom, c => c.ResolveUsing(s => s.DisplayFrom.ToUniversalTime()));
 
+            CreateMap<EditMeeting, Meeting>()
+                .IgnoreMember(d => d.Talks)
+                .IgnoreMember(d => d.Location)
+                .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToUniversalTime()))
+                .ForMember(d => d.DisplayFrom, c => c.ResolveUsing(s => s.DisplayFrom.ToUniversalTime()));
+
             base.Configure();
         }
     }
