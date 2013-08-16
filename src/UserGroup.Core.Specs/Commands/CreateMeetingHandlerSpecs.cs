@@ -8,13 +8,13 @@ using UserGroup.Queries;
 
 namespace UserGroup.Core.Specs.Commands
 {
-    [Subject(typeof (AddMeetingHandler))]
-    public class AddMeetingHandlerSpecs : WithSubject<AddMeetingHandler>
+    [Subject(typeof (CreateMeetingHandler))]
+    public class When_creating_a_new_meeting: WithSubject<CreateMeetingHandler>
     {
         Establish content = () =>
         {
             With<BehaviorCoreMapping>();
-            command = new AddMeeting()
+            command = new CreateMeeting()
             {
                 Title = "Der Title",
                 LocationId = 4711
@@ -37,7 +37,7 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_have_the_der_title_in_the_creating_meeting = () => meeting.Title.ShouldEqual("Der Title");
 
-        static AddMeeting command;
+        static CreateMeeting command;
         static Meeting meeting;
     }
 }

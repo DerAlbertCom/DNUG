@@ -5,7 +5,7 @@ using Aperea.Commands;
 
 namespace UserGroup.Commands
 {
-    public class AddMeeting : ICommand
+    public class CreateMeeting : ICommand
     {
         [Required]
         [StringLength(128)]

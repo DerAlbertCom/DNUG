@@ -8,7 +8,7 @@ namespace UserGroup.Infrastructure.Mappings
     {
         protected override void Configure()
         {
-            CreateMap<AddMeeting, Meeting>()
+            CreateMap<CreateMeeting, Meeting>()
                 .IgnoreMember(d => d.Id)
                 .IgnoreMember(d => d.Slug)
                 .IgnoreMember(d => d.Talks)
@@ -16,7 +16,7 @@ namespace UserGroup.Infrastructure.Mappings
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToUniversalTime()))
                 .ForMember(d => d.DisplayFrom, c => c.ResolveUsing(s => s.DisplayFrom.ToUniversalTime()));
 
-            CreateMap<EditMeeting, Meeting>()
+            CreateMap<ChangeMeeting, Meeting>()
                 .IgnoreMember(d => d.Talks)
                 .IgnoreMember(d => d.Location)
                 .ForMember(d => d.StartTime, c => c.ResolveUsing(s => s.StartTime.ToUniversalTime()))

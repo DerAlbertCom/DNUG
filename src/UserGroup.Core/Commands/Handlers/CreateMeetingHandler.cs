@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Aperea;
+﻿using Aperea;
 using Aperea.Commands;
 using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
@@ -9,18 +8,18 @@ using UserGroup.Queries;
 namespace UserGroup.Commands.Handlers
 {
     [UsedImplicitly]
-    public sealed class AddMeetingHandler : CommandHandler<AddMeeting>
+    public sealed class CreateMeetingHandler : CommandHandler<CreateMeeting>
     {
         private readonly IRepository<Meeting> meetings;
         private readonly IFindLocation location;
 
-        public AddMeetingHandler(IRepository<Meeting> meetings, IFindLocation location)
+        public CreateMeetingHandler(IRepository<Meeting> meetings, IFindLocation location)
         {
             this.meetings = meetings;
             this.location = location;
         }
 
-        public override void Execute(AddMeeting command)
+        public override void Execute(CreateMeeting command)
         {
             var mapping = command.MapTo<Meeting>();
             mapping.Location = location.Execute(command.LocationId);

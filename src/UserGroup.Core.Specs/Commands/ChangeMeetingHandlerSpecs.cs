@@ -8,8 +8,8 @@ using UserGroup.Queries;
 
 namespace UserGroup.Core.Specs.Commands
 {
-    [Subject(typeof (EditMeetingHandler))]
-    public class When_editing_the_second_meeting_out_of_three_meetings : WithSubject<EditMeetingHandler>
+    [Subject(typeof (ChangeMeetingHandler))]
+    public class When_editing_the_second_meeting_out_of_three_meetings : WithSubject<ChangeMeetingHandler>
     {
         Establish context = () =>
         {
@@ -23,7 +23,7 @@ namespace UserGroup.Core.Specs.Commands
             With(new BehaviorRepository<Meeting>(meetings));
         };
 
-        Because of = () => Subject.Execute(new EditMeeting
+        Because of = () => Subject.Execute(new ChangeMeeting
         {
             Id = meetings[1].Id,
             Title = "ChangeZwei",
