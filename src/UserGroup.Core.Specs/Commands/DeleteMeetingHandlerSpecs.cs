@@ -13,12 +13,7 @@ namespace UserGroup.Core.Specs.Commands
     {
         Establish context = () =>
         {
-            meetings = new[]
-            {
-                new Meeting {Title = "Eins", Description = "EinsDesc"},
-                new Meeting {Title = "Zwei", Description = "ZweiDesc"},
-                new Meeting {Title = "Drei", Description = "DreiDesc"}
-            };
+            meetings = TestData.GetThreeMeetings();
             With(new BehaviorRepository<Meeting>(meetings));
         };
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -24,18 +23,9 @@ namespace UserGroup.Core.Specs
         {
             foreach (var entity in entities)
             {
-                SetEntityId(entity);
+                EntityData.SetEntityId(entity);
                 this.entities.Add(entity);
             }
-        }
-
-        static int idCount = 0;
-        static void SetEntityId(T entity)
-        {
-            idCount++;
-            var property = entity.GetType()
-                .GetProperty("Id", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            property.SetValue(entity,idCount,null);
         }
 
         public IQueryable<T> Entities

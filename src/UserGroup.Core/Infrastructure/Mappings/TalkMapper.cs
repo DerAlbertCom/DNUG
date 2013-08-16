@@ -17,7 +17,6 @@ namespace UserGroup.Infrastructure.Mappings
                 .IgnoreMember(d => d.Meeting)
                 .IgnoreMember(d => d.Speakers);
 
-
             base.Configure();
         }
     }

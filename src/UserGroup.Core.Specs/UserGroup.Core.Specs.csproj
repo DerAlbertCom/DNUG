@@ -89,7 +89,10 @@
     <Compile Include="Commands\CreateMeetingHandlerSpecs.cs" />
     <Compile Include="Commands\DeleteMeetingHandlerSpecs.cs" />
     <Compile Include="Commands\ChangeMeetingHandlerSpecs.cs" />
+    <Compile Include="Commands\RemoveTalkFromMeetingHandlerSpecs.cs" />
+    <Compile Include="Commands\TestDat.cs" />
     <Compile Include="CoreMappingSpecs.cs" />
+    <Compile Include="EntityData.cs" />
     <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
