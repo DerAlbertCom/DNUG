@@ -84,8 +84,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BehaviorCoreMapping.cs" />
+    <Compile Include="BehaviorRepository.cs" />
     <Compile Include="Commands\AddMeetingHandlerSpecs.cs" />
+    <Compile Include="Commands\DeleteMeetingHandlerSpecs.cs" />
     <Compile Include="CoreMappingSpecs.cs" />
+    <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

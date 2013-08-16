@@ -81,6 +81,7 @@
     <Compile Include="Commands\DeleteMeeting.cs" />
     <Compile Include="Commands\EditMeeting.cs" />
     <Compile Include="Commands\Handlers\AddMeetingHandler.cs" />
+    <Compile Include="Commands\Handlers\DeleteMeetingHandler.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\IHasLocation.cs" />
     <Compile Include="Entities\ISlug.cs" />
