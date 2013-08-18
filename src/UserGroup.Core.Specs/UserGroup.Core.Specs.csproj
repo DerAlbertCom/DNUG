@@ -88,6 +88,7 @@
     <Compile Include="BehaviorSlugGenerators.cs" />
     <Compile Include="Commands\AddSpeakerToTalkHandlerSpecs.cs" />
     <Compile Include="Commands\AddTalkToMeetingHandlerSpecs.cs" />
+    <Compile Include="Commands\ChangeSpeakerHandlerSpecs.cs" />
     <Compile Include="Commands\ChangeTalkHandlerSpecs.cs" />
     <Compile Include="Commands\CreateMeetingHandlerSpecs.cs" />
     <Compile Include="Commands\CreateSpeakerHandlerSpecs.cs" />

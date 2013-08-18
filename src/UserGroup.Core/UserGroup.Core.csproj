@@ -87,6 +87,7 @@
     <Compile Include="Commands\ChangeMeeting.cs" />
     <Compile Include="Commands\Handlers\AddSpeakerToTalkHandler.cs" />
     <Compile Include="Commands\Handlers\AddTalkToMeetingHandler.cs" />
+    <Compile Include="Commands\Handlers\ChangeSpeakerHandler.cs" />
     <Compile Include="Commands\Handlers\ChangeTalkHandler.cs" />
     <Compile Include="Commands\Handlers\CreateMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\CreateSpeakerHandler.cs" />
