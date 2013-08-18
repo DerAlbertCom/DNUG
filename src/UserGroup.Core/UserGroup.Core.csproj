@@ -86,6 +86,7 @@
     <Compile Include="Commands\Handlers\CreateMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\DeleteMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\ChangeMeetingHandler.cs" />
+    <Compile Include="Commands\Handlers\RemoveSpeakerFromTalkHandler.cs" />
     <Compile Include="Commands\Handlers\RemoveTalkFromMeetingHandler.cs" />
     <Compile Include="Commands\RemoveSpeakerFromTalk.cs" />
     <Compile Include="Commands\RemoveTalkFromMeeting.cs" />

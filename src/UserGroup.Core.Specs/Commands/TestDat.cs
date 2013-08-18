@@ -27,5 +27,17 @@ namespace UserGroup.Core.Specs.Commands
             EntityData.SetEntityIds(threeTalks);
             return threeTalks;
         }
+
+        public static Speaker[] GetThreeSpeakers()
+        {
+            var speakers = new[]
+            {
+                new Speaker {GivenName = "Albert", LastName = "Weinert"},
+                new Speaker {GivenName = "Stefan", LastName = "Lange"},
+                new Speaker {GivenName = "Roland", LastName = "Weigelt"}
+            };
+            EntityData.SetEntityIds(speakers);
+            return speakers;
+        }
     }
 }

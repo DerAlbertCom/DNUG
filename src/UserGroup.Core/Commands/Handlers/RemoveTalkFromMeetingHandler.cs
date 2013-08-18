@@ -8,7 +8,7 @@ namespace UserGroup.Commands.Handlers
 {
     public class RemoveTalkFromMeetingHandler : CommandHandler<RemoveTalkFromMeeting>
     {
-        private IRepository<Meeting> repository;
+        private readonly IRepository<Meeting> repository;
 
         public RemoveTalkFromMeetingHandler(IRepository<Meeting> repository)
         {
