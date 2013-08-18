@@ -14,6 +14,7 @@ namespace UserGroup.Core.Specs.Commands
         Establish content = () =>
         {
             With<BehaviorCoreMapping>();
+            With<BehaviorSlugGenerators>();
             command = new CreateMeeting()
             {
                 Title = "Der Title",
@@ -37,6 +38,7 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_have_the_der_title_in_the_creating_meeting = () => meeting.Title.ShouldEqual("Der Title");
 
+        It should_the_slug_is_der_title = () => meeting.Slug.ShouldEqual("der-title");
         static CreateMeeting command;
         static Meeting meeting;
     }

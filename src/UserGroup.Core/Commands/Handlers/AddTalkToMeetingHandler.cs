@@ -4,6 +4,7 @@ using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
 using UserGroup.Entities;
 using UserGroup.Queries;
+using UserGroup.Services;
 
 namespace UserGroup.Commands.Handlers
 {
@@ -11,11 +12,13 @@ namespace UserGroup.Commands.Handlers
     {
         private readonly IRepository<Meeting> repository;
         private readonly IFindSpeaker findSpeaker;
+        private readonly ISlugGenerator<Talk> generator;
 
-        public AddTalkToMeetingHandler(IRepository<Meeting> repository, IFindSpeaker findSpeaker)
+        public AddTalkToMeetingHandler(IRepository<Meeting> repository, IFindSpeaker findSpeaker, ISlugGenerator<Talk> generator)
         {
             this.repository = repository;
             this.findSpeaker = findSpeaker;
+            this.generator = generator;
         }
 
         public override void Execute(AddTalkToMeeting command)
@@ -23,6 +26,7 @@ namespace UserGroup.Commands.Handlers
             var meeting = repository.Entities.Single(m => m.Id==command.MeetingId);
             var talk = command.MapTo<Talk>();
 
+            generator.Generate(talk);
             talk.Meeting = meeting;
             meeting.Talks.Add(talk);
 

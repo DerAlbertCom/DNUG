@@ -8,9 +8,9 @@ namespace UserGroup.Core.Specs.Commands
         {
             var threeMeetings = new[]
             {
-                new Meeting {Title = "Eins", Description = "EinsDesc"},
-                new Meeting {Title = "Zwei", Description = "ZweiDesc"},
-                new Meeting {Title = "Drei", Description = "DreiDesc"}
+                new Meeting {Title = "Eins", Description = "EinsDesc", Slug = "eins"},
+                new Meeting {Title = "Zwei", Description = "ZweiDesc", Slug = "zwei"},
+                new Meeting {Title = "Drei", Description = "DreiDesc", Slug = "drei"}
             };
             EntityData.SetEntityIds(threeMeetings);
             return threeMeetings;
@@ -20,9 +20,9 @@ namespace UserGroup.Core.Specs.Commands
         {
             var threeTalks = new[]
             {
-                new Talk {Title = "EinsTalk", Description = "EinsDescTalk"},
-                new Talk {Title = "ZweiTalk", Description = "ZweiDescTalk"},
-                new Talk {Title = "DreiTalk", Description = "DreiDescTalk"}
+                new Talk {Title = "EinsTalk", Description = "EinsDescTalk", Slug = "einstalk"},
+                new Talk {Title = "ZweiTalk", Description = "ZweiDescTalk", Slug = "zweitalk"},
+                new Talk {Title = "DreiTalk", Description = "DreiDescTalk", Slug = "dreitalk"}
             };
             EntityData.SetEntityIds(threeTalks);
             return threeTalks;
@@ -32,11 +32,11 @@ namespace UserGroup.Core.Specs.Commands
         {
             var speakers = new[]
             {
-                new Speaker {GivenName = "Albert", LastName = "Weinert"},
-                new Speaker {GivenName = "Stefan", LastName = "Lange"},
-                new Speaker {GivenName = "Roland", LastName = "Weigelt"},
-                new Speaker {GivenName = "Meister", LastName = "Lampe"},
-                new Speaker {GivenName = "Timo", LastName = "Beil"}
+                new Speaker {GivenName = "Albert", LastName = "Weinert", Slug = "albert-weinert"},
+                new Speaker {GivenName = "Stefan", LastName = "Lange", Slug = "stefan-lange"},
+                new Speaker {GivenName = "Roland", LastName = "Weigelt", Slug = "roland-weigelt"},
+                new Speaker {GivenName = "Meister", LastName = "Lampe", Slug = "meister-lampe"},
+                new Speaker {GivenName = "Timo", LastName = "Beil", Slug = "timo-beil"}
             };
             EntityData.SetEntityIds(speakers);
             return speakers;

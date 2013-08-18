@@ -17,6 +17,7 @@ namespace UserGroup.Core.Specs.Commands
             meetings = TestData.GetThreeMeetings();
 
             With<BehaviorCoreMapping>();
+            With<BehaviorSlugGenerators>();
             With(new BehaviorRepository<Meeting>(meetings));
         };
 
@@ -25,11 +26,12 @@ namespace UserGroup.Core.Specs.Commands
             var command = new AddTalkToMeeting
             {
                 MeetingId = meetings[1].Id,
-                Title = "TalkEins",
+                Title = "Dies ist der erste Talk",
                 Description = "DescEin",
                 SpeakerIds = new[] {10, 20}
             };
             Subject.Execute(command);
+            talk = meetings[1].Talks.FirstOrDefault();
         };
 
         It should_add_a_meeting_to_the_second_meeting = () => meetings[1].Talks.Count.ShouldEqual(1);
@@ -38,8 +40,8 @@ namespace UserGroup.Core.Specs.Commands
         It should_add_two_speakers_to_the_talk = () => meetings[1].Talks.First().Speakers.Count().ShouldEqual(2);
         It should_save_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
 
-        It should_the_added_talk_with_the_title_talkEins =
-            () => meetings[1].Talks.First().Title.ShouldEqual("TalkEins");
+        It should_the_added_talk_with_the_title_dies_ist_der_erste_talk =
+            () => meetings[1].Talks.First().Title.ShouldEqual("Dies ist der erste Talk");
 
         It should_the_added_talk_with_the_description_descEins =
             () => meetings[1].Talks.First().Description.ShouldEqual("DescEin");
@@ -50,5 +52,8 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_set_the_meeting_in_the_talk = () => meetings[1].Talks.First().Meeting.ShouldBeTheSameAs(meetings[1]);
         static Meeting[] meetings;
+
+        It should_the_slug_is_dies_ist_der_erste_talk = () => talk.Slug.ShouldEqual("dies-ist-der-erste-talk");
+        static Talk talk;
     }
 }
