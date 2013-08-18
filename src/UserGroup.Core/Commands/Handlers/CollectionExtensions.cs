@@ -8,9 +8,9 @@ namespace UserGroup.Commands.Handlers
     {
         public static void ChangeCollectionTo<T>(this ICollection<T> currentEntities, IEnumerable<T> newEntities)
         {
-            var removedEntities = currentEntities.Where(entity => !newEntities.Contains(entity)).ToArray();
+            var entitiesToRemove = currentEntities.Where(entity => !newEntities.Contains(entity)).ToArray();
 
-            foreach (var entity in removedEntities)
+            foreach (var entity in entitiesToRemove)
             {
                 currentEntities.Remove(entity);
             }

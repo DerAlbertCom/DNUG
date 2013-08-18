@@ -85,7 +85,7 @@
   <ItemGroup>
     <Compile Include="BehaviorCoreMapping.cs" />
     <Compile Include="BehaviorRepository.cs" />
-    <Compile Include="Commands\AddSpeakerToTalk.cs" />
+    <Compile Include="Commands\AddSpeakerToTalkHandlerSpecs.cs" />
     <Compile Include="Commands\AddTalkToMeetingHandlerSpecs.cs" />
     <Compile Include="Commands\ChangeTalkHandlerSpecs.cs" />
     <Compile Include="Commands\CreateMeetingHandlerSpecs.cs" />

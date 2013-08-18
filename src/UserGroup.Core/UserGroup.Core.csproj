@@ -79,8 +79,10 @@
   <ItemGroup>
     <Compile Include="Commands\AddSpeakerToTalk.cs" />
     <Compile Include="Commands\AddTalkToMeeting.cs" />
+    <Compile Include="Commands\ChangeSpeaker.cs" />
     <Compile Include="Commands\ChangeTalk.cs" />
     <Compile Include="Commands\CreateMeeting.cs" />
+    <Compile Include="Commands\CreateSpeaker.cs" />
     <Compile Include="Commands\DeleteMeeting.cs" />
     <Compile Include="Commands\ChangeMeeting.cs" />
     <Compile Include="Commands\Handlers\AddSpeakerToTalkHandler.cs" />
