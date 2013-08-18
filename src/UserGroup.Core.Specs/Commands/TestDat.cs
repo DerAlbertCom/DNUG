@@ -28,13 +28,15 @@ namespace UserGroup.Core.Specs.Commands
             return threeTalks;
         }
 
-        public static Speaker[] GetThreeSpeakers()
+        public static Speaker[] GetFiveSpeakers()
         {
             var speakers = new[]
             {
                 new Speaker {GivenName = "Albert", LastName = "Weinert"},
                 new Speaker {GivenName = "Stefan", LastName = "Lange"},
-                new Speaker {GivenName = "Roland", LastName = "Weigelt"}
+                new Speaker {GivenName = "Roland", LastName = "Weigelt"},
+                new Speaker {GivenName = "Meister", LastName = "Lampe"},
+                new Speaker {GivenName = "Timo", LastName = "Beil"}
             };
             EntityData.SetEntityIds(speakers);
             return speakers;

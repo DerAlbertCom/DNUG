@@ -85,9 +85,11 @@
     <Compile Include="Commands\ChangeMeeting.cs" />
     <Compile Include="Commands\Handlers\AddSpeakerToTalkHandler.cs" />
     <Compile Include="Commands\Handlers\AddTalkToMeetingHandler.cs" />
+    <Compile Include="Commands\Handlers\ChangeTalkHandler.cs" />
     <Compile Include="Commands\Handlers\CreateMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\DeleteMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\ChangeMeetingHandler.cs" />
+    <Compile Include="Commands\Handlers\CollectionExtensions.cs" />
     <Compile Include="Commands\Handlers\RemoveSpeakerFromTalkHandler.cs" />
     <Compile Include="Commands\Handlers\RemoveTalkFromMeetingHandler.cs" />
     <Compile Include="Commands\RemoveSpeakerFromTalk.cs" />
@@ -105,7 +107,7 @@
     <Compile Include="Infrastructure\Mappings\MeetingMappings.cs" />
     <Compile Include="Infrastructure\Mappings\Resolver\LocationResolver.cs" />
     <Compile Include="Infrastructure\Mappings\Resolver\MeetingResolver.cs" />
-    <Compile Include="Infrastructure\Mappings\TalkMapper.cs" />
+    <Compile Include="Infrastructure\Mappings\TalkMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\FindLocation.cs" />
     <Compile Include="Queries\IFindLocation.cs" />

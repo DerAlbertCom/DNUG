@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Aperea.Data;
@@ -22,7 +21,9 @@ namespace UserGroup.Core.Specs
             rep.WhenToldTo(r => r.Update(Param<T>.IsAnything)).Callback<T>(e => _repository.Update(e));
             rep.WhenToldTo(r => r.Entities).Return(() => _repository.Entities);
             rep.WhenToldTo(r => r.Include(Param<string[]>.IsAnything)).Return(() => _repository.Entities);
-            rep.WhenToldTo(r => r.Include(Param<Expression<Func<T, object>>[]>.IsAnything))
+            rep.WhenToldTo(r => r.Include(Param<Expression<Func<T, ICollection<Speaker>>>[]>.IsAnything))
+                .Return(() => _repository.Entities);
+            rep.WhenToldTo(r => r.Include(Param<Expression<Func<T, ICollection<Talk>>>[]>.IsAnything))
                 .Return(() => _repository.Entities);
         };
 

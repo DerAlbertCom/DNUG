@@ -15,7 +15,7 @@ namespace UserGroup.Core.Specs.Commands
         Establish context = () =>
         {
             talks = TestData.GetThreeTalks();
-            speakers = TestData.GetThreeSpeakers();
+            speakers = TestData.GetFiveSpeakers();
             With(new BehaviorRepository<Talk>(talks));
             talks[0].Speakers.Add(speakers[1]);
             talks[1].Speakers.Add(speakers[0]);

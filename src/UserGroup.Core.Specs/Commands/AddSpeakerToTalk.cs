@@ -26,7 +26,7 @@ namespace UserGroup.Core.Specs.Commands
         Establish context = () =>
         {
             talks = TestData.GetThreeTalks();
-            speakers = TestData.GetThreeSpeakers();
+            speakers = TestData.GetFiveSpeakers();
             With(new BehaviorRepository<Talk>(talks));
             With(new BehaviorRepository<Speaker>(speakers));
         };
@@ -47,7 +47,7 @@ namespace UserGroup.Core.Specs.Commands
         Establish context = () =>
         {
             talks = TestData.GetThreeTalks();
-            speakers = TestData.GetThreeSpeakers();
+            speakers = TestData.GetFiveSpeakers();
             talks[1].Speakers.Add(speakers[1]);
             With(new BehaviorRepository<Talk>(talks));
             With(new BehaviorRepository<Speaker>(speakers));

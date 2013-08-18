@@ -18,7 +18,7 @@ namespace UserGroup.Commands.Handlers
 
         public override void Execute(AddSpeakerToTalk command)
         {
-            var talk = repository.Include("Speakers").Single(t => t.Id == command.TalkId);
+            var talk = repository.Include(t=>t.Speakers).Single(t => t.Id == command.TalkId);
             var speaker = speakerRepository.Entities.Single(s => s.Id == command.SpeakerId);
             if (!talk.Speakers.Contains(speaker))
             {

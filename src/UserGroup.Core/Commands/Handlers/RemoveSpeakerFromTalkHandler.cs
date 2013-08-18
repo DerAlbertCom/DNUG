@@ -16,7 +16,7 @@ namespace UserGroup.Commands.Handlers
 
         public override void Execute(RemoveSpeakerFromTalk command)
         {
-            var talk = repository.Include("Speakers").Single(t => t.Id == command.TalkId);
+            var talk = repository.Include(t=>t.Speakers).Single(t => t.Id == command.TalkId);
             var speaker = talk.Speakers.Single(s => s.Id == command.SpeakerId);
             talk.Speakers.Remove(speaker);
             repository.SaveAllChanges();
