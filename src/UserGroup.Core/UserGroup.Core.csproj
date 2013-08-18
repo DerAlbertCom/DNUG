@@ -77,11 +77,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddSpeakerToTalk.cs" />
     <Compile Include="Commands\AddTalkToMeeting.cs" />
     <Compile Include="Commands\ChangeTalk.cs" />
     <Compile Include="Commands\CreateMeeting.cs" />
     <Compile Include="Commands\DeleteMeeting.cs" />
     <Compile Include="Commands\ChangeMeeting.cs" />
+    <Compile Include="Commands\Handlers\AddSpeakerToTalkHandler.cs" />
     <Compile Include="Commands\Handlers\AddTalkToMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\CreateMeetingHandler.cs" />
     <Compile Include="Commands\Handlers\DeleteMeetingHandler.cs" />
