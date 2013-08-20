@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using Aperea.Data;
 using Machine.Fakes;
 using UserGroup.Data;

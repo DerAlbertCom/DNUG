@@ -4,7 +4,7 @@ using Machine.Specifications;
 
 namespace UserGroup.Core.Specs
 {
-    public class UnitTestDatabaseContext : IDatabaseContext, ICleanupAfterEveryContextInAssembly
+    public class UnitTestDatabaseContext : IDatabaseContext, ICleanupAfterEveryContextInAssembly, IAssemblyContext
     {
         static DbContext _dbContext;
 
@@ -46,6 +46,15 @@ namespace UserGroup.Core.Specs
         {
             //_dbContext.Database.ExecuteSqlCommand("delete from Speakers");
             //_dbContext.Database.ExecuteSqlCommand("delete from Talks");
+        }
+
+        public void OnAssemblyStart()
+        {
+            Database.SetInitializer(new UnitTestInitializer());
+        }
+
+        public void OnAssemblyComplete()
+        {
         }
     }
 }
