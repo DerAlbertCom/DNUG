@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserGroup.Entities
 {
-    public class Location : ISlug
+    public class Location : ISlug, IHasId
     {
         public Location()
         {

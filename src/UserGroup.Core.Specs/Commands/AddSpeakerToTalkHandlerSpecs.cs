@@ -1,4 +1,7 @@
-﻿using Aperea.Data;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using Aperea.Data;
 using Machine.Specifications;
 using Machine.Fakes;
 using UserGroup.Commands;
@@ -7,35 +10,51 @@ using UserGroup.Entities;
 
 namespace UserGroup.Core.Specs.Commands
 {
-    [Behaviors]
-    public class Adding_a_speaker_to_a_talk
+    public static class UpdateEntitiesExtensions
     {
+        public static void UpdateEnties<T,TProperty>(this IFakeAccessor accessor, T[] entities, Expression<Func<T, TProperty>> includeExpression) where T : class, IHasId
+        {
+            for (int i = 0; i < entities.Length; i++)
+            {
+                var id = entities[i].Id;
+                entities[i] = accessor.The<IRepository<T>>().Include(includeExpression).SingleOrDefault(e => e.Id == id);
+            }
+        }
 
-        It should_the_talk_speaker_added_to_the_second_talk = () => talks[1].Speakers.ShouldContain(speakers[1]);
-        It should_only_on_speaker_is_present_in_the_second_talk = () => talks[1].Speakers.Count.ShouldEqual(1);
-        It should_no_speaker_added_to_the_first_talk = () => talks[0].Speakers.Count.ShouldEqual(0);
-        It should_no_speaker_added_to_the_third_talk = () => talks[2].Speakers.Count.ShouldEqual(0);
-
-        static protected Talk[] talks;
-        static protected Speaker[] speakers;
+          public static void UpdateEnties<T>(this IFakeAccessor accessor, T[] entities) where T : class, IHasId
+        {
+            for (int i = 0; i < entities.Length; i++)
+            {
+                var id = entities[i].Id;
+                entities[i] = accessor.The<IRepository<T>>().Entities.SingleOrDefault(e => e.Id == id);
+            }
+        }
     }
+
 
     [Subject(typeof (AddSpeakerToTalkHandler))]
     public class When_adding_a_speaker_to_a_talk : WithSubject<AddSpeakerToTalkHandler>
     {
         Establish context = () =>
         {
-            talks = TestData.GetThreeTalks();
+            talks = TestData.GetFiveTalks();
             speakers = TestData.GetFiveSpeakers();
             With(new BehaviorRepository<Talk>(talks));
             With(new BehaviorRepository<Speaker>(speakers));
         };
 
-        Because of = () => Subject.Execute(new AddSpeakerToTalk(speakers[1].Id, talks[1].Id));
+        Because of = () =>
+        {
+            Subject.Execute(new AddSpeakerToTalk(speakers[1].Id, talks[1].Id));
+            _specificationController.UpdateEnties(talks, t => t.Speakers);
+            _specificationController.UpdateEnties(speakers);
+        };
 
-        It should_the_changes_are_saved = () => The<IRepository<Talk>>().WasToldTo(r => r.SaveAllChanges());
+        It should_only_on_speaker_is_present_in_the_second_talk = () => talks[1].Speakers.Count.ShouldEqual(1);
+        It should_no_speaker_added_to_the_first_talk = () => talks[0].Speakers.Count.ShouldEqual(0);
+        It should_no_speaker_added_to_the_third_talk = () => talks[2].Speakers.Count.ShouldEqual(0);
+        It should_the_talk_speaker_added_to_the_second_talk = () => talks[1].Speakers.ShouldContain(speakers[1]);
 
-        Behaves_like<Adding_a_speaker_to_a_talk> adding_a_speaker_to_a_talk;
 
         static protected Talk[] talks;
         static protected Speaker[] speakers;
@@ -46,21 +65,28 @@ namespace UserGroup.Core.Specs.Commands
     {
         Establish context = () =>
         {
-            talks = TestData.GetThreeTalks();
+
+            talks = TestData.GetFiveTalks();
             speakers = TestData.GetFiveSpeakers();
             talks[1].Speakers.Add(speakers[1]);
             With(new BehaviorRepository<Talk>(talks));
             With(new BehaviorRepository<Speaker>(speakers));
         };
 
-        Because of = () => Subject.Execute(new AddSpeakerToTalk(speakers[1].Id, talks[1].Id));
+        Because of = () =>
+        {
+            Subject.Execute(new AddSpeakerToTalk(speakers[1].Id, talks[1].Id));
+            _specificationController.UpdateEnties(talks, t => t.Speakers);
+            _specificationController.UpdateEnties(speakers);
+        };
 
-        It should_not_save_the_changes = () => The<IRepository<Talk>>().WasNotToldTo(r => r.SaveAllChanges());
+        It should_no_speaker_added_to_the_first_talk = () => talks[0].Speakers.Count.ShouldEqual(0);
+        It should_no_speaker_added_to_the_third_talk = () => talks[2].Speakers.Count.ShouldEqual(0);
+        It should_the_talk_speaker_added_to_the_second_talk = () => talks[1].Speakers.ShouldContain(speakers[1]);
+        It should_only_on_speaker_is_present_in_the_second_talk = () => talks[1].Speakers.Count.ShouldEqual(1);
 
-        Behaves_like<Adding_a_speaker_to_a_talk> adding_a_speaker_to_a_talk;
-
-        static protected Talk[] talks;
-        static protected Speaker[] speakers;
+        static Talk[] talks;
+        static Speaker[] speakers;
     }
 
 }

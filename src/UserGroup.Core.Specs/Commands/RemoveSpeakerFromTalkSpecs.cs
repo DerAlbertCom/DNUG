@@ -14,19 +14,22 @@ namespace UserGroup.Core.Specs.Commands
     {
         Establish context = () =>
         {
-            talks = TestData.GetThreeTalks();
+            talks = TestData.GetFiveTalks();
             speakers = TestData.GetFiveSpeakers();
-            With(new BehaviorRepository<Talk>(talks));
-            talks[0].Speakers.Add(speakers[1]);
+            talks[0].Speakers.Add(speakers[3]);
             talks[1].Speakers.Add(speakers[0]);
             talks[1].Speakers.Add(speakers[1]);
             talks[1].Speakers.Add(speakers[2]);
-            talks[2].Speakers.Add(speakers[1]);
+            talks[2].Speakers.Add(speakers[4]);
+            With(new BehaviorRepository<Talk>(talks));
         };
 
-        Because of = () => Subject.Execute(new RemoveSpeakerFromTalk(speakers[1].Id,talks[1].Id));
+        Because of = () =>
+        {
+            Subject.Execute(new RemoveSpeakerFromTalk(speakers[1].Id, talks[1].Id));
+            _specificationController.UpdateEnties(talks,t=>t.Speakers);
+        };
 
-        It should_it_save_the_repository = () => The<IRepository<Talk>>().WasToldTo(r=>r.SaveAllChanges());
         It should_the_first_talk_have_one_speaker = () => talks[0].Speakers.Count.ShouldEqual(1);
         It should_the_third_talk_have_one_speaker = () => talks[2].Speakers.Count.ShouldEqual(1);
         It should_the_second_talk_have_two_speaker = () => talks[1].Speakers.Count.ShouldEqual(2);

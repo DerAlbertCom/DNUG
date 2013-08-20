@@ -14,19 +14,23 @@ namespace UserGroup.Core.Specs.Commands
         Establish context = () =>
         {
             meetings = TestData.GetThreeMeetings();
-            With<BehaviorCoreMapping>();
             With(new BehaviorRepository<Meeting>(meetings));
+            With<BehaviorCoreMapping>();
         };
 
+       
         Because of = () => Subject.Execute(new ChangeMeeting
         {
             Id = meetings[1].Id,
             Title = "ChangeZwei",
             Description = "ChangeZweiDesc",
-            LocationId = 34
+            Slug = meetings[1].Slug,
+            Group = meetings[1].Group,
+            LocationId = 34,
+            DisplayFrom = meetings[1].DisplayFrom,
+            StartTime = meetings[1].StartTime
         });
 
-        It should_change_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
 
         It should_the_second_meeting_has_the_title_changeZwei = () => meetings[1].Title.ShouldEqual("ChangeZwei");
 

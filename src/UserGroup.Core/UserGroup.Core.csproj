@@ -99,6 +99,7 @@
     <Compile Include="Commands\RemoveSpeakerFromTalk.cs" />
     <Compile Include="Commands\RemoveTalkFromMeeting.cs" />
     <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\IHasId.cs" />
     <Compile Include="Entities\IHasLocation.cs" />
     <Compile Include="Entities\ISlug.cs" />
     <Compile Include="Entities\Location.cs" />

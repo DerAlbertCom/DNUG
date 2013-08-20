@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserGroup.Entities
 {
-    public class Speaker : ISlug
+    public class Speaker : ISlug, IHasId
     {
         public int Id { get; private set; }
 

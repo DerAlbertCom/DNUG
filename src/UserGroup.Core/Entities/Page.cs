@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserGroup.Entities
 {
-    public class Page : ISlug
+    public class Page : ISlug, IHasId
     {
         public int Id { get; private set; }
 

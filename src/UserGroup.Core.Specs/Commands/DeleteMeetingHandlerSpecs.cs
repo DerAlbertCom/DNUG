@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Aperea.Data;
 using Machine.Fakes;
 using Machine.Specifications;
@@ -15,18 +16,22 @@ namespace UserGroup.Core.Specs.Commands
         {
             meetings = TestData.GetThreeMeetings();
             With(new BehaviorRepository<Meeting>(meetings));
+            id0 = meetings[0].Id;
+            id1 = meetings[1].Id;
         };
 
         Because of = () => Subject.Execute(new DeleteMeeting(meetings[1].Id));
 
-        It should_remove_the_second_meeting = () => The<IRepository<Meeting>>().WasToldTo(r => r.Remove(meetings[1]));
+        It should_remove_the_second_meeting =
+            () => The<IRepository<Meeting>>().Entities.SingleOrDefault(e => e.Id == id1).ShouldBeNull();
 
         It should_not_remove_the_first_meeting =
-            () => The<IRepository<Meeting>>().WasNotToldTo(r => r.Remove(meetings[0]));
+            () => The<IRepository<Meeting>>().Entities.SingleOrDefault(e => e.Id == id0).ShouldNotBeNull();
 
-        It should_save_all_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
 
         static Meeting[] meetings;
+        static int id0;
+        static int id1;
     }
 
 
@@ -35,12 +40,10 @@ namespace UserGroup.Core.Specs.Commands
     {
         Establish context = () =>
         {
-            meetings = new[]
-            {
-                new Meeting {Title = "Foo"},
-                new Meeting {Title = "Bar"}
-            };
+            meetings =TestData.GetThreeMeetings().Take(2).ToArray();
             With(new BehaviorRepository<Meeting>(meetings));
+            id0 = meetings[0].Id;
+            id1 = meetings[1].Id;
         };
 
         Because of = () => exception = Catch.Exception(() => Subject.Execute(new DeleteMeeting(2345)));
@@ -48,14 +51,15 @@ namespace UserGroup.Core.Specs.Commands
         It should_throw_an_invalid_operation_exception = () => exception.ShouldBeOfType<InvalidOperationException>();
 
         It should_not_remove_the_second_meeting =
-            () => The<IRepository<Meeting>>().WasNotToldTo(r => r.Remove(meetings[1]));
+            () => The<IRepository<Meeting>>().Entities.SingleOrDefault(e => e.Id ==id1).ShouldNotBeNull();
 
         It should_not_remove_the_first_meeting =
-            () => The<IRepository<Meeting>>().WasNotToldTo(r => r.Remove(meetings[0]));
+            () => The<IRepository<Meeting>>().Entities.SingleOrDefault(e => e.Id == id0).ShouldNotBeNull();
 
-        It should_not_save_all_changes = () => The<IRepository<Meeting>>().WasNotToldTo(r => r.SaveAllChanges());
 
         static Meeting[] meetings;
         static Exception exception;
+        static int id0;
+        static int id1;
     }
 }

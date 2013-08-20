@@ -12,13 +12,15 @@ namespace UserGroup.Core.Specs.Commands
     [Subject(typeof (ChangeSpeakerHandler))]
     public class When_changing_the_speaker_data : WithSubject<ChangeSpeakerHandler>
     {
-        Establish context = () => {  };
-
-        Because of = () =>
+        Establish context = () =>
         {
             speakers = TestData.GetFiveSpeakers();
             With(new BehaviorRepository<Speaker>(speakers));
             With<BehaviorCoreMapping>();
+        };
+
+        Because of = () =>
+        {
 
             var command = new ChangeSpeaker
             {
@@ -31,7 +33,6 @@ namespace UserGroup.Core.Specs.Commands
             speaker = The<IRepository<Speaker>>().Entities.Single(s => s.Id == command.Id);
         };
 
-        It should_save_the_changes = () => The<IRepository<Speaker>>().WasToldTo(r=>r.SaveAllChanges());
         It should_have_hover_as_given_name=()=>speaker.GivenName.ShouldEqual("Hover");
         It should_have_craft_as_last_name=()=>speaker.LastName.ShouldEqual("Craft");
         It should_have_foo_bar_as_slug = ()=>speaker.Slug.ShouldEqual("foo-bar");

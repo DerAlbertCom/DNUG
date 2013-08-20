@@ -1,46 +1,29 @@
-using System;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Text;
 using UserGroup.Entities;
-using UserGroup.Services;
 
 namespace UserGroup.Data
 {
     public class UserGroupDbContext : DbContext
     {
-        readonly ISlugGeneratorFactory _factory;
-
-        public UserGroupDbContext(ISlugGeneratorFactory factory)
-        {
-            _factory = factory;
-            Configuration.LazyLoadingEnabled = true;
-            Configuration.ProxyCreationEnabled = false;
-        }
 
         public UserGroupDbContext()
         {
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = false;
             
+        }
+
+        protected UserGroupDbContext(string nameOrConnectionString) : base(nameOrConnectionString)
+        {
         }
 
         public override int SaveChanges()
         {
             try
             {
-                foreach (var entry in ChangeTracker.Entries())
-                {
-                    if (entry.State == EntityState.Added && entry.Entity is ISlug)
-                    {
-                        var sluggy = (ISlug)entry.Entity;
-                        if (string.IsNullOrWhiteSpace(sluggy.Slug))
-                        {
-                            var generator = _factory.GetSlugGenerator(entry.Entity.GetType());
-                            generator.Generate(entry.Entity);
-                        }
-                    }
-                }
-
                 return base.SaveChanges();
             }
 

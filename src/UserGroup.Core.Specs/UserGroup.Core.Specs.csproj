@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BehaviorCoreMapping.cs" />
+    <Compile Include="UnitTestDatabaseContext.cs" />
     <Compile Include="BehaviorRepository.cs" />
     <Compile Include="BehaviorSlugGenerators.cs" />
     <Compile Include="Commands\AddSpeakerToTalkHandlerSpecs.cs" />
@@ -96,11 +97,12 @@
     <Compile Include="Commands\ChangeMeetingHandlerSpecs.cs" />
     <Compile Include="Commands\RemoveSpeakerFromTalkSpecs.cs" />
     <Compile Include="Commands\RemoveTalkFromMeetingHandlerSpecs.cs" />
-    <Compile Include="Commands\TestDat.cs" />
+    <Compile Include="Commands\TestData.cs" />
     <Compile Include="CoreMappingSpecs.cs" />
     <Compile Include="EntityData.cs" />
     <Compile Include="FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -110,6 +112,10 @@
     <ProjectReference Include="..\UserGroup.Core\UserGroup.Core.csproj">
       <Project>{471ef252-a8e7-4275-868c-938b42010b98}</Project>
       <Name>UserGroup.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserGroup.Data\UserGroup.Data.csproj">
+      <Project>{dbaf22f8-2950-4213-895d-5688b369c612}</Project>
+      <Name>UserGroup.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

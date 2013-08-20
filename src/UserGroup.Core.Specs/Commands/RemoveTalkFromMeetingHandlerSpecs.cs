@@ -13,20 +13,25 @@ namespace UserGroup.Core.Specs.Commands
         Establish context = () =>
         {
             meetings = TestData.GetThreeMeetings();
-            talks = TestData.GetThreeTalks();
+            talks = TestData.GetFiveTalks();
             meetings[1].Talks.Add(talks[0]);
             meetings[1].Talks.Add(talks[1]);
             meetings[1].Talks.Add(talks[2]);
 
-            meetings[0].Talks.Add(talks[0]);
-            meetings[2].Talks.Add(talks[0]);
-            With<BehaviorCoreMapping>();
+            meetings[0].Talks.Add(talks[3]);
+            meetings[2].Talks.Add(talks[4]);
+
             With(new BehaviorRepository<Meeting>(meetings));
+
+            With<BehaviorCoreMapping>();
         };
 
-        Because of = () => Subject.Execute(new RemoveTalkFromMeeting(talks[1].Id, meetings[1].Id));
+        Because of = () =>
+        {
+            Subject.Execute(new RemoveTalkFromMeeting(talks[1].Id, meetings[1].Id));
+            _specificationController.UpdateEnties(meetings);
+        };
 
-        It should_save_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r=>r.SaveAllChanges());
 
         It should_only_two_talks_left = () => meetings[1].Talks.Count.ShouldEqual(2);
 

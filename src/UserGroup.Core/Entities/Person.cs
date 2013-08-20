@@ -4,7 +4,7 @@ using UserGroup.Security;
 
 namespace UserGroup.Entities
 {
-    public class Person
+    public class Person : IHasId
     {
         protected Person()
         {

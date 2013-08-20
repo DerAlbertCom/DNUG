@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserGroup.Entities
 {
-    public  class Meeting : ISlug, IHasLocation
+    public class Meeting : ISlug, IHasLocation, IHasId
     {
         public Meeting()
         {
