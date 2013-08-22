@@ -1,12 +1,10 @@
 ﻿using System.Linq;
-using Aperea.Data;
 using Machine.Fakes;
 using Machine.Specifications;
 using UserGroup.Commands;
 using UserGroup.Commands.Handlers;
 using UserGroup.Entities;
 using UserGroup.Queries;
-using UserGroup.Services;
 
 namespace UserGroup.Core.Specs.Commands
 {
@@ -57,7 +55,6 @@ namespace UserGroup.Core.Specs.Commands
         static Meeting[] meetings;
 
         It should_the_slug_is_dies_ist_der_erste_talk = () => meetings[1].Talks.First().Slug.ShouldEqual("dies-ist-der-erste-talk");
-        static Talk talk;
         static Speaker[] speakers;
     }
 }

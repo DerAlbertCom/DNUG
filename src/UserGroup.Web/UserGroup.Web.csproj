@@ -313,10 +313,11 @@
     <Content Include="Content\BackOffice.min.css">
       <DependentUpon>BackOffice.less</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap\bootstrap-glyphicons.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
-    <Content Include="Content\fonts\glyphiconshalflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
@@ -327,10 +328,9 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\EditMeetingModel.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\EditorTemplates\EditTalkModel.cshtml" />
-    <Content Include="Content\fonts\glyphiconshalflings-regular.woff" />
-    <Content Include="Content\fonts\glyphiconshalflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphiconshalflings-regular.otf" />
-    <Content Include="Content\fonts\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
@@ -654,7 +654,6 @@
     <Content Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
     <Content Include="Scripts\typings\angularjs\angular.d.ts" />
     <Content Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
-    <Content Include="Scripts\typings\jquery\jquery.d.ts" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -684,6 +683,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
