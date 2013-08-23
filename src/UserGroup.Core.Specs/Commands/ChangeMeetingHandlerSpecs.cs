@@ -44,6 +44,8 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_execute_findLocation = () => The<IFindLocation>().WasToldTo(fl => fl.Execute(34));
 
+        It should_save_all_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
+
         static Meeting[] meetings;
     }
 }

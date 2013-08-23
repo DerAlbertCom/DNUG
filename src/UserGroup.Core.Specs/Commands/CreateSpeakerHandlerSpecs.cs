@@ -38,6 +38,8 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_has_the_slug_fred_fish = () => newSpeaker.Slug.ShouldEqual("fred-fish");
 
+        It should_save_all_the_changes = () => The<IRepository<Speaker>>().WasToldTo(r => r.SaveAllChanges());
+
         static Speaker[] speakers;
         static Speaker newSpeaker;
     }

@@ -28,6 +28,8 @@ namespace UserGroup.Core.Specs.Commands
         It should_not_remove_the_first_meeting =
             () => The<IRepository<Meeting>>().Entities.SingleOrDefault(e => e.Id == id0).ShouldNotBeNull();
 
+        It should_save_all_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
+
 
         static Meeting[] meetings;
         static int id0;
@@ -55,6 +57,8 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_not_remove_the_first_meeting =
             () => The<IRepository<Meeting>>().Entities.SingleOrDefault(e => e.Id == id0).ShouldNotBeNull();
+
+        It should_not_save_all_the_changes = () => The<IRepository<Meeting>>().WasNotToldTo(r => r.SaveAllChanges());
 
 
         static Meeting[] meetings;

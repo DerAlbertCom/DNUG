@@ -1,11 +1,9 @@
-﻿using System.Security.Principal;
-using Aperea.Data;
+﻿using Aperea.Data;
 using Machine.Specifications;
 using Machine.Fakes;
 using UserGroup.Commands;
 using UserGroup.Commands.Handlers;
 using UserGroup.Entities;
-using UserGroup.Services;
 
 namespace UserGroup.Core.Specs.Commands
 {
@@ -35,6 +33,8 @@ namespace UserGroup.Core.Specs.Commands
         It should_the_second_talk_have_two_speaker = () => talks[1].Speakers.Count.ShouldEqual(2);
         It should_the_first_speaker_present_in_the_second_talk = () => talks[1].Speakers.ShouldContain(speakers[0]);
         It should_the_third_speaker_present_in_the_second_talk = () => talks[1].Speakers.ShouldContain(speakers[2]);
+
+        It should_save_all_the_changes = () => The<IRepository<Talk>>().WasToldTo(r => r.SaveAllChanges());
 
         static Talk[] talks;
         static Speaker[] speakers;

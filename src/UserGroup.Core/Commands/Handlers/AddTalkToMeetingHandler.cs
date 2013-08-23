@@ -27,7 +27,6 @@ namespace UserGroup.Commands.Handlers
             var talk = command.MapTo<Talk>();
 
             generator.Generate(talk);
-            talk.Meeting = meeting;
             meeting.Talks.Add(talk);
 
             foreach (var speakerId in command.SpeakerIds)

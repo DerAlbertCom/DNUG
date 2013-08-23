@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using Aperea.Data;
+using Machine.Specifications;
 using Machine.Fakes;
 using UserGroup.Commands;
 using UserGroup.Commands.Handlers;
@@ -46,6 +47,8 @@ namespace UserGroup.Core.Specs.Commands
 
         It should_only_the_speaker_in_the_command =
             () => talks[1].Speakers.ShouldContainOnly(new[] {speakers[3], speakers[4], speakers[2]});
+
+        It should_save_all_the_changes = () => The<IRepository<Talk>>().WasToldTo(r => r.SaveAllChanges());
 
         static Talk[] talks;
         static Speaker[] speakers;

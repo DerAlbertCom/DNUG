@@ -39,6 +39,9 @@ namespace UserGroup.Core.Specs.Commands
         It should_have_the_der_title_in_the_creating_meeting = () => meeting.Title.ShouldEqual("Der Title");
 
         It should_the_slug_is_der_title = () => meeting.Slug.ShouldEqual("der-title");
+
+        It should_save_all_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
+
         static CreateMeeting command;
         static Meeting meeting;
     }

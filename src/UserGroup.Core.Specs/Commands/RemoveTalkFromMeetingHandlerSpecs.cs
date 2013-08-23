@@ -41,6 +41,8 @@ namespace UserGroup.Core.Specs.Commands
         It should_the_first_meeting_still_has_one_talk = () => meetings[0].Talks.Count.ShouldEqual(1);
         It should_the_third_meeting_still_has_one_talk = () => meetings[2].Talks.Count.ShouldEqual(1);
 
+        It should_save_all_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
+
         static Meeting[] meetings;
         static Talk[] talks;
     }

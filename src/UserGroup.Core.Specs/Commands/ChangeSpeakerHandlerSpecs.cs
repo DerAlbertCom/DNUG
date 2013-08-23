@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Aperea.Data;
-using Machine.Fakes.Sdk;
 using Machine.Specifications;
 using Machine.Fakes;
 using UserGroup.Commands;
@@ -36,6 +35,9 @@ namespace UserGroup.Core.Specs.Commands
         It should_have_hover_as_given_name=()=>speaker.GivenName.ShouldEqual("Hover");
         It should_have_craft_as_last_name=()=>speaker.LastName.ShouldEqual("Craft");
         It should_have_foo_bar_as_slug = ()=>speaker.Slug.ShouldEqual("foo-bar");
+
+        It should_save_all_the_changes = () => The<IRepository<Speaker>>().WasToldTo(r => r.SaveAllChanges());
+
         static Speaker[] speakers;
         static Speaker speaker;
     }

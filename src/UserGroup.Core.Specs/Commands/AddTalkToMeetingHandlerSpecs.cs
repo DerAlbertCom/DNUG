@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Aperea.Data;
 using Machine.Fakes;
 using Machine.Specifications;
 using UserGroup.Commands;
@@ -30,10 +31,9 @@ namespace UserGroup.Core.Specs.Commands
                 Title = "Dies ist der erste Talk",
                 Description = "DescEin",
                 Abstract = "Ab",
-                SpeakerIds = new[] {speakers[2].Id,speakers[1].Id}
+                SpeakerIds = new[] {speakers[2].Id, speakers[1].Id}
             };
             Subject.Execute(command);
-            _specificationController.UpdateEnties(meetings, m=>m.Talks);
         };
 
         It should_add_a_meeting_to_the_second_meeting = () => meetings[1].Talks.Count.ShouldEqual(1);
@@ -54,7 +54,11 @@ namespace UserGroup.Core.Specs.Commands
         It should_set_the_meeting_in_the_talk = () => meetings[1].Talks.First().Meeting.ShouldBeTheSameAs(meetings[1]);
         static Meeting[] meetings;
 
-        It should_the_slug_is_dies_ist_der_erste_talk = () => meetings[1].Talks.First().Slug.ShouldEqual("dies-ist-der-erste-talk");
+        It should_the_slug_is_dies_ist_der_erste_talk =
+            () => meetings[1].Talks.First().Slug.ShouldEqual("dies-ist-der-erste-talk");
+
+        It should_save_all_the_changes = () => The<IRepository<Meeting>>().WasToldTo(r => r.SaveAllChanges());
+
         static Speaker[] speakers;
     }
 }
