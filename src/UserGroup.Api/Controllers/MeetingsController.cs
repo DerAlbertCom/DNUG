@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Aperea.Commands;
 using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
 using UserGroup.Api.Models;
+using UserGroup.Commands;
 using UserGroup.Entities;
 
 namespace UserGroup.Api.Controllers
@@ -36,6 +38,12 @@ namespace UserGroup.Api.Controllers
             return repository
                 .Include(m => m.Location)
                 .Single(m => m.Id == id);
+        }
+
+        [HttpPost]
+        public void Post(CreateMeeting command)
+        {
+            CommandExecutor.Execute(command);
         }
     }
 }

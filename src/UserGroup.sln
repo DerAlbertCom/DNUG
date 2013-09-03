@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGroup.Api", "UserGroup.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGroup.Core.Specs", "UserGroup.Core.Specs\UserGroup.Core.Specs.csproj", "{120F156B-6C4C-40C1-9D31-C3022541855A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGroup.Api.Specs", "UserGroup.Api.Specs\UserGroup.Api.Specs.csproj", "{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,16 @@ Global
 		{120F156B-6C4C-40C1-9D31-C3022541855A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{120F156B-6C4C-40C1-9D31-C3022541855A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{120F156B-6C4C-40C1-9D31-C3022541855A}.Release|x86.ActiveCfg = Release|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

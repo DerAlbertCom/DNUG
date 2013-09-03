@@ -374,6 +374,9 @@ interface JQueryStatic {
     * @param keepScripts A Boolean indicating whether to include scripts passed in the HTML string
     */
     parseHTML(data: string, context?: HTMLElement, keepScripts?: boolean): any[];
+
+    Animation(elem: any, properties: any, options: any): any;
+
 }
 
 /*
@@ -488,7 +491,7 @@ interface JQuery {
     removeData(nameOrList?: any): JQuery;
 
     // Deferred
-    promise(type?: any, target?: any): JQueryPromise;
+    promise(type?: any, target?: any): JQueryPromise<any>;
 
     // Effects
     animate(properties: any, duration?: any, complete?: Function): JQuery;
@@ -785,6 +788,7 @@ interface JQuery {
 
     parentsUntil(selector?: string, filter?: string): JQuery;
     parentsUntil(element?: Element, filter?: string): JQuery;
+    parentsUntil(obj?: JQuery, filter?: string): JQuery;
 
     prev(selector?: string): JQuery;
 

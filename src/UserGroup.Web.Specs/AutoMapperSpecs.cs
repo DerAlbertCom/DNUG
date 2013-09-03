@@ -20,8 +20,7 @@ namespace UserGroup.Web.Specs
                     Mapper.AddProfile((Profile) Activator.CreateInstance(profile));
                 }
             };
-
-
+        
         It should_the_have_a_validate_configuration = () => Mapper.AssertConfigurationIsValid();
     }
 }

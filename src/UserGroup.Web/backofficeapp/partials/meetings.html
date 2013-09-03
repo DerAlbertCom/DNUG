@@ -17,11 +17,36 @@
             </tr>
         </tbody>
     </table>
-    <form data-ng-submit="update()">
+    <form class="form-horizontal" data-ng-submit="update()">
         <input type="hidden" data-ng-model="currentMeeting.Id" name="Id" />
-        <input type="text" data-ng-model="currentMeeting.Title" name="Title" />
-        <input type="text" data-ng-model="currentMeeting.Description" name="Description" />
-        <input type="text" value="{{currentMeeting.StartDate | date:shortDate}}" name="StartDate" />
-        <input type="time" value="{{currentMeeting.StartTime | date:shortTime}}" name="StartTime" />
+        <div class="form-group">
+            <label for="idTitle" class="control-label col-lg-2">Titel</label>
+            <div class="col-lg-6">
+                <input id="idTitle" class="form-control" type="text" data-ng-model="currentMeeting.Title" name="Title" />
+            </div>                
+        </div>
+        <div class="form-group">
+            <label for="idDescription" class="control-label col-lg-2">Beschreibung:</label>
+            <div class="col-lg-6">
+                <input id="idDescription" type="text" class="form-control" data-ng-model="currentMeeting.Description" name="Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="idStart" class="control-label col-lg-2">Datum</label>
+            <div class="col-lg-2">
+                <input id="idStart" type="text" class="form-control" value="{{currentMeeting.StartDate | date:shortDate}}"  data-ng-model="currentMeeting.StartDate" name="StartDate" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="idTime" class="control-label col-lg-2">Startzeit</label>
+            <div class="col-lg-2">
+                <input id="idTime" type="text" class="form-control" data-ng-model="currentMeeting.StartTime" name="StartTime" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-6">
+                <button type="submit" class="btn btn-default">Anlegen</button>
+            </div>
+        </div>
     </form>
 </section>

@@ -6,7 +6,7 @@
 module Backoffice.Controllers {
 }
 module Backoffice {
-    angular.module('Backoffice', ['ngSanitize', 'ug-meetings'])
+    angular.module('Backoffice', ['ngSanitize', 'ug-meetings', 'ngRoute'])
         .controller(Controllers)
         .config(['$routeProvider', ($routeProvider: ng.IRouteProvider) => {
 

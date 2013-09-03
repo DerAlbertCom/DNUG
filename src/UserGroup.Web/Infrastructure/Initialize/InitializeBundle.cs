@@ -35,7 +35,8 @@ namespace UserGroup.Web.Infrastructure.Initialize
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-sanitize.js",
                 "~/Scripts/angular-resource.js",
-                "~/Scripts/angular-bootstrap.js",
+                "~/Scripts/angular-route.js",
+                "~/Scripts/angular-animate.js",
                 "~/Scripts/i18n/angular-locale_de-de.js"
                 ));
 
