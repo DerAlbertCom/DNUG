@@ -24,6 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGroup.Core.Specs", "Use
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGroup.Api.Specs", "UserGroup.Api.Specs\UserGroup.Api.Specs.csproj", "{3CD6021E-A7BF-4443-BB9C-F2FDEB45EB56}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConfigurations", "TestConfigurations", "{E6C0A686-4DCD-46F2-82B3-E7AEB961CBD0}"
+	ProjectSection(SolutionItems) = preProject
+		..\karma.conf.js = ..\karma.conf.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

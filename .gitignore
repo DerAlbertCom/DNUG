@@ -1,9 +1,8 @@
 *.suo
 *.user
-bin
 .hg
 .hgignore
-!/bin
+bin
 obj
 _ReSharper*
 src/packages
@@ -11,6 +10,8 @@ src/packages
 *.cache
 *.orig
 *.sdf
+*.mdf
+*.ldf
 system.config
 *.Publish.xml
 Deployed
