@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../Scripts/typings/jasmine/jasmine.d.ts"/>
 /// <reference path="../../Scripts/typings/angularjs/angular.d.ts"/>
-describe("Testing Application setup", function () {
+describe("Testing application setup", function () {
     describe("The Backoffice Module:", function () {
         var theApp;
         beforeEach(function () {
@@ -16,6 +16,7 @@ describe("Testing Application setup", function () {
             var hasModule = function (m) {
                 return dependencies.indexOf(m) >= 0;
             };
+
             beforeEach(function () {
                 dependencies = theApp.value('Backoffice').requires;
             });

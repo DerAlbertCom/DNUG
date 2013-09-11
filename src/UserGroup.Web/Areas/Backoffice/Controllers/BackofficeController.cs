@@ -4,7 +4,7 @@ using UserGroup.Web.Controllers;
 
 namespace UserGroup.Web.Areas.BackOffice.Controllers
 {
-    [RequireSsl(Order = -1)]
+   // [RequireSsl(Order = -1)]
     [Authorize(Roles = UserGroup.Security.Roles.Administrator, Order = 100)]
     public abstract class BackofficeController : BaseController
     {

@@ -291,6 +291,12 @@
     <Content Include="BackOfficeApp\js\Meetings.js.map">
       <DependentUpon>Meetings.ts</DependentUpon>
     </Content>
+    <Content Include="BackOfficeApp\specs\ApplicationSetup.js">
+      <DependentUpon>ApplicationSetup.ts</DependentUpon>
+    </Content>
+    <Content Include="BackOfficeApp\specs\ApplicationSetup.js.map">
+      <DependentUpon>ApplicationSetup.ts</DependentUpon>
+    </Content>
     <None Include="Content\BackOffice.less" />
     <TypeScriptCompile Include="BackOfficeApp\App.ts" />
     <Content Include="BackOfficeApp\App.js">
@@ -307,7 +313,6 @@
     </Content>
     <Content Include="BackOfficeApp\partials\admin.html" />
     <Content Include="BackOfficeApp\partials\meetings.html" />
-    <Content Include="BackOfficeApp\specs\FirstSpecs.js" />
     <Content Include="Content\BackOffice.css">
       <DependentUpon>BackOffice.less</DependentUpon>
     </Content>
@@ -334,6 +339,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\WebServer.dnug-live.pubxml" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -695,6 +701,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <TypeScriptCompile Include="BackOfficeApp\specs\ApplicationSetup.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />

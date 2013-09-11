@@ -1,24 +1,23 @@
 ﻿/// <reference path="../../Scripts/typings/jasmine/jasmine.d.ts"/>
 /// <reference path="../../Scripts/typings/angularjs/angular.d.ts"/>
 
-describe("Testing Application setup", function () {
-    describe("The Backoffice Module:", function () {
+describe("Testing application setup", ()=> {
+    describe("The Backoffice Module:", ()=>{
 
         var theApp;
-        beforeEach(function () {
+        beforeEach(()=> {
             theApp = angular.module("Backoffice");
         });
 
         it("should be registered", ()=> expect(theApp).not.toBe(null));
 
 
-       describe("Dependencies:", function () {
+       describe("Dependencies:", ()=> {
 
            var dependencies;
-           var hasModule = function (m) {
-                return dependencies.indexOf(m) >= 0;
-            };
-            beforeEach(function () {
+           var hasModule =  (m) => dependencies.indexOf(m) >= 0;
+
+           beforeEach(()=> {
                 dependencies = theApp.value('Backoffice').requires;
            });
 

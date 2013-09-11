@@ -173,12 +173,12 @@ ul#menu li a:hover {
   background-color: #fff;
 }
 .featured .content-wrapper {
-  background-color: #ff9900;
-  background-image: -ms-linear-gradient(left, #ff9900 0%, #ffcc33 100%);
-  background-image: -o-linear-gradient(left, #ff9900 0%, #ffcc33 100%);
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #ff9900), color-stop(1, #ffcc33));
-  background-image: -webkit-linear-gradient(left, #ff9900 0%, #ffcc33 100%);
-  background-image: linear-gradient(90deg, #ff9900 0%, #ffcc33 100%);
+  background-color: #7bf38c;
+  background-image: -ms-linear-gradient(left, #7bf38c 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(left, #7bf38c 0%, #ffffff 100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7bf38c), color-stop(1, #ffffff));
+  background-image: -webkit-linear-gradient(left, #7bf38c 0%, #ffffff 100%);
+  background-image: linear-gradient(90deg, #7bf38c 0%, #ffffff 100%);
   color: #3e5667;
   padding: 20px 40px 30px 40px;
 }
@@ -513,10 +513,8 @@ a.twitter {
     background: none;
     display: inline;
     float: none;
-    height: auto;
     padding-left: 0;
     text-indent: 0;
-    width: auto;
   }
 }
 .meetinglist {
@@ -524,7 +522,7 @@ a.twitter {
 }
 .meetinglist .date {
   margin-right: 1em;
-  background-color: #804d00;
+  background-color: #3e7a46;
   padding: 2pt;
   float: right;
   border-radius: 3pt;
@@ -532,12 +530,12 @@ a.twitter {
 .meetinglist .date span:first-child {
   font-size: 25pt;
   line-height: 23pt;
-  color: #ffd600;
+  color: #acffc4;
 }
 .meetinglist .date span:last-child {
   line-height: 35pt;
   font-size: 50pt;
-  color: #cc7a00;
+  color: #62c270;
 }
 .meetinglist .description p:first-child {
   font-size: 18pt;

@@ -44,6 +44,7 @@ namespace UserGroup.Web.Controllers
                         where m.StartTime > currentDate
                         orderby m.StartTime
                         select m;
+
             return query.Take(1).SingleOrDefault();
         }
     }

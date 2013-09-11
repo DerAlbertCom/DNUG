@@ -17,3 +17,5 @@ system.config
 Deployed
 *.local.xml
 *mm_cache.bin
+node_modules
+src/TestResults
